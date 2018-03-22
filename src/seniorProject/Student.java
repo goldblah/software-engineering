@@ -1,5 +1,7 @@
 package seniorProject;
 
+import java.util.ArrayList;
+
 class Student {
   String studentIdNum;
   ArrayList<Semester> semesters;
