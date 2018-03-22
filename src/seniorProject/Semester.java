@@ -12,7 +12,7 @@ public class Semester {
 	}
 	
 	public void setSemester(String n){
-		//stub
+		nameSemester = n;
 	}
 	
 	public int getSemesterNum(){
@@ -20,18 +20,22 @@ public class Semester {
 	}
 	
 	public void setSemesterNum(int x){
-		//stub
+		semesterNum = x;
 	}
 	
 	public void addCourses(Course c){
-		//stub
+		course.add(c);
 	}
 	
 	public void deleteCourse(String name){
-		//stub
+		for (Course c: course){
+			if (c.getName().equalsIgnoreCase(name)){
+				course.remove(c);
+			}
+		}
 	}
 	
 	public void deleteCourse(){
-		//stub
+		course.clear();
 	}
 }

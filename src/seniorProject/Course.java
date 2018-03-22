@@ -9,7 +9,7 @@ public class Course {
 	private int semester;
 	
 	public void setStatus (int s){
-		//stub
+		status = s;
 	}
 	
 	public int getStatus(){
@@ -17,10 +17,18 @@ public class Course {
 	}
 	
 	public void setName(String n){
-		//stub
+		name = n;
 	}
 	
 	public String getName(){
 		return name;
+	}
+	
+	public ArrayList<String> getPrereqs(){
+		return prerequisite;
+	}
+	
+	public void setPrereq(ArrayList<String> prereqs){
+		prerequisite = prereqs;
 	}
 }
