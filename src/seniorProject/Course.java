@@ -1,5 +1,26 @@
 package seniorProject;
 
-public class Course {
+import java.util.ArrayList;
 
+public class Course {
+	private String name;
+	private int status;
+	private ArrayList<String> prerequisite;
+	private int semester;
+	
+	public void setStatus (int s){
+		//stub
+	}
+	
+	public int getStatus(){
+		//stub
+	}
+	
+	public void setName(String n){
+		//stub
+	}
+	
+	public String getName(){
+		//stub
+	}
 }
