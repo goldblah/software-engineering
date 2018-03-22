@@ -13,7 +13,7 @@ public class Course {
 	}
 	
 	public int getStatus(){
-		//stub
+		return status;
 	}
 	
 	public void setName(String n){
@@ -21,6 +21,6 @@ public class Course {
 	}
 	
 	public String getName(){
-		//stub
+		return name;
 	}
 }

@@ -8,7 +8,7 @@ public class Semester {
 	private ArrayList<Course> course;
 	
 	public String getSemester(){
-		//stub
+		return nameSemester;
 	}
 	
 	public void setSemester(String n){
@@ -16,7 +16,7 @@ public class Semester {
 	}
 	
 	public int getSemesterNum(){
-		//stub
+		return semesterNum;
 	}
 	
 	public void setSemesterNum(int x){
