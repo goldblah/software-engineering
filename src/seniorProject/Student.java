@@ -3,11 +3,11 @@ package seniorProject;
 import java.util.ArrayList;
 
 class Student {
-  String studentIdNum;
-  ArrayList<Semester> semesters;
+  private String studentIdNum;
+  private ArrayList<Semester> semesters;
 
   public ArrayList<Semester> getSemesters() {
-    //TODO
+	  return semesters;
   }
 
   public void generateSchedule() {
