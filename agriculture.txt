@@ -1,0 +1,229 @@
+AG 202 
+3
+ 
+F 
+
+AG 203 
+3 
+
+S 
+
+AG 204 
+3
+ 
+F 
+
+AG 210
+1 
+instructor approval
+F
+
+AG 211 
+1 
+instructor approval
+S
+
+AG 221 
+3
+ 
+TBA
+ 
+AG 231
+3
+ 
+TBA 
+
+AG 250 
+3 
+AG 101 or AG 102 
+F
+
+AG 252 
+3
+ 
+F 
+
+AG 260 
+3
+ 
+F 
+
+AG 268 
+1-3
+
+
+
+AG 275 
+3 
+
+
+
+AG 280 
+3 
+
+
+
+AG 293 
+1-3
+
+
+
+AG 300 
+3
+ 
+F
+ 
+AG 304 
+3 
+AG 203, AG 204 
+TBA
+ 
+AG 310 
+1
+
+F
+ 
+AG 311
+3 
+general education math completed and AG 252
+F
+ 
+AG 312 
+3 
+freshman-level life science general education; ENG 102, 104; IS 151
+Su 
+
+AG 313 
+1 
+instructor approval 
+S
+
+AG 315 
+3 
+AG 231
+Odd S
+ 
+AG 320 
+3 
+AG 101
+S
+ 
+AG 325 
+3 
+AG 101
+S
+ 
+AG 331 
+3 
+AG 203
+TBA
+ 
+AG 340 
+3 
+AG 252 
+S
+ 
+AG 348 
+3 
+AG 101 
+Odd F
+ 
+AG 349 
+3 
+AG 101 
+Odd F
+ 
+AG 350 
+3 
+AG 102 
+Even F 
+
+AG 351 
+3 
+AG 101
+Even S
+ 
+AG 394 
+3 
+
+S
+ 
+AG 400 
+3 
+
+S
+ 
+AG 402 
+3 
+AG 252 
+F
+ 
+AG 405 
+3 
+AG 331
+
+ 
+AG 410 
+1
+ 
+F
+ 
+AG 411 
+1 
+instructor approval 
+S
+
+AG 413 
+3 
+
+Even S
+
+AG 415 
+3 
+AG 221
+
+ 
+AG 421 
+3 
+AG 250 
+Odd S
+
+AG 433 
+3 
+AG 325
+Odd S 
+
+AG 450 
+3 
+BIOL 155/L, AG 325 
+Even S
+ 
+AG 468
+1-3 
+
+
+
+AG 480 
+3 
+6 hours completed in a teacher education program 
+F
+
+AG 489 
+3 
+consent of instructor and agency. This course is graded Pass/Fail
+F, S, Su
+ 
+AG 491 Directed Study 
+1-3
+
+
+
+AG 493 
+1-3
+
+
+
+AG 494
+1
+completion of 20 hours in agriculture and declaration of either the major or minor or instructor approval
+S 
