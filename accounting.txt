@@ -1,0 +1,74 @@
+ACCT 201
+3 
+
+F, S
+
+ACCT 202 
+3 
+ACCT 201; MATH 119 or MATH124 or MATH132 or MATH202 with a grade of “C” or higher
+F, S
+
+ACCT 293 
+1-3 
+ACCT 201, ACCT 202
+TBA
+
+ACCT 305 
+3
+ACCT 201, ACCT 202
+F, S 
+
+ACCT 306 
+3 
+ACCT 305 
+F, S
+
+ACCT 311 
+3 
+ACCT 201, ACCT 202, STAT 213
+S
+
+ACCT 342 
+3 
+ACCT 305 
+F 
+
+ACCT 371 
+3 
+ACCT 201, ACCT 202 
+F 
+
+ACCT 400 
+3 
+ACCT 201, ACCT 202 
+F
+
+ACCT 403 
+3 
+ACCT 201, ACCT 202
+TBA
+ 
+ACCT 421 
+3 
+ACCT 305 
+TBA
+
+ACCT 422 
+3
+ACCT 306 
+S
+
+ACCT 430 
+3 
+ACCT 306 
+S
+ 
+ACCT 475 
+3 
+ACCT 371 
+S
+ 
+ACCT 489  
+1-3
+Check with the academic adviser for internship guidelines and specific requirements. 
+Prerequisite: ACCT 305 and instructor, academic adviser and dean approval. 
