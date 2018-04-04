@@ -1,0 +1,397 @@
+BIOL107 
+3
+Not intended for students majoring in Biology. Concurrent enrollment: BIOL107L 
+F
+
+BIOL107L 
+1 
+Concurrent enrollment: BIOL107 
+F
+
+BIOL108 
+3
+Not intended for students majoring in biology. Concurrent enrollment: BIOL108L. BIOL107
+S
+
+BIOL108L 
+1
+Concurrent enrollment: BIOL108. BIOL 107L 
+S
+
+BIOL110 
+3
+Concurrent enrollment: BIOL110L 
+F
+
+BIOL110L 
+1
+Concurrent enrollment: BIOL110
+F
+
+BIOL113 
+3
+Credit not applicable toward biology major or minor
+F, S
+
+BIOL113L 
+1
+A two-hour laboratory per week to be taken in conjunction with BIOL113
+F, S
+
+BIOL125 
+3
+Concurrent enrollment with BIOL125L required
+F, S
+
+BIOL125L 
+1
+Concurrent enrollment with BIOL125
+F, S
+
+BIOL154 
+3
+Concurrent enrollment: BIOL154L 
+F, S
+
+BIOL154L 
+1
+Concurrent enrollment: BIOL154
+F, S
+
+BIOL155 
+3
+Concurrent enrollment: BIOL155L 
+F, S
+
+BIOL155L 
+1
+Concurrent enrollment: BIOL155 
+F, S
+
+BIOL209 
+3
+Concurrent enrollment: BIOL209L. BIOL154/L
+F
+
+BIOL209L 
+1
+Concurrent enrollment: BIOL209
+F
+
+BIOL210 
+3
+Concurrent enrollment: BIOL210L. BIOL209/L 
+S
+
+BIOL210L 
+1
+Concurrent enrollment: BIOL210 
+S 
+
+BIOL216 
+3
+Prerequisites: BIOL110/L or BIOL155/L.
+S
+
+BIOL216L 
+1
+Concurrent enrollment: BIOL216 
+S
+
+BIOL222 
+3
+BIOL 154/L 
+F
+
+BIOL268 
+1-3
+
+
+
+BIOL293 
+1-3
+
+
+
+BIOL300 
+3
+Concurrent enrollment: BIOL300L. BIOL110/L or BIOL155/L. 
+F
+
+BIOL300L 
+1
+Concurrent enrollment: BIOL300 
+F
+
+BIOL301 
+3
+Concurrent enrollment: BIOL301L. BIOL110/L or BIOL155/L
+Even S
+
+BIOL301L 
+1
+Concurrent enrollment: BIOL301 
+Even S
+
+BIOL303 
+3
+Concurrent enrollment: BIOL303L. BIOL110/L or BIOL155/L, BIOL154/L
+F,S
+
+BIOL303L
+1
+Concurrent enrollment: BIOL303
+F,S
+
+BIOL304 
+3
+Concurrent enrollment: BIOL304L. BIOL154/L 
+F, S
+
+BIOL304L 
+1
+Concurrent enrollment: BIOL304
+F, S
+
+BIOL305 
+3
+BIOL110/L or BIOL155/L. 
+Odd S
+
+BIOL306 
+3
+Concurrent enrollment: BIOL306L. BIOL 154/L; CHEM 151/L
+F, S
+
+BIOL306L 
+1
+Concurrent enrollment BIOL306 
+F, S
+
+BIOL307 
+3
+Concurrent enrollment: BIOL307L. BIOL110/L or BIOL155/L 
+Even F
+
+BIOL307L 
+1
+Concurrent enrollment: BIOL307 
+Even F
+
+BIOL341 
+3
+Concurrent enrollment: BIOL341L. BIOL110/L or BIOL155/L 
+Odd S
+
+BIOL341L 
+1
+Concurrent enrollment: BIOL341 
+Odd S
+
+BIOL375 
+3
+BIOL110/L or BIOL155/L, BIOL154/L, BIOL222, BIOL304/L 
+Odd S
+
+BIOL380 
+3
+BIOL154/L, BIOL209/L, BIOL210/L  
+F
+
+BIOL404 
+3
+BIOL110/L or BIOL155/L, BIOL154/L, BIOL303/L; STAT 213 
+Even F
+
+BIOL405 
+3
+BIOL110/L or BIOL155/L, BIOL154/L, BIOL303/L 
+Odd S
+
+BIOL407 
+3 
+
+F
+
+BIOL409 
+3
+Concurrent enrollment: BIOL409L. BIOL304/L, BIOL306/L 
+Odd S
+
+BIOL409L 
+1
+Concurrent enrollment: BIOL409 
+Odd S
+
+BIOL410 
+3
+Concurrent enrollment: BIOL410L. BIOL110/L or BIOL155/L, BIOL216/L 
+Odd F
+
+BIOL410L 
+1
+Concurrent enrollment: BIOL410 
+Odd F
+
+BIOL411 
+3
+Concurrent enrollment: BIOL411L. BIOL110/L or BIOL155/L, BIOL154/L 
+Even S
+
+BIOL411L 
+1
+Concurrent enrollment: BIOL411 
+Even S
+
+BIOL417 
+3
+BIOL110/L or BIOL155/L, BIOL154/L 
+Odd F
+
+BIOL420 
+3
+Concurrent enrollment: BIOL420L. BIOL110/L or BIOL155/L, BIOL154/L, BIOL216/L 
+Even S
+
+BIOL420L 
+1
+Concurrent enrollment: BIOL420 
+Even S
+
+BIOL421 
+3
+BIOL304/L, BIOL306/L 
+Odd F
+
+BIOL422 
+3
+Concurrent enrollment: BIOL422L 
+Even S
+
+BIOL422L 
+1 
+Concurrent enrollment: BIOL422 
+Even S
+
+BIOL424 
+3
+Concurrent enrollment: BIOL424L. BIOL209/L, BIOL210/L 
+Odd S
+
+BIOL424L 
+1 
+Concurrent enrollment: BIOL424 
+Odd S
+
+BIOL425 
+3
+Concurrent enrollment: BIOL425L. BIOL222, BIOL304/L 
+S
+
+BIOL425L 
+1
+Concurrent enrollment: BIOL425 
+S
+
+BIOL427 
+3
+BIOL222, BIOL304/L 
+Even F
+
+BIOL430  
+3
+BIOL110/L or BIOL155/L, BIOL303/L 
+Odd S
+
+BIOL431 
+3
+Concurrent enrollment: BIOL431L. BIOL110/L or BIOL155/L, BIOL154/L
+Odd F
+
+BIOL431L 
+1
+Concurrent enrollment: BIOL431 
+Odd F
+
+BIOL433 
+3
+Concurrent enrollment: BIOL433L. BIOL209/L, BIOL210/L 
+Even S
+
+BIOL433L 
+2
+BIOL209/L, BIOL210/L
+ 
+
+BIOL435 
+3
+CS120, BIOL304/L, CHEM452 
+S
+
+BIOL436 
+3
+Concurrent enrollment: BIOL436L. BIOL110/L or BIOL155/L, BIOL154/L 
+Odd S
+
+BIOL436L 
+1
+Concurrent enrollment: BIOL436
+Odd S
+
+BIOL441 
+3
+3.20 GPA, senior standing, departmental approval 
+
+BIOL442 
+3
+Concurrent enrollment: BIOL442L. BIOL110/L or BIOL155/L, BIOL154/L 
+Even S
+
+BIOL442L 
+1
+Concurrent enrollment: BIOL442 
+Even S
+
+BIOL450 
+3
+BIOL304/L, BIOL306/L 
+Even F
+
+BIOL460 
+3
+BIOL110/L or BIOL155/L, BIOL154/L, BIOL303/L 
+Even S
+
+BIOL465 
+1-4
+senior science major and instructor approval
+
+
+BIOL468 
+1-3
+
+
+
+BIOL489 
+1-3
+departmental or agency approval
+F, S, Su
+
+BIOL491 
+1-3
+
+F, S, Su
+
+BIOL492 
+1
+To be taken in the last semester of enrollment
+F, S
+
+BIOL493
+1-3
+
+
+
+BIOL495 
+1-3
+instructor approval
