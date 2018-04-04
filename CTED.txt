@@ -1,0 +1,50 @@
+CTED301 
+3
+
+F, S
+
+CTED302 
+3
+
+F, S
+
+CTED303 
+3
+CTED301 
+F
+
+CTED304 
+3 
+
+F, Su
+
+CTED401 
+3
+
+S 
+
+CTED468 
+1-3
+
+
+
+CTED480 
+3
+CTED303 or instructor approval
+S
+
+CTED481 
+6
+CTED480 or instructor approval
+F, S, Su
+
+CTED491 
+1-3
+
+
+
+CTED493 
+1-3
+
+
+

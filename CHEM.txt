@@ -1,0 +1,179 @@
+CHEM113 
+3
+ACT math score of at least 21 or SAT math score of at least 550. Concurrent enrollment: CHEM 113L
+F, S
+
+CHEM113L 
+1
+Concurrent enrollment in or previous successful completion of CHEM113 
+F, S
+
+CHEM125 
+3
+
+F, S
+
+CHEM125L 
+1
+Concurrent enrollment with CHEM 125 
+F, S
+
+CHEM151 
+3
+MATH119, MATH120, MATH124, or MATH132 with a grade of “C” or higher. Concurrent enrollment: CHEM151L 
+F, S
+
+CHEM151L 
+1
+Concurrent enrollment: CHEM151 
+F, S
+
+CHEM152
+3
+MATH119, MATH120, MATH124, or MATH132 with a grade of “C” or higher. Concurrent enrollment: CHEM152L
+F, S
+
+CHEM152L 
+1
+CHEM152. Concurrent enrollment: CHEM152. 
+F, S
+
+CHEM233
+3
+CHEM152/L; MATH119 with a grade of “C” or higher. Concurrent enrollment: CHEM233L. 
+S
+
+CHEM233L 
+1
+CHEM152/L. Concurrent enrollment: CHEM233
+S
+
+CHEM268
+1-3
+
+
+
+CHEM293 
+1-3
+
+
+
+CHEM321 
+3
+CHEM152/L. Concurrent enrollment: CHEM321L. 
+F
+
+CHEM321L
+1
+CHEM152/L. Concurrent enrollment: CHEM321
+F
+
+CHEM341 
+3
+CHEM152/L. Concurrent enrollment: CHEM341L. 
+F
+ 
+CHEM341L 
+1
+Concurrent enrollment: CHEM341. 
+F
+
+CHEM342 
+3
+CHEM341/L. Concurrent enrollment: CHEM342L
+S
+
+CHEM342L 
+1
+CHEM341/L. Concurrent enrollment: CHEM342
+S
+
+CHEM401
+1
+Concurrent enrollment: CHEM401L
+S
+
+CHEM401L 
+1 
+Concurrent enrollment: CHEM401
+S
+
+CHEM407 
+3
+CHEM125/L and CHEM342/L
+Even S
+
+CHEM411
+3
+CHEM152, PHYS151, MATH124 or MATH215
+Odd S
+
+CHEM411L
+1
+CHEM411 or concurrent enrollment
+Odd S
+
+CHEM412
+3
+MATH202 and PHYS151
+Even S
+
+CHEM442
+3
+CHEM342/L
+Odd F
+
+CHEM450
+3
+Concurrent enrollment: CHEM450L. CHEM233/L
+F
+
+CHEM450L
+1
+Concurrent enrollment: CHEM450. CHEM233/L
+F
+
+CHEM452 
+3
+CHEM152/L and BIOL154/L with a grade of “C” or higher
+F
+
+CHEM453
+3
+CHEM452
+S
+
+CHEM454 
+3
+CHEM151/L, CHEM152/L
+Even F
+
+CHEM468 
+1-3
+
+
+
+CHEM470 
+1-4
+instructor approval
+F, S
+
+CHEM491
+1-3
+
+
+
+CHEM492 
+1
+
+F, S
+
+CHEM493
+1-3 
+
+
+
+CHEM495
+1
+senior standing in a chemistry or biochemistry degree program
+S 

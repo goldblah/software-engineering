@@ -1,0 +1,110 @@
+CA102 
+1
+
+F
+
+CA104 
+3
+
+F
+
+CA120 
+3
+
+F
+
+CA125 
+3
+
+Even F
+
+CA204 
+3
+CA104 
+S
+
+CA220 
+3
+CA120 
+S
+
+CA225 
+3
+An extension of CA125 
+Even S
+
+CA300 
+3
+
+Su
+
+CA325 
+3
+
+Odd S
+
+CA327 
+3
+
+Even S
+
+CA330 
+3
+
+Odd S
+
+CA375 
+3
+
+Even S
+
+CA410 
+3
+
+Odd F
+
+CA425 
+3
+
+Even F
+
+CA450 
+3
+
+Odd F
+
+CA455 
+3
+
+Even F
+
+CA460 
+3
+
+Odd S
+
+CA470 
+3
+
+Su
+
+CA489 
+3
+
+F, S, Su
+
+CA491
+1-3
+
+F, S, Su
+
+CA493 
+1-3
+
+TBA
+
+CA496 
+3+3, 6
+Students are required to have the internship approved by their adviser
+F, S, Su
+

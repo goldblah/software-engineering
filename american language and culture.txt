@@ -1,0 +1,38 @@
+ALC 102 
+3 
+Instructor approval required
+
+
+ALC 104 
+3
+ALC 102, Instructor approval required 
+
+
+ALC 202 
+3
+Instructor approval required
+
+
+ALC 204 
+3 
+Instructor approval required
+
+
+ALC 210 
+3 
+Instructor approval required
+ 
+
+ALC 212 
+3 
+ALC 210, Grade of “B” or higher in ALC 210. Instructor approval required
+
+
+ALC 290 
+3 
+Course limited to non-native English speakers. Instructor approval required
+ 
+
+ALC 293 
+1-3 
+Instructor approval required. 
