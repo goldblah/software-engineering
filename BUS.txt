@@ -1,0 +1,78 @@
+BUS151 
+3
+
+S
+
+BUS230 
+3 
+
+F, S
+
+BUS293 
+1-3
+
+TBA
+
+BUS302 
+3
+junior standing
+Even F
+
+BUS305 
+3
+junior standing
+S
+
+BUS310
+3
+junior standing 
+F, S, Su
+
+BUS317 
+3
+BUS230 
+Odd S
+
+BUS330 
+3
+completion of all foundation courses
+F, S
+
+BUS381 
+3
+IS281 
+F, S 
+
+BUS402 
+3
+AG252 or ECON222 
+F
+
+BUS432 
+3
+BUS230 
+Odd F
+
+BUS450 
+3
+BUS230 
+Even S
+
+BUS453 
+3
+final semester senior standing; BUS330; FIN315; MKT425 
+F, S
+
+BUS489 
+1-3
+instructor, academic adviser and dean approval 
+F, S, Su
+
+BUS491 
+1-3
+instructor, academic adviser and dean approval 
+TBA
+
+BUS493 
+1-3
+instructor approval
