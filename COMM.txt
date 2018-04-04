@@ -1,0 +1,229 @@
+COMM101 
+3
+
+F, S, Su
+
+COMM102
+3
+
+F, S
+
+COMM103 
+3
+
+F, S
+
+COMM110
+3
+Lab fee required
+F, S
+
+COMM202
+3
+
+F, S, Su
+
+COMM204
+3
+ENG102, ENG104
+F, S
+
+COMM205
+3
+Lab fee required. ENG102, ENG104
+F, S
+
+COMM210
+3
+
+S
+
+COMM212 
+3
+Lab fee required
+F
+
+COMM220
+3
+Lab fee required. COMM110
+F, S
+
+COMM260
+3
+Lab fee required
+F
+
+COMM268
+1-3
+
+
+
+COMM293
+1-3
+
+
+
+COMM300
+3
+
+F
+
+COMM302
+3
+Lab fee required. COMM110, COMM220, COMM311, COMM327
+S
+
+COMM303 
+3
+Lab fee required. COMM204, COMM205, COMM260
+S
+
+COMM304
+3
+Lab fee required. COMM204, COMM205
+S
+
+COMM310 
+3
+
+Su
+
+COMM311 
+3
+Lab fee required. COMM210, COMM220; or DFM110
+S
+
+COMM327 
+3
+Lab fee required. COMM110, COMM204, COMM205
+F
+
+COMM330
+3
+
+F
+
+COMM331
+3
+
+Su
+
+COMM334 
+3
+COMM101, COMM102 or COMM202
+S
+
+COMM340
+3
+COMM205
+Odd S
+
+COMM344
+2
+Prerequisite or concurrent enrollment: COMM 205. Lab fee required
+F, S
+
+COMM360
+2
+COMM205. Lab fee required
+F, S
+
+COMM380 
+3
+
+Even S
+
+COMM390 
+3
+COMM 300
+Odd S
+
+COMM401
+3
+Lab fee required. Prerequisite: COMM 304
+Even S
+
+COMM402
+3
+Lab fee required. Prerequisite: COMM304
+F
+
+COMM410
+3
+Lab fee required. COMM304
+S
+
+COMM412
+3
+Lab fee required. COMM205, COMM212
+Odd S
+
+COMM414
+3
+COMM 103
+F
+
+COMM415
+3
+COMM103
+S
+
+COMM420 
+3
+Lab fee required. COMM204, COMM205, COMM311
+Odd F
+
+COMM422 
+3
+Lab fee required. COMM220. Concurrent enrollment: COMM422L 
+Even F
+
+COMM422L 
+NC
+Concurrent enrollment: COMM422
+Even F
+
+COMM460 
+3
+Lab fee required. ART143; COMM303
+F
+
+COMM468 
+1-3
+
+
+
+COMM470 
+3
+COMM300
+S
+
+COMM475
+3
+
+Su
+
+COMM477 
+3
+
+Su
+
+COMM489
+1-6
+3.00 GPA. 
+F, S, Su
+
+COMM491
+1-3
+instructor approval
+
+
+COMM493 
+1-3
+
+
+
+COMM498 
+3
+senior standing, last semester
+F, S 
