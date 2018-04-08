@@ -5,7 +5,7 @@ F
 
 CS120
 3
- 
+
 F 
 
 CS123
@@ -60,7 +60,7 @@ Even S
 
 CS461
 3 
-CE: CS357; EET340
+EET340; CE: CS357
 Odd S 
 
 CS468 

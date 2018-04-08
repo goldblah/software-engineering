@@ -7,9 +7,20 @@ public class Course {
 	private int status;
 	private ArrayList<String> prerequisite;
 	private int semester;
+	private int creditHours;
+	private int priority;
 	
 	public Course(String name){
 		this.name = name;
+		prerequisite = new ArrayList<>();
+	}
+	
+	public void setCH(int i){
+		this.creditHours = i;
+	}
+	
+	public int getCH(){
+		return creditHours;
 	}
 	
 	public void setStatus (int s){
@@ -34,5 +45,17 @@ public class Course {
 	
 	public void setPrereq(ArrayList<String> prereqs){
 		prerequisite = prereqs;
+	}
+	
+	public void setPrereq(String p){
+		prerequisite.add(p);
+	}
+	
+	public void setPriority(int p){
+		this.priority = p;
+	}
+	
+	public int getPriority(){
+		return priority;
 	}
 }

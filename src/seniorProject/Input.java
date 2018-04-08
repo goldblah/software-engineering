@@ -89,7 +89,9 @@ public class Input {
 				BufferedReader br = new BufferedReader(fr);
 				while ((line = br.readLine())!= null){
 					if(line.contains(major.get(0)) || !line.contains(":")){
-						getClassInfo(line);
+						courses.add(getClassInfo(line));
+					} else if(!line.contains("Major")&& line.contains(":")){
+						System.out.print(line);
 					}
 				}
 				br.close();
@@ -104,6 +106,7 @@ public class Input {
 		Matcher m = p.matcher(className);
 		ArrayList<String> allMatches = new ArrayList<>();
 		String line = null;
+		Course c = new Course(className);
 		
 		while (m.find()) {
 			allMatches.add(m.group());
@@ -116,16 +119,61 @@ public class Input {
 			while ((line = r.readLine()) != null) {
 				if ((r.getLineNumber()-1) % 5 == 0) {
 					if(line.contains(className)){
-						line.trim();
+						//parsing the credit hours
+						line = r.readLine().trim();
+						int temp = Integer.parseInt(line);
+						c.setCH(temp);
+						
+						//parsing the prereqs
+						line = r.readLine();
+						line = line.trim();
+						String[] pieces = line.split("; ");
+						for(String s: pieces){
+							if(!s.contains(", ") && s != ""){
+								c.setPrereq(s);
+							} else if(!s.contains("OR") && s != ""){
+								c.setPrereq(s);
+							}
+						}
+						for (String s: pieces){
+							if(s.contains(", ") && s!= " "){
+								pieces = s.split(", ");
+								break;
+							} else if(s.contains(" OR ") && s != " "){
+								pieces = s.split(" OR ");
+								break;
+							}
+						}
+						
+						//parsing the priority
+						line = r.readLine();
+						line = line.trim();
+						switch (line){
+						case "F, S": c.setPriority(0);
+						break;
+						case "F": c.setPriority(1);
+						break;
+						case "S": c.setPriority(2);
+						break;
+						case "Odd F": c.setPriority(3);
+						break;
+						case "Odd S": c.setPriority(4);
+						break;
+						case "Even F": c.setPriority(5);
+						break;
+						case "Even S": c.setPriority(6);
+						break;
+						default: c.setPriority(0);
+						break;
+						}	
 					}
 				}	
 			}
-			System.out.println();
 		}
 		catch (IOException e) {
 			System.out.println("Unable to open file '" + fn + "'");
 		}
-		return null;
+		return c;
 	}
 
 	public static void main(String[] args) throws FileNotFoundException {
