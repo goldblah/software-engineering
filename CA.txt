@@ -30,7 +30,7 @@ S
 
 CA225 
 3
-An extension of CA125 
+CA125 
 Even S
 
 CA300 
@@ -105,6 +105,6 @@ TBA
 
 CA496 
 3+3, 6
-Students are required to have the internship approved by their adviser
+
 F, S, Su
 

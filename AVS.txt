@@ -1,0 +1,79 @@
+AVS110 
+3
+
+F
+
+AVS120 
+3
+CE: AVS120L 
+Even S
+
+AVS120L 
+1
+CE: AVS120 
+Even S
+
+AVS135 
+3
+CE: AVS135L
+Odd S
+
+AVS135L 
+1
+CE: AVS135 
+Odd S
+
+AVS300 
+3
+
+F, S
+
+AVS301 
+3
+
+F
+
+AVS302 
+3
+
+F
+
+AVS303 
+3
+
+S
+
+AVS310 
+3
+
+F, S
+
+AVS320 
+3
+
+F, S 
+
+AVS468 
+1-3
+
+
+
+AVS489 
+3
+
+
+
+AVS491 
+1-3
+
+
+
+AVS493 
+1-3
+
+
+
+AVS494 
+2
+
+F, S

@@ -8,6 +8,10 @@ public class Course {
 	private ArrayList<String> prerequisite;
 	private int semester;
 	
+	public Course(String name){
+		this.name = name;
+	}
+	
 	public void setStatus (int s){
 		status = s;
 	}

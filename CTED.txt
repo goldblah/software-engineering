@@ -30,12 +30,12 @@ CTED468
 
 CTED480 
 3
-CTED303 or instructor approval
+CTED303
 S
 
 CTED481 
 6
-CTED480 or instructor approval
+CTED480
 F, S, Su
 
 CTED491 
@@ -45,6 +45,4 @@ CTED491
 
 CTED493 
 1-3
-
-
 
