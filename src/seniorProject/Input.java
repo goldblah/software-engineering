@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.LineNumberReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.regex.Matcher;
@@ -87,9 +88,7 @@ public class Input {
 				FileReader fr = new FileReader(filename);
 				BufferedReader br = new BufferedReader(fr);
 				while ((line = br.readLine())!= null){
-					//System.out.println(line);
 					if(line.contains(major.get(0)) || !line.contains(":")){
-						//System.out.println("true");
 						getClassInfo(line);
 					}
 				}
@@ -101,23 +100,31 @@ public class Input {
 	}
 
 	public Course getClassInfo(String className) throws FileNotFoundException{
-		//System.out.println("Inside");
 		Pattern p = Pattern.compile("[A-Z]+|\\d+");
 		Matcher m = p.matcher(className);
 		ArrayList<String> allMatches = new ArrayList<>();
+		String line = null;
+		
 		while (m.find()) {
-		    allMatches.add(m.group());
+			allMatches.add(m.group());
 		}
-		//System.out.println(allMatches);
+
 		String fn = allMatches.get(0) + ".txt";
-		System.out.println(fn);
-		/*try {
+		try {
 			FileReader fr = new FileReader(fn);
-			BufferedReader br = new BufferedReader(fr);
-			br.close();
-		} catch (IOException e) {
-			System.out.println("Unable to open file '" + filename + "'");
-		}*/
+			LineNumberReader r = new LineNumberReader(fr);
+			while ((line = r.readLine()) != null) {
+				if ((r.getLineNumber()-1) % 5 == 0) {
+					if(line.contains(className)){
+						line.trim();
+					}
+				}	
+			}
+			System.out.println();
+		}
+		catch (IOException e) {
+			System.out.println("Unable to open file '" + fn + "'");
+		}
 		return null;
 	}
 
