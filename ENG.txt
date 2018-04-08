@@ -1,0 +1,169 @@
+ENG097 
+3
+
+F, S
+
+ENG102
+3
+
+F, S, Su
+
+ENG104 
+3
+ENG102 
+F, S, Su
+
+ENG205
+3
+ENG102
+F
+
+ENG211 
+3
+
+F, S
+
+ENG221
+3
+
+Odd F
+
+ENG222 
+3
+
+Even S
+
+ENG251
+3
+
+Even F
+
+ENG252 
+3
+
+Odd S
+
+ENG268 
+1-3
+
+
+
+ENG293 
+1-3
+
+
+
+ENG301 
+3
+ENG104
+Even F
+
+ENG303
+3
+
+Odd S
+
+ENG305 
+3
+ENG104
+F, S
+
+ENG310 
+3
+ENG104; CE: ENG205
+Odd F
+
+ENG325
+3
+ENG104
+F, S
+
+ENG330
+3
+ENG104
+Even S
+
+ENG335 
+3
+ENG104 AND ENG205
+S 
+
+ENG345
+3
+ENG104
+F
+
+ENG376 
+3
+ENG104
+Even S
+
+ENG378
+3
+ENG104
+F
+
+ENG379
+3
+ENG104
+Odd S
+
+ENG401
+3
+ENG104
+Even S
+
+ENG413
+3
+ENG104
+Odd F
+
+ENG420 
+3
+
+Odd S
+
+ENG426 
+3
+ENG104
+Even F
+
+ENG430 
+3
+ENG104
+F
+
+ENG441
+3
+ENG104
+Odd S
+
+ENG447 
+3
+ENG104
+S
+
+ENG468
+1-3
+
+
+
+ENG491 
+1-3
+
+
+
+ENG493 
+1-3
+
+
+
+ENG494
+1
+
+S
+
+ENG496
+3
+ENG104
+Even F 

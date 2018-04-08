@@ -1,0 +1,43 @@
+HEB201
+4
+
+Odd F
+
+HEB202
+4
+HEB201
+Even S
+
+HEB268
+1-3
+
+
+
+HEB293
+1-3
+
+
+
+HEB301
+3
+HEB202
+Even F
+
+HEB302
+3
+HEB301
+Odd S
+
+HEB468
+1-3
+
+
+
+HEB491
+1-3
+
+
+
+HEB493
+1-3
+

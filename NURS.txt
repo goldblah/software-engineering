@@ -1,0 +1,83 @@
+NURS312
+3
+
+F, S, Su
+
+NURS315
+3
+Restricted to nursing majors
+F, S
+
+NURS316
+3
+Restricted to nursing majors
+F, S
+
+NURS317
+3
+Restricted to nursing majors
+F, S
+
+NURS319
+3
+Restricted to nursing majors
+Su
+
+NURS320
+3
+Restricted to nursing majors
+F, S
+
+NURS329
+3
+Restricted to nursing majors
+F, S
+
+NURS360
+3
+Restricted to nursing majors
+F, S
+
+NURS413
+3
+Restricted to nursing majors
+F, S
+
+NURS415
+3
+CE: NURS415L; Restricted to nursing majors
+F, S
+
+NURS415L
+3
+CE: NURS415; Restricted to nursing majors
+F, S
+
+NURS416
+3
+Restricted to nursing majors
+F, S
+
+NURS417
+3
+Restricted to nursing majors
+Su
+
+NURS425
+3
+Restricted to nursing majors; CE: NURS425L
+F, S
+
+NURS425L
+3
+Restricted to nursing majors; CE: NURS425
+F, S
+
+NURS491
+1-3
+
+F, S, Su
+
+NURS493
+1-3
+

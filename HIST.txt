@@ -1,0 +1,164 @@
+HIST101
+3
+
+F, S
+
+HIST102
+3
+
+F, S
+
+HIST121
+3
+
+F, S
+
+HIST122
+3
+
+F, S
+
+HIST203
+3
+
+F, S
+
+HIST290
+1
+
+F, S
+
+HIST293
+1-3
+
+
+
+HIST305
+3
+
+Even S
+
+HIST306
+3
+
+F, S
+
+HIST321
+3
+
+Even F
+
+HIST322
+3
+
+Odd S
+
+HIST324
+3
+
+Odd F
+
+HIST327
+3
+
+Even F
+
+HIST328
+3
+
+Even S
+
+HIST372
+3
+
+Odd S
+
+HIST373
+3
+
+Even S
+
+HIST375
+3
+
+Even S
+
+HIST377
+3
+
+Even F
+
+HIST379
+3
+
+Odd F
+
+HIST381
+3
+
+Odd S
+
+HIST409
+3
+EDF222
+F
+
+HIST410
+3
+
+Even S
+
+HIST411
+3
+
+Even F
+
+HIST412
+3
+
+Odd S
+
+HIST413
+3
+
+Even F
+
+HIST428
+3
+
+
+Odd F
+
+HIST431
+3
+
+Odd S
+
+HIST432
+3
+
+Odd F
+
+HIST433
+3
+
+Odd F
+
+HIST468
+1-3
+
+
+
+HIST490
+1
+
+F, S
+
+HIST491
+1-3
+
+
+
+HIST493
+1-3
+

@@ -1,0 +1,69 @@
+MGT201
+3
+
+F, S
+
+MGT293
+1-3
+
+TBA
+
+MGT313
+3
+Junior standing
+F, S
+
+MGT314
+3
+MGT313
+S
+
+MGT415
+3
+MGT313
+S
+
+MGT425
+3
+MGT313
+F
+
+MGT435
+3
+junior standing
+F
+
+MGT439
+3
+MGT313
+S
+
+MGT440
+3
+Junior standing
+F, S
+
+MGT442
+3
+MGT313
+S
+
+MGT475
+3
+MGT313
+F
+
+MGT489
+1-3
+
+F, S, Su
+
+MGT491
+1-3
+
+TBA
+
+MGT493
+1-3
+
+TBA

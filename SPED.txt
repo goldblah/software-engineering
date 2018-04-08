@@ -1,0 +1,48 @@
+SPED203
+3
+
+S
+
+SPED293
+1-3
+
+
+
+SPED300 
+3
+
+F, S, Su
+
+SPED320
+3
+CE: SPED 328; SPED300
+F - Roswell, S - Portales
+
+SPED328 
+3
+CE: SPED320; SPED300
+F - Roswell, S - Portales
+
+SPED401 
+3
+
+F
+
+SPED445 
+6
+CE: ELED460
+F, S
+
+SPED468 
+1-3
+
+
+
+SPED491 
+1-3
+
+
+
+SPED493
+1-3
+

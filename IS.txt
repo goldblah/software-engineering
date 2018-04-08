@@ -1,0 +1,79 @@
+IS151
+3
+
+F, S, Su
+
+IS241
+3
+IS151
+S
+
+IS281
+3
+IS151; STAT213
+F, S
+
+IS293
+1-3
+
+TBA
+
+IS301
+3
+
+F, S, Su
+
+IS315
+3
+IS301
+S
+
+IS316
+3
+IS301
+F
+
+IS343
+3
+IS301 OR CS220 for CS majors
+F
+
+IS420
+3
+IS343 OR CS357 for CS majors
+S
+
+IS430
+3
+IS315, IS343
+F
+
+IS435
+3
+IS316 OR CS357 for CS majors
+F
+
+IS440
+3
+IS435
+S
+
+IS460
+3
+
+S
+
+IS489
+3
+
+F, S, Su
+
+IS491
+1-3
+
+TBA
+
+IS493
+1-3
+
+TBA 

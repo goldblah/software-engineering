@@ -1,0 +1,54 @@
+MUED300
+1
+
+Odd F
+
+MUED310
+1
+
+Odd F
+
+MUED311
+1
+MUED310
+Even S
+
+MUED312
+1
+
+Odd S
+
+MUED313
+1
+
+S
+
+MUED314
+2
+
+Even F
+
+MUED324
+1
+
+Even F
+
+MUED372
+2
+
+F
+
+MUED378
+3
+
+Odd S
+
+MUED403
+2
+
+S
+
+MUED476
+3
+MUS306, MUS343, MUS344
+S

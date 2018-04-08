@@ -15,17 +15,17 @@ TBA
 
 BUS302 
 3
-
+junior standing
 Even F
 
 BUS305 
 3
-
+junior standing
 S
 
 BUS310
 3
-
+junior standing 
 F, S, Su
 
 BUS317 
@@ -35,7 +35,7 @@ Odd S
 
 BUS330 
 3
-
+completion of all foundation courses
 F, S
 
 BUS381 
@@ -60,7 +60,7 @@ Even S
 
 BUS453 
 3
-BUS330, FIN315, MKT425 
+final semester senior standing; BUS330; FIN315; MKT425 
 F, S
 
 BUS489 
