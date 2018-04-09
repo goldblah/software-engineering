@@ -50,7 +50,7 @@ Even F
 
 MUS208
 1
-MUS108 for piano students; MUS114 for voice students
+MUS108, MUS114
 F, S
 
 MUS209
@@ -144,12 +144,12 @@ F
 
 MUS333
 3
-music major
+
 F
 
 MUS334
 3
-music major
+
 S
 
 MUS341
@@ -164,12 +164,12 @@ S
 
 MUS343
 1
-MUS244. CE: MUS341
+MUS244; CE: MUS341
 F
 
 MUS344
 1
-MUS343. CE: MUS342
+MUS343; CE: MUS342
 S
 
 MUS362
@@ -294,7 +294,7 @@ Even F
 
 MUS472
 2
-completion of sophomore hurdle
+
 Odd S
 
 MUS481

@@ -16,12 +16,12 @@ F, S, Su
 SPED320
 3
 CE: SPED 328; SPED300
-F - Roswell, S - Portales
+F, S
 
 SPED328 
 3
 CE: SPED320; SPED300
-F - Roswell, S - Portales
+F, S
 
 SPED401 
 3

@@ -6,12 +6,12 @@ ELED293
 ELED405 
 6
 CE: ELED406; RED375
-F (Roswell), S (Portales)
+F, S
 
 ELED406
 6
 CE: ELED405; RED375
-F (Roswell), S (Portales)
+F, S
 
 ELED407 
 4

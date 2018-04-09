@@ -545,7 +545,7 @@ HPE209
 
 HPE411
 3
-A four-credit human anatomy and physiology course with laboratory, HPE212 AND HPE212L; CE: HPE411L
+HPE212, HPE212L; CE: HPE411L
 
 
 HPE411L

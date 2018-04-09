@@ -20,7 +20,7 @@ F
 
 SWK341
 3
-Restricted to SWK majors only
+
 F 
 
 SWK345
@@ -40,12 +40,12 @@ Odd S
 
 SWK361
 3
-Restricted to SWK majors only
+
 S
 
 SWK413
 3
-Restricted to SWK majors only
+
 F
 
 SWK416
@@ -60,12 +60,12 @@ F
 
 SWK444
 3
-Restricted to SWK majors only
+
 S
 
 SWK445
 3
-Restricted to SWK majors only
+
 S
 
 SWK447
@@ -90,22 +90,22 @@ S
 
 SWK451
 3
-CE: SWK455; SWK361; Restricted to SWK majors only
+CE: SWK455; SWK361
 F
 
 SWK455
 3
-CE: SWK451; SWK361; Restricted to SWK majors only
+CE: SWK451; SWK361
 F
 
 SWK461
 3
-CE: SWK465; SWK451; Restricted to SWK majors only
+CE: SWK465; SWK451
 S
 
 SWK465
 3
-CE: SWK461; SWK455; Restricted to SWK majors only
+CE: SWK461; SWK455
 S
 
 SWK468 
@@ -115,7 +115,7 @@ SWK468
 
 SWK489
 1-4
-Restricted to SWK majors only
+
 F, S, Su
 
 SWK491
@@ -130,5 +130,5 @@ SWK493
 
 SWK498
 3
-Restricted to SWK majors only
+
 S 

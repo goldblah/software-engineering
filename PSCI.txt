@@ -115,7 +115,7 @@ Odd S
 
 PSCI488
 3
-PSCI102; political science major; GPA 3.00
+PSCI102
 F, S, Su
 
 PSCI491

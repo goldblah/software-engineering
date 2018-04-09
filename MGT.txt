@@ -10,7 +10,7 @@ TBA
 
 MGT313
 3
-Junior standing
+
 F, S
 
 MGT314
@@ -30,7 +30,7 @@ F
 
 MGT435
 3
-junior standing
+
 F
 
 MGT439
@@ -40,7 +40,7 @@ S
 
 MGT440
 3
-Junior standing
+
 F, S
 
 MGT442

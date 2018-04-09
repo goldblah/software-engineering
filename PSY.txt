@@ -105,7 +105,7 @@ PSY483
 
 PSY484
 2
-PSY350; senior psychology major
+PSY350
 F, S
 
 PSY491
@@ -120,4 +120,4 @@ PSY493
 
 PSY495
 1-3
-senior psychology major; PSY350
+PSY350

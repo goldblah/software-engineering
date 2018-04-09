@@ -10,7 +10,7 @@ S
 
 FR201
 3
-two semesters of beginning French or equivalent
+FR101, FR102
 TBA
 
 FR202

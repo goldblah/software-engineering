@@ -95,7 +95,7 @@ Odd S
 
 MATH317
 3
-nine hours of college math
+
 Even S
 
 MATH340 

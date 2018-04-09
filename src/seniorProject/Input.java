@@ -128,6 +128,9 @@ public class Input {
 
 							//Sets the optional classes into a temporary ArrayList
 							ArrayList<String> temp = new ArrayList<String>(Arrays.asList(pieces));
+							for(String b: temp){
+								op.setCourse(getClassInfo(b));
+							}
 
 							//Finds the name of the Optional Course
 							Pattern p = Pattern.compile("[A-Z]+|\\d+");
@@ -138,9 +141,9 @@ public class Input {
 							}
 
 							//Sets all the information for the optional course
-							op.setCourse(temp);
 							op.setNumClasses(numClasses);
 							op.setName(allMatches.get(0) + "_OptionalCourse1");
+							System.out.println(op.getCourses());
 							majorCourses.add(op);
 						}
 					}
@@ -247,10 +250,5 @@ public class Input {
 		Input i = new Input("Input.txt");
 		i.getStudentInfo();
 		i.getMajorClassInfo();
-		for(Course c: i.majorCourses){
-			System.out.println(c.getName());
-			System.out.println(c.getPriority());
-			System.out.println(c.getCH());
-		}
 	}
 }
