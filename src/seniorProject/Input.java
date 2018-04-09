@@ -203,7 +203,10 @@ public class Input {
 								break;
 							}
 						}
-
+						for (String s: pieces){
+							c.setPrereq(s);
+						}
+						
 						//parsing the priority
 						line = r.readLine();
 						line = line.trim();
