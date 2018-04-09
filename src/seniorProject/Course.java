@@ -15,6 +15,10 @@ public class Course {
 		prerequisite = new ArrayList<>();
 	}
 	
+	public Course(){
+		prerequisite = new ArrayList<>();
+	}
+	
 	public void setCH(int i){
 		this.creditHours = i;
 	}

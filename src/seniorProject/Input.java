@@ -12,24 +12,35 @@ import java.util.regex.Pattern;
 
 public class Input {
 
-	private String filename;
-	private String idNum;
-	private ArrayList<String> classes;
-	private ArrayList<String> grade;
-	private String name;
-	private ArrayList<String> major;
-	private ArrayList<String> minor;
-	private String startSemester;
-	private int currentSemester;
-	private ArrayList<Course> courses;
+	private String filename;//file that is going to be parsed
+	private String idNum;//student's id number
+	private ArrayList<String> classesTaken;//classes the student has taken
+	private ArrayList<String> grade;//grades for classes the student has taken, corresponds to the classesTaken arraylist
+	private String name;//student's name
+	private ArrayList<String> major;//major(s) the student has
+	private ArrayList<String> minor;//minor(s) the student has
+	private String startSemester;//when the student started at the university
+	private int currentSemester;//current semester student is on
+	private ArrayList<Course> majorCourses;//classes required by the major
+	private int numClasses;//number of optional courses required for the major
 
+	/**
+	 * Constructor
+	 * @param fileName
+	 */
 	public Input(String fileName){
 		filename = fileName;
 	}
 
+	/**
+	 * gets pertinent student information from the input file given to the system
+	 * Must be a .txt file
+	 * @throws FileNotFoundException
+	 * @author hayleygoldblatt
+	 */
 	public void getStudentInfo() throws FileNotFoundException{
 		String line = null;
-		classes = new ArrayList<>();
+		classesTaken = new ArrayList<>();
 		grade = new ArrayList<>();
 		major = new ArrayList<String>();
 		minor = new ArrayList<String>();
@@ -38,6 +49,7 @@ public class Input {
 			FileReader fr = new FileReader(filename);
 			BufferedReader br = new BufferedReader(fr);
 
+			//Begins parsing the student input file and collects the required information
 			while((line = br.readLine()) != null) {
 				if(line.toUpperCase().contains("NAME")){
 					String[] pieces = line.split(": ");
@@ -67,7 +79,7 @@ public class Input {
 				} else{
 					while((line = br.readLine()) != null){
 						String[] pieces = line.split(" ");
-						classes.add(pieces[0]);
+						classesTaken.add(pieces[0]);
 						grade.add(pieces[1]);
 					}
 				}
@@ -79,35 +91,81 @@ public class Input {
 		}
 	}
 
+	/**
+	 * Pulls all the class info for courses that need to be taken for a major
+	 * @throws FileNotFoundException
+	 * @author hayleygoldblatt
+	 */
 	public void getMajorClassInfo() throws FileNotFoundException{
-		courses = new ArrayList<>();
+		majorCourses = new ArrayList<>();
 		String line = null;
+		String[] pieces = null;
+
+		//begins to parse the major information file
 		if (major.get(0) != null){
 			filename = major.get(0).toLowerCase() + "_major.txt" ;
 			try {
 				FileReader fr = new FileReader(filename);
 				BufferedReader br = new BufferedReader(fr);
 				while ((line = br.readLine())!= null){
-					if(line.contains(major.get(0)) || !line.contains(":")){
-						courses.add(getClassInfo(line));
-					} else if(!line.contains("Major")&& line.contains(":")){
-						System.out.print(line);
+
+					//cycles through the majors the student has and finds information for it
+					for(String m: major){
+						//decides if the line being parsed is for an optional course or a required class
+						if(line.contains(m) || !line.contains(":")){
+							majorCourses.add(getClassInfo(line));
+						} else if(!line.contains("Major") && line.contains(":")){
+							OptionalCourse op = new OptionalCourse();
+							if(line.matches(".*\\d+.*")){
+								pieces = line.split(": ");
+								numClasses = Integer.parseInt(pieces[0]);
+								for(String s: pieces){
+									if(s.contains("OR")){
+										pieces = s.split(" OR ");
+									}
+								}//end for loop
+							}
+
+							//Sets the optional classes into a temporary ArrayList
+							ArrayList<String> temp = new ArrayList<String>(Arrays.asList(pieces));
+
+							//Finds the name of the Optional Course
+							Pattern p = Pattern.compile("[A-Z]+|\\d+");
+							Matcher a = p.matcher(pieces[0]);
+							ArrayList<String> allMatches = new ArrayList<>();
+							while (a.find()) {
+								allMatches.add(a.group());
+							}
+
+							//Sets all the information for the optional course
+							op.setCourse(temp);
+							op.setNumClasses(numClasses);
+							op.setName(allMatches.get(0) + "_OptionalCourse1");
+							majorCourses.add(op);
+						}
 					}
 				}
-				br.close();
+				br.close();//closes the file reader
 			} catch (IOException e) {
+				//only carried out if the file cannot be found
 				System.out.println("Unable to open file '" + filename + "'");
 			}
 		}
 	}
 
+	/**
+	 * Gets class information for a provided class
+	 * @param className; class to find information for (ART270 for example)
+	 * @return a course object that contains the prerequisites, credit hours and name
+	 * @throws FileNotFoundException
+	 */
 	public Course getClassInfo(String className) throws FileNotFoundException{
 		Pattern p = Pattern.compile("[A-Z]+|\\d+");
 		Matcher m = p.matcher(className);
 		ArrayList<String> allMatches = new ArrayList<>();
 		String line = null;
 		Course c = new Course(className);
-		
+
 		while (m.find()) {
 			allMatches.add(m.group());
 		}
@@ -119,11 +177,12 @@ public class Input {
 			while ((line = r.readLine()) != null) {
 				if ((r.getLineNumber()-1) % 5 == 0) {
 					if(line.contains(className)){
+						
 						//parsing the credit hours
 						line = r.readLine().trim();
 						int temp = Integer.parseInt(line);
 						c.setCH(temp);
-						
+
 						//parsing the prereqs
 						line = r.readLine();
 						line = line.trim();
@@ -144,7 +203,7 @@ public class Input {
 								break;
 							}
 						}
-						
+
 						//parsing the priority
 						line = r.readLine();
 						line = line.trim();
@@ -176,9 +235,19 @@ public class Input {
 		return c;
 	}
 
+	/**
+	 * Main class to test input class
+	 * @param args
+	 * @throws FileNotFoundException
+	 */
 	public static void main(String[] args) throws FileNotFoundException {
 		Input i = new Input("Input.txt");
 		i.getStudentInfo();
 		i.getMajorClassInfo();
+		for(Course c: i.majorCourses){
+			System.out.println(c.getName());
+			System.out.println(c.getPriority());
+			System.out.println(c.getCH());
+		}
 	}
 }
