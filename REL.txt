@@ -1,0 +1,173 @@
+REL101
+3
+
+F, S
+
+REL103
+3
+
+F, S
+
+REL105
+3
+
+S
+
+REL107
+3
+
+F, S
+
+REL201
+3
+
+F
+
+REL211
+3
+
+Even F
+
+REL220
+3
+
+Odd S
+
+REL268
+1-3
+
+
+
+REL293
+1-3
+
+
+
+REL302
+3
+
+Even F
+
+REL303
+3
+
+Even F
+
+REL305
+3
+
+Even S
+
+REL310
+3
+
+Odd F
+
+REL312
+3
+
+Even F
+
+REL315
+3
+
+Odd S
+
+REL320
+3
+
+Odd S
+
+REL330
+3
+
+F
+
+REL331
+3
+
+Even F
+
+REL332
+3
+
+Even S
+
+REL334
+3
+
+Odd F 
+
+REL340
+3
+
+S
+
+REL382
+3
+
+Odd S
+
+REL402
+3
+
+F, S
+
+REL420
+3
+
+Even F
+
+REL423
+2
+GR302
+TBA
+
+REL424
+2
+GR423TBA
+
+REL431
+3
+
+F
+
+REL432
+3
+
+S
+
+REL433
+3
+
+Even S
+
+REL441
+3
+
+Odd F
+
+REL464
+3
+
+Odd S
+
+REL468
+1-3
+
+
+
+REL491
+1-3
+
+
+
+REL493
+1-3
+
+
+
+REL495
+1
+
+S 

@@ -1,0 +1,144 @@
+FCS101
+1
+
+F
+
+FCS118
+3
+
+Odd S
+
+FCS131
+3
+
+F
+
+FCS213
+2
+CE: FCS213L
+OddF
+
+FCS213L
+1
+CE: FCS213
+Odd F
+
+FCS221
+3
+
+F
+
+FCS234
+3
+
+Even F
+
+FCS268
+1-3
+
+TBA
+
+FCS293 
+1-3
+
+TBA
+
+FCS304 
+3
+CE: FCS304L 
+Even F
+
+FCS318 
+3
+
+F
+
+FCS323 
+3
+
+Even S
+
+FCS333 
+3
+
+Odd S
+
+FCS335 
+2
+CE: FCS335L 
+Even S
+
+FCS335L 
+1
+CE: FCS335
+Even S
+
+FCS348 
+3
+
+Odd F
+
+FCS353
+3
+
+Odd S
+
+FCS356 
+3
+
+Even S
+
+FCS403
+3
+
+Odd F
+
+FCS404
+3
+
+Even S
+
+FCS405 
+3
+
+Odd S
+
+FCS410
+3
+
+Odd S
+
+FCS421
+1-2
+
+TBA
+
+FCS425 
+3
+
+Su
+
+FCS461 
+3
+
+Even S
+
+FCS468 
+1-3
+
+TBA
+
+FCS489
+3
+completion of 19 hours of FCS classes; Family and Consumer Sciences department approval prior to registration
+F, S, Su
+
+FCS491 
+1-3
+
+F, S, Su
+
+FCS493 
+1-3
+
+TBA 

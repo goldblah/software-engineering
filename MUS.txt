@@ -1,0 +1,313 @@
+MUS101
+3
+
+F, S, Su
+
+MUS107
+2 
+
+S
+
+MUS108
+2
+MUS107
+TBA
+
+MUS113
+3
+
+F, S, Su
+
+MUS114
+1
+
+S
+
+MUS117
+1
+
+F
+
+MUS118
+1
+MUS117
+S
+
+MUS119
+1
+
+TBA
+
+MUS163
+3
+
+S
+
+MUS200
+2
+MUS242, MUS244
+Even F
+
+MUS208
+1
+MUS108 for piano students; MUS114 for voice students
+F, S
+
+MUS209
+1-3
+
+F, S
+
+MUS211
+3
+
+
+MUS217
+1
+MUS118
+F
+
+MUS218
+1
+MUS217
+S
+
+MUS219
+NC
+
+F, S
+
+MUS241
+3
+MUS101
+F
+
+MUS242
+3
+MUS241
+S
+
+MUS243
+1
+
+F
+
+MUS244
+1
+MUS243; CE: MUS242
+S
+
+MUS263
+1
+
+
+
+MUS264
+2
+
+S
+
+MUS268
+1-3
+
+TBA
+
+MUS293
+1-3
+
+F, S
+
+MUS301
+2
+MUS241
+Even S
+
+MUS306
+1
+MUS341, MUS343
+S
+
+MUS307
+1
+
+F, S
+
+MUS311
+2
+
+F, S
+
+MUS332
+1
+MUS218
+F
+
+MUS333
+3
+music major
+F
+
+MUS334
+3
+music major
+S
+
+MUS341
+3
+MUS242
+F
+
+MUS342
+3
+MUS341
+S
+
+MUS343
+1
+MUS244. CE: MUS341
+F
+
+MUS344
+1
+MUS343. CE: MUS342
+S
+
+MUS362
+2
+MUS342
+S
+
+MUS364
+2 
+MUS264
+F
+
+MUS365
+3
+
+Odd F
+
+MUS366
+3
+MUS365
+Even S
+
+MUS367
+1
+
+F, S
+
+MUS375
+3
+
+Odd S
+
+MUS381
+3
+MUS211
+Odd S
+
+MUS382
+3
+MUS211
+Even S
+
+MUS401
+2
+
+Odd F
+
+MUS402
+2
+MUS401
+Even S
+
+MUS405
+2
+
+Odd S
+
+MUS407
+1
+
+F, S
+
+MUS408
+1
+
+
+
+MUS409
+1-3
+
+F, S
+
+MUS411
+1
+MUS306
+F
+
+MUS412
+NC
+
+F, S
+
+MUS419
+NC
+
+F, S
+
+MUS452
+2
+MUS342
+Odd F
+
+MUS454
+3
+
+F, S
+
+MUS459
+3
+
+F, S
+
+MUS463
+1
+
+
+
+MUS464
+1
+
+F, S
+
+MUS468
+1-3
+
+TBA
+
+MUS471
+2
+
+Even F
+
+MUS472
+2
+completion of sophomore hurdle
+Odd S
+
+MUS481
+3
+
+Even F
+
+MUS491
+1-3
+
+F, S
+
+MUS493
+1-3
+
+F, S

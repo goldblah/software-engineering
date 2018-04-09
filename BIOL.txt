@@ -1,6 +1,6 @@
 BIOL107 
 3
-CE: BIOL107L 
+Not intended for students majoring in Biology; CE: BIOL107L 
 F
 
 BIOL107L 
@@ -10,12 +10,20 @@ F
 
 BIOL108 
 3
+<<<<<<< HEAD
 BIOL107; CE: BIOL108L
+=======
+Not intended for students majoring in biology; CE: BIOL108L; BIOL107
+>>>>>>> branch 'master' of https://github.com/goldblah/software-engineering
 S
 
 BIOL108L 
 1
+<<<<<<< HEAD
 BIOL 107L; CE: BIOL108
+=======
+CE: BIOL108; BIOL107L 
+>>>>>>> branch 'master' of https://github.com/goldblah/software-engineering
 S
 
 BIOL110 
@@ -30,12 +38,12 @@ F
 
 BIOL113 
 3
-
+Credit not applicable toward biology major or minor
 F, S
 
 BIOL113L 
 1
-
+CE: BIOL113
 F, S
 
 BIOL125 
@@ -70,7 +78,11 @@ F, S
 
 BIOL209 
 3
+<<<<<<< HEAD
 BIOL154, BIOL154L; CE: BIOL209L
+=======
+CE: BIOL209L; BIOL154, BIOL154L
+>>>>>>> branch 'master' of https://github.com/goldblah/software-engineering
 F
 
 BIOL209L 
@@ -80,7 +92,11 @@ F
 
 BIOL210 
 3
+<<<<<<< HEAD
 BIOL209, BIOL209L; CE: BIOL210L 
+=======
+CE: BIOL210L; BIOL209, BIOL210L 
+>>>>>>> branch 'master' of https://github.com/goldblah/software-engineering
 S
 
 BIOL210L 
@@ -90,7 +106,7 @@ S
 
 BIOL216 
 3
-BIOL110, BIOL110L OR BIOL155, BIOL155L.
+BIOL110; BIOL110L OR BIOL155; BIOL155L
 S
 
 BIOL216L 
@@ -115,7 +131,11 @@ BIOL293
 
 BIOL300 
 3
+<<<<<<< HEAD
 BIOL110, BIOL110L OR BIOL155, BIOL155L; CE: BIOL300L
+=======
+CE: BIOL300L; BIOL110, BIOL110L 0R BIOL155; BIOL155L 
+>>>>>>> branch 'master' of https://github.com/goldblah/software-engineering
 F
 
 BIOL300L 
@@ -125,7 +145,11 @@ F
 
 BIOL301 
 3
+<<<<<<< HEAD
 BIOL110, BIOL110L OR BIOL155, BIOL155L; CE: BIOL301L
+=======
+CE: BIOL301L; BIOL110; BIOL110L OR BIOL155; BIOL155L
+>>>>>>> branch 'master' of https://github.com/goldblah/software-engineering
 Even S
 
 BIOL301L 
@@ -135,13 +159,18 @@ Even S
 
 BIOL303 
 3
+<<<<<<< HEAD
 BIOL110, BIOL110L OR BIOL155, BIOL155L; BIOL154, BIOL154L; CE: BIOL303L
 F,S
+=======
+CE: BIOL303L; BIOL110; BIOL110L OR BIOL155, BIOL155L, BIOL154, BIOL154L
+F, S
+>>>>>>> branch 'master' of https://github.com/goldblah/software-engineering
 
 BIOL303L
 1
 CE: BIOL303
-F,S
+F, S
 
 BIOL304 
 3
@@ -155,12 +184,16 @@ F, S
 
 BIOL305 
 3
-BIOL110, BIOL110L OR BIOL155, BIOL155L
+BIOL110, BIOL110L OR BIOL155, BIOL155L 
 Odd S
 
 BIOL306 
 3
+<<<<<<< HEAD
 BIOL154, BIOL154L, CHEM151, CHEM151L; CE: BIOL306L
+=======
+CE: BIOL306L; BIOL154, BIOL154L; CHEM151, CHEM151L
+>>>>>>> branch 'master' of https://github.com/goldblah/software-engineering
 F, S
 
 BIOL306L 
@@ -190,7 +223,7 @@ Odd S
 
 BIOL375 
 3
-BIOL110, BIOL110L OR BIOL155, BIOL155L; BIOL154, BIOL154L, BIOL222, BIOL304, BIOL304L 
+BIOL110, BIOL110L OR BIOL155, BIOL155L, BIOL154, BIOL154L, BIOL222, BIOL304, BIOL304L 
 Odd S
 
 BIOL380 
@@ -200,12 +233,16 @@ F
 
 BIOL404 
 3
+<<<<<<< HEAD
 BIOL110, BIOL110L OR BIOL155, BIOL155L; BIOL154, BIOL154L, BIOL303, BIOL303L, STAT213 
+=======
+BIOL110, BIOL110L OR BIOL155, BIOL155L, BIOL154, BIOL154L, BIOL303, BIOL303L; STAT213 
+>>>>>>> branch 'master' of https://github.com/goldblah/software-engineering
 Even F
 
 BIOL405 
 3
-BIOL110, BIOL110L OR BIOL155, BIOL155L; BIOL154, BIOL154L, BIOL303, BIOL303L 
+BIOL110, BIOL220L OR BIOL155, BIOL155L, BIOL154, BIOL154L, BIOL303, BIOL303L 
 Odd S
 
 BIOL407 
@@ -225,7 +262,11 @@ Odd S
 
 BIOL410 
 3
+<<<<<<< HEAD
 BIOL110, BIOL110L OR BIOL155, BIOL155L; BIOL216, BIOL216L; CE: BIOL410L
+=======
+CE: BIOL410L; BIOL110, BIOL110L OR BIOL155, BIOL155L, BIOL216, BIOL216L 
+>>>>>>> branch 'master' of https://github.com/goldblah/software-engineering
 Odd F
 
 BIOL410L 
@@ -235,7 +276,11 @@ Odd F
 
 BIOL411 
 3
+<<<<<<< HEAD
 BIOL110, BIOl110L OR BIOL155, BIOL155L; BIOL154, BIOL154L; CE: BIOL411L
+=======
+CE: BIOL411L, BIOL110, BIOL110L, BIOL155, BIOL155L, BIOL154, BIOL154L 
+>>>>>>> branch 'master' of https://github.com/goldblah/software-engineering
 Even S
 
 BIOL411L 
@@ -245,12 +290,16 @@ Even S
 
 BIOL417 
 3
-BIOL110, BIOL110L OR BIOL155, BIOL155L; BIOL154, BIOL154L 
+BIOL110, BIOL110L OR BIOL155, BIL155L, BIOL154, BIOL154L 
 Odd F
 
 BIOL420 
 3
+<<<<<<< HEAD
 BIOL110, BIOL110L OR BIOL155, BIOL155L; BIOL154, BIOl154L, BIOL216, BIOL216L; CE: BIOL420L 
+=======
+CE: BIOL420L; BIOL110, BIOL110L OR BIOL155, BIOL155L, BIOL154, BIOL154L, BIOL216, BIOL2016L 
+>>>>>>> branch 'master' of https://github.com/goldblah/software-engineering
 Even S
 
 BIOL420L 
@@ -300,12 +349,16 @@ Even F
 
 BIOL430  
 3
-BIOL110, BIOL110L OR BIOL155, BIOL155L; BIOL303, BIOL303L 
+BIOL110, BIOL110L OR BIOL155, BIOL155L, BIOL303, BIOL303L 
 Odd S
 
 BIOL431 
 3
+<<<<<<< HEAD
 BIOL110, BIOL110L OR BIOL155, BIOL155L; BIOL154, BIOL154L; CE: BIOL431L
+=======
+CE: BIOL431L; BIOL110, BIOL110L OR BIOL155, BIOL155L, BIOL154, BIOL154L
+>>>>>>> branch 'master' of https://github.com/goldblah/software-engineering
 Odd F
 
 BIOL431L 
@@ -330,7 +383,11 @@ S
 
 BIOL436 
 3
+<<<<<<< HEAD
 BIOL110, BIOL110L OR BIOL155, BIOL155L; BIOL154, BIOL154L; CE: BIOL436L
+=======
+CE: BIOL436L, BIOL110, BIOL110L OR BIOL155, BIOL155L, BIOL154, BIOL154L 
+>>>>>>> branch 'master' of https://github.com/goldblah/software-engineering
 Odd S
 
 BIOL436L 
@@ -340,11 +397,15 @@ Odd S
 
 BIOL441 
 3
- 
+3.20 GPA, senior standing, departmental approval 
 
 BIOL442 
 3
+<<<<<<< HEAD
 BIOL110, BIOL110L OR BIOL155, BIOL155L; BIOL154, BIOL154L; CE: BIOL442L
+=======
+CE: BIOL442L; BIOL110, BIOL110L OR BIOL155, BIOL155L, BIOL154, BIL154L 
+>>>>>>> branch 'master' of https://github.com/goldblah/software-engineering
 Even S
 
 BIOL442L 
@@ -359,12 +420,12 @@ Even F
 
 BIOL460 
 3
-BIOL110, BIOL110L OR BIOL155, BIOL155L; BIOL154, BIOL154L, BIOL303, BIOL303L 
+BIOL110, BIOL110L OR BIOL155, BIOL255L, BIOL154, BIOL154L, BIOL303, BIOL303L 
 Even S
 
 BIOL465 
 1-4
-
+senior science major and instructor approval
 
 
 BIOL468 
@@ -384,7 +445,7 @@ F, S, Su
 
 BIOL492 
 1
-
+To be taken in the last semester of enrollment
 F, S
 
 BIOL493

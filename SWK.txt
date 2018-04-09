@@ -1,0 +1,134 @@
+SWK201
+3
+
+F, S, Su
+
+SWK311
+3
+
+F
+
+SWK312
+3
+
+S
+
+SWK321
+3
+
+F
+
+SWK341
+3
+Restricted to SWK majors only
+F 
+
+SWK345
+3
+
+F, S
+
+SWK349
+3
+
+F
+
+SWK360
+3
+
+Odd S
+
+SWK361
+3
+Restricted to SWK majors only
+S
+
+SWK413
+3
+Restricted to SWK majors only
+F
+
+SWK416
+3
+
+S
+
+SWK425
+3
+
+F
+
+SWK444
+3
+Restricted to SWK majors only
+S
+
+SWK445
+3
+Restricted to SWK majors only
+S
+
+SWK447
+3
+
+S
+
+SWK448
+2
+
+F
+
+SWK449
+2
+
+S
+
+SWK450
+3
+
+S
+
+SWK451
+3
+CE: SWK455; SWK361; Restricted to SWK majors only
+F
+
+SWK455
+3
+CE: SWK451; SWK361; Restricted to SWK majors only
+F
+
+SWK461
+3
+CE: SWK465; SWK451; Restricted to SWK majors only
+S
+
+SWK465
+3
+CE: SWK461; SWK455; Restricted to SWK majors only
+S
+
+SWK468 
+1-3
+
+
+
+SWK489
+1-4
+Restricted to SWK majors only
+F, S, Su
+
+SWK491
+1-3
+
+
+
+SWK493
+1-3
+
+
+
+SWK498
+3
+Restricted to SWK majors only
+S 

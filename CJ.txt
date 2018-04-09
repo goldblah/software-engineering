@@ -1,0 +1,124 @@
+CJ102
+3
+
+F, S
+
+CJ225
+3
+
+Even F
+
+CJ234
+3
+
+S
+
+CJ240
+3
+SOC101 OR CJ102
+F
+
+CJ245
+3
+SOC101 OR CJ102
+S
+
+CJ255
+3
+
+F
+
+CJ258
+3
+
+F, S
+
+CJ268
+1-3
+
+
+
+CJ293
+1-3
+
+
+
+CJ301
+3
+
+F, S
+
+CJ302
+3
+CE: CJ302L
+S
+
+CJ302L
+1
+CE: CJ302
+S
+
+CJ309
+3
+
+S
+
+CJ310
+3
+
+F
+
+CJ312
+3
+SOC101 OR SOC212 OR CJ102
+F, S
+
+CJ401
+3
+
+F
+
+CJ402
+3
+
+Odd F
+
+CJ403
+3
+
+F
+
+CJ404
+3
+
+S
+
+CJ432
+3
+SOC101 OR CJ102
+F
+
+CJ457
+3
+CJ102
+S
+
+CJ468
+1-3
+CJ102
+
+
+CJ489
+4
+
+F, S, Su
+
+CJ491
+1-3
+CJ102
+
+
+CJ493
+1-3
+CJ102
+ 

@@ -1,0 +1,119 @@
+ECE107
+2
+
+S
+
+ECE201
+3
+
+F
+
+ECE220
+2
+
+S
+
+ECE239 
+3
+CE: ECE239L
+F
+
+ECE239L
+2
+CE: ECE239
+F
+
+ECE240 
+3
+CE: ECE240L; ECE239, ECE239L
+S
+
+ECE240L 
+2
+CE: ECE240
+S
+
+ECE265 
+3
+
+F
+
+ECE280
+3
+
+S
+
+ECE302 
+3
+
+F
+
+ECE320
+1
+CE: RED350
+F
+
+ECE400 
+1
+CE: ECE407
+F, S, Su
+
+ECE402
+3
+
+F
+
+ECE403 
+3
+CE: ECE404
+S
+
+ECE404
+
+CE: ECE403
+S
+
+ECE405 
+3
+
+F
+
+ECE406 
+2
+
+F
+
+ECE407 
+8
+CE: ECE400
+F, S, Su
+
+ECE481 
+3
+
+F
+
+ECE483
+3
+
+
+
+ECE485
+4
+
+F, S, Su
+
+ECE487
+12
+
+F, S
+
+ECE491
+1-3
+
+F, S, Su
+
+ECE493
+1-3
+
+TBA
