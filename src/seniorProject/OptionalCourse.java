@@ -9,6 +9,10 @@ public class OptionalCourse extends Course{
 	public void setName(String i){
 		super.setName(i);
 	}
+	
+	public String getName(){
+		return super.getName();
+	}
 
 	public OptionalCourse() {
 		listOfCourses = new ArrayList<>();

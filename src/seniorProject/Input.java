@@ -23,6 +23,7 @@ public class Input {
 	private int currentSemester;//current semester student is on
 	private ArrayList<Course> majorCourses;//classes required by the major
 	private int numClasses;//number of optional courses required for the major
+	private ArrayList<Course> genEdCourses;
 
 	/**
 	 * Constructor
@@ -99,7 +100,6 @@ public class Input {
 	public void getMajorClassInfo() throws FileNotFoundException{
 		majorCourses = new ArrayList<>();
 		String line = null;
-		String[] pieces = null;
 
 		//begins to parse the major information file
 		if (major.get(0) != null){
@@ -115,36 +115,7 @@ public class Input {
 						if(line.contains(m) || !line.contains(":")){
 							majorCourses.add(getClassInfo(line));
 						} else if(!line.contains("Major") && line.contains(":")){
-							OptionalCourse op = new OptionalCourse();
-							if(line.matches(".*\\d+.*")){
-								pieces = line.split(": ");
-								numClasses = Integer.parseInt(pieces[0]);
-								for(String s: pieces){
-									if(s.contains("OR")){
-										pieces = s.split(" OR ");
-									}
-								}//end for loop
-							}
-
-							//Sets the optional classes into a temporary ArrayList
-							ArrayList<String> temp = new ArrayList<String>(Arrays.asList(pieces));
-							for(String b: temp){
-								op.setCourse(getClassInfo(b));
-							}
-
-							//Finds the name of the Optional Course
-							Pattern p = Pattern.compile("[A-Z]+|\\d+");
-							Matcher a = p.matcher(pieces[0]);
-							ArrayList<String> allMatches = new ArrayList<>();
-							while (a.find()) {
-								allMatches.add(a.group());
-							}
-
-							//Sets all the information for the optional course
-							op.setNumClasses(numClasses);
-							op.setName(allMatches.get(0) + "_OptionalCourse1");
-							System.out.println(op.getCourses());
-							majorCourses.add(op);
+							majorCourses.add(getOpClassInfo(line));
 						}
 					}
 				}
@@ -154,6 +125,89 @@ public class Input {
 				System.out.println("Unable to open file '" + filename + "'");
 			}
 		}
+		/*for(Course c: majorCourses){
+			System.out.println(c.getName());
+			System.out.println(c.getCH());
+			System.out.println(c.getPriority());
+			System.out.println(c.getPrereqs());
+			System.out.println();
+		}*/
+	}
+
+	public void getGenEdInfo() throws FileNotFoundException{
+		genEdCourses = new ArrayList<>();
+		filename = "gen_ed.txt";
+		String line = null;
+		//System.out.println(filename);
+		try {
+			//System.out.println("Found");
+			FileReader fr = new FileReader(filename);
+			BufferedReader br = new BufferedReader(fr);
+			while ((line = br.readLine())!= null){
+				//System.out.println(line);
+				//decides if the line being parsed is for an optional course or a required class
+				if(!line.contains("General Education Core") && !line.contains(":")){
+					//System.out.println("Finding " + line + " class info");
+					genEdCourses.add(getClassInfo(line));
+				} else if(!line.contains("General Education Core") && line.contains(":")){
+					//System.out.println("Finding " + line + " optional info");
+					genEdCourses.add(getOpClassInfo(line));
+				}
+			}
+			br.close();//closes the file reader
+		} catch (IOException e) {
+			//only carried out if the file cannot be found
+			System.out.println("Unable to open file '" + filename + "'");
+		}
+		
+		/*for(Course c: genEdCourses){
+			System.out.println(c.getName());
+			System.out.println(c.getCH());
+			System.out.println(c.getPriority());
+			System.out.println(c.getPrereqs());
+			System.out.println();
+		}*/
+	}
+
+	/**
+	 * Class to pull information for what is classified as an optional course
+	 * @param line line to pull information from
+	 * @return the optional course containing all the courses that can work
+	 * @throws FileNotFoundException
+	 */
+	public OptionalCourse getOpClassInfo(String line) throws FileNotFoundException{
+		OptionalCourse op = new OptionalCourse();
+		String[] pieces = null;
+		if(line.matches(".*\\d+.*")){
+			pieces = line.split(": ");
+			numClasses = Integer.parseInt(pieces[0]);
+			for(String s: pieces){
+				if(s.contains("OR")){
+					pieces = s.split(" OR ");
+				}
+			}//end for loop
+		}
+
+		//Sets the optional classes into a temporary ArrayList
+		ArrayList<String> temp = new ArrayList<String>(Arrays.asList(pieces));
+		System.out.println(temp);
+		for(String b: temp){
+			op.setCourse(getClassInfo(b));
+		}
+
+		//Finds the name of the Optional Course
+		Pattern p = Pattern.compile("[A-Z]+|\\d+");
+		Matcher a = p.matcher(pieces[0]);
+		ArrayList<String> allMatches = new ArrayList<>();
+		while (a.find()) {
+			allMatches.add(a.group());
+		}
+
+		//Sets all the information for the optional course
+		op.setNumClasses(numClasses);
+		op.setName(allMatches.get(0) + "_OptionalCourse1");
+
+		return op;
 	}
 
 	/**
@@ -172,7 +226,7 @@ public class Input {
 		while (m.find()) {
 			allMatches.add(m.group());
 		}
-
+		System.out.println(className);
 		String fn = allMatches.get(0) + ".txt";
 		try {
 			FileReader fr = new FileReader(fn);
@@ -180,11 +234,10 @@ public class Input {
 			while ((line = r.readLine()) != null) {
 				if ((r.getLineNumber()-1) % 5 == 0) {
 					if(line.contains(className)){
-						
+
 						//parsing the credit hours
 						line = r.readLine().trim();
-						int temp = Integer.parseInt(line);
-						c.setCH(temp);
+						c.setCH(line);
 
 						//parsing the prereqs
 						line = r.readLine();
@@ -209,7 +262,7 @@ public class Input {
 						for (String s: pieces){
 							c.setPrereq(s);
 						}
-						
+
 						//parsing the priority
 						line = r.readLine();
 						line = line.trim();
@@ -250,5 +303,6 @@ public class Input {
 		Input i = new Input("Input.txt");
 		i.getStudentInfo();
 		i.getMajorClassInfo();
+		i.getGenEdInfo();
 	}
 }
