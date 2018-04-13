@@ -14,23 +14,25 @@ public class Input {
 
 	private String filename;//file that is going to be parsed
 	private String idNum;//student's id number
-	private ArrayList<String> classesTaken;//classes the student has taken
-	private ArrayList<String> grade;//grades for classes the student has taken, corresponds to the classesTaken arraylist
+	ArrayList<Course> classesTaken;//classes the student has taken
 	private String name;//student's name
-	private ArrayList<String> major;//major(s) the student has
-	private ArrayList<String> minor;//minor(s) the student has
-	private String startSemester;//when the student started at the university
-	private int currentSemester;//current semester student is on
-	private ArrayList<Course> majorCourses;//classes required by the major
+	ArrayList<String> major;//major(s) the student has
+	ArrayList<String> minor;//minor(s) the student has
+	String startSemester;//when the student started at the university
+	int currentSemester;//current semester student is on
+	ArrayList<Course> majorCourses;//classes required by the major
 	private int numClasses;//number of optional courses required for the major
-	private ArrayList<Course> genEdCourses;
+	ArrayList<Course> genEdCourses;
 
 	/**
 	 * Constructor
 	 * @param fileName
+	 * @throws FileNotFoundException 
 	 */
-	public Input(String fileName){
+	public Input(String fileName) throws FileNotFoundException{
 		filename = fileName;
+		getStudentInfo();
+		getMajorClassInfo();
 	}
 
 	/**
@@ -42,7 +44,6 @@ public class Input {
 	public void getStudentInfo() throws FileNotFoundException{
 		String line = null;
 		classesTaken = new ArrayList<>();
-		grade = new ArrayList<>();
 		major = new ArrayList<String>();
 		minor = new ArrayList<String>();
 
@@ -80,8 +81,10 @@ public class Input {
 				} else{
 					while((line = br.readLine()) != null){
 						String[] pieces = line.split(" ");
-						classesTaken.add(pieces[0]);
-						grade.add(pieces[1]);
+						Course temp = getClassInfo(pieces[0]);
+						temp.setGrade(pieces[1]);
+						classesTaken.add(temp);
+						
 					}
 				}
 
@@ -133,7 +136,11 @@ public class Input {
 			System.out.println();
 		}*/
 	}
-
+	
+	/**
+	 * gets information from the general education files
+	 * @throws FileNotFoundException
+	 */
 	public void getGenEdInfo() throws FileNotFoundException{
 		genEdCourses = new ArrayList<>();
 		filename = "gen_ed.txt";
@@ -190,7 +197,6 @@ public class Input {
 
 		//Sets the optional classes into a temporary ArrayList
 		ArrayList<String> temp = new ArrayList<String>(Arrays.asList(pieces));
-		System.out.println(temp);
 		for(String b: temp){
 			op.setCourse(getClassInfo(b));
 		}
@@ -226,7 +232,7 @@ public class Input {
 		while (m.find()) {
 			allMatches.add(m.group());
 		}
-		System.out.println(className);
+		//System.out.println(className);
 		String fn = allMatches.get(0) + ".txt";
 		try {
 			FileReader fr = new FileReader(fn);
@@ -243,26 +249,29 @@ public class Input {
 						line = r.readLine();
 						line = line.trim();
 						String[] pieces = line.split("; ");
+						
 						for(String s: pieces){
-							if(!s.contains(", ") && s != ""){
-								c.setPrereq(s);
-							} else if(!s.contains("OR") && s != ""){
+							if(!s.contains(", ") && !s.contains("OR") && s != ""){
 								c.setPrereq(s);
 							}
 						}
+						
 						for (String s: pieces){
 							if(s.contains(", ") && s!= " "){
 								pieces = s.split(", ");
-								break;
+								for(String d: pieces){
+									c.setPrereq(d);
+								}
+								//break;
 							} else if(s.contains(" OR ") && s != " "){
 								pieces = s.split(" OR ");
-								break;
+								for(String d: pieces){
+									c.setPrereq(d);
+								}
+								//break;
 							}
 						}
-						for (String s: pieces){
-							c.setPrereq(s);
-						}
-
+						
 						//parsing the priority
 						line = r.readLine();
 						line = line.trim();
@@ -285,7 +294,8 @@ public class Input {
 						break;
 						}	
 					}
-				}	
+				}
+				c.setStatus(0);
 			}
 		}
 		catch (IOException e) {
@@ -301,8 +311,15 @@ public class Input {
 	 */
 	public static void main(String[] args) throws FileNotFoundException {
 		Input i = new Input("Input.txt");
-		i.getStudentInfo();
-		i.getMajorClassInfo();
-		i.getGenEdInfo();
+		//i.getStudentInfo();
+		//i.getMajorClassInfo();
+		//i.getGenEdInfo();
+		/*for (Course c: i.classesTaken){
+			System.out.println(c.getName());
+			System.out.println(c.getCH());
+			System.out.println(c.getPriority());
+			System.out.println(c.getStatus());
+			System.out.println(c.getGrade());
+		}*/
 	}
 }

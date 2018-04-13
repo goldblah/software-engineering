@@ -37,4 +37,16 @@ public class OptionalCourse extends Course{
 	public int getNumClasses(){
 		return numClassesToTake;
 	}
+	
+	public ArrayList<String> getPrereqs(){
+		return super.prerequisite;
+	}
+	
+	public void setPrereqs(String p){
+		super.prerequisite.add(p);
+	}
+	
+	public void setPrereqs(ArrayList<String> p){
+		super.prerequisite = p;
+	}
 }

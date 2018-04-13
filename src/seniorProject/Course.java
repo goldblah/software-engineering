@@ -5,10 +5,11 @@ import java.util.ArrayList;
 public class Course {
 	private String name;
 	private int status;
-	private ArrayList<String> prerequisite;
+	protected ArrayList<String> prerequisite;
 	private int semester;
 	private String creditHours;
 	private int priority;
+	private String grade;
 	
 	public Course(String name){
 		this.name = name;
@@ -17,6 +18,7 @@ public class Course {
 	
 	public Course(){
 		prerequisite = new ArrayList<>();
+		grade = null;
 	}
 	
 	public void setCH(String i){
@@ -61,5 +63,13 @@ public class Course {
 	
 	public int getPriority(){
 		return priority;
+	}
+	
+	public String getGrade(){
+		return grade;
+	}
+	
+	public void setGrade(String g){
+		grade = g;
 	}
 }
