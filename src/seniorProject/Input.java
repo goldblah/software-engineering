@@ -128,13 +128,6 @@ public class Input {
 				System.out.println("Unable to open file '" + filename + "'");
 			}
 		}
-		/*for(Course c: majorCourses){
-			System.out.println(c.getName());
-			System.out.println(c.getCH());
-			System.out.println(c.getPriority());
-			System.out.println(c.getPrereqs());
-			System.out.println();
-		}*/
 	}
 	
 	/**
@@ -151,13 +144,12 @@ public class Input {
 			FileReader fr = new FileReader(filename);
 			BufferedReader br = new BufferedReader(fr);
 			while ((line = br.readLine())!= null){
-				//System.out.println(line);
 				//decides if the line being parsed is for an optional course or a required class
 				if(!line.contains("General Education Core") && !line.contains(":")){
-					//System.out.println("Finding " + line + " class info");
+					//System.out.println(line);
 					genEdCourses.add(getClassInfo(line));
 				} else if(!line.contains("General Education Core") && line.contains(":")){
-					//System.out.println("Finding " + line + " optional info");
+					//System.out.println(line);
 					genEdCourses.add(getOpClassInfo(line));
 				}
 			}
@@ -167,13 +159,22 @@ public class Input {
 			System.out.println("Unable to open file '" + filename + "'");
 		}
 		
-		/*for(Course c: genEdCourses){
+		for(Course c: genEdCourses){
 			System.out.println(c.getName());
 			System.out.println(c.getCH());
 			System.out.println(c.getPriority());
 			System.out.println(c.getPrereqs());
+			try{
+				//System.out.println(((OptionalCourse) c).getCourses());
+				for(Course a: ((OptionalCourse) c).getCourses()){
+					System.out.println(a.getName());
+				}
+			} catch(ClassCastException e){
+				System.out.println("Cannot do this");
+			}
 			System.out.println();
-		}*/
+		}
+		
 	}
 
 	/**
@@ -194,11 +195,35 @@ public class Input {
 				}
 			}//end for loop
 		}
-
+		
 		//Sets the optional classes into a temporary ArrayList
 		ArrayList<String> temp = new ArrayList<String>(Arrays.asList(pieces));
-		for(String b: temp){
-			op.setCourse(getClassInfo(b));
+		for(int i = 0; i < temp.size(); i ++){
+			String b = temp.get(i);
+			String placeholder = null;
+			
+			//checks if there are other classes that need to split apart
+			if(b.contains(", ")){
+				placeholder = b;
+				pieces = placeholder.split(", ");
+				for(String s: pieces){
+					if(s.matches(".*\\d+.*")){
+						op.setCourse(getClassInfo(s));
+					} else {
+						String name = "Any " + s + " Course";
+						Course a = new Course(name);
+						op.setCourse(a);
+					}
+				}
+			} else {
+				if(b.matches(".*\\d+.*")){
+					op.setCourse(getClassInfo(b));
+				} else {
+					String name = "Any " + b + " Course";
+					Course a = new Course(name);
+					op.setCourse(a);
+				}
+			}
 		}
 
 		//Finds the name of the Optional Course
@@ -232,7 +257,7 @@ public class Input {
 		while (m.find()) {
 			allMatches.add(m.group());
 		}
-		//System.out.println(className);
+		
 		String fn = allMatches.get(0) + ".txt";
 		try {
 			FileReader fr = new FileReader(fn);
