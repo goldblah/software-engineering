@@ -21,12 +21,22 @@ class Student {
 	}
 
 	public void generateSchedule() {
-		//TODO
+		//setCompletionStatus
+		setCompletionStatus();
+		//separate classes into those with prereqs and those without
+		findClassesWPrereqs();
+		//generate the base map for the schedule
+		//traverse the map to generate the schedule, store the courses in semester containers based on which semester they will occur in
 	}
 
 	private void checkSemesters(){
 
 	}
+	
+	private void generateMap(){
+		
+	}
+	
 
 	/**
 	 * Checks to see which classes have been completed
