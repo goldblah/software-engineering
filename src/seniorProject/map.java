@@ -53,8 +53,9 @@ public class map {
 		
 		if( prerequisites == null ) { //it is the root - then search every one of Iam
 			for (map m: Iam) {
-				if (m.search(c) != null) {
-					return m;
+				map t = m.search(c);
+				if (t != null) {
+					return t;
 				}
 			}
 			return ret;
@@ -69,8 +70,9 @@ public class map {
 			}
 			else { //search every iam
 				for (map m: Iam) {
-					if (m.search(c) != null) {
-						return m;
+					map t = m.search(c);
+					if (t != null) {
+						return t;
 					}
 				}
 				return ret;
@@ -101,9 +103,19 @@ public class map {
 	
 	//Add a course to the Iam
 	public void add(map root, Course c) {
+		
+		//System.out.println("------");
+		//try {System.out.println("This: " + this.getCourse().getName()); } 
+		//catch (Exception e) {}
+		//System.out.println("Course: " + c.getName());
+		
+		
 		//Searching for the course
 		map temp = root.search(c);
 		if (temp == null) temp = new map(c); //If not found, then create one
+		
+		//System.out.println("After search: " + temp.getCourse().getName());
+		
 		
 		//Connect prerequiste <-> iam between courses
 		temp.addPre(this);
