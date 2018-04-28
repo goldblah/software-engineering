@@ -21,7 +21,7 @@ class Student {
 	}
 
 	public void generateSchedule() {
-		//setCompletionStatus
+		//set completion status
 		setCompletionStatus();
 		//separate classes into those with prereqs and those without
 		findClassesWPrereqs();
