@@ -2,7 +2,8 @@ package seniorProject;
 
 import java.util.ArrayList;
 
-public class map {
+public class map { 
+	//commit testw2
 	//Variables
 	private Course subject; //Courrent course
 	private ArrayList<map> Iam; //List of Course that requires the courrent one
@@ -17,6 +18,7 @@ public class map {
 		prerequisites = null;
 		iam_concurrent = false;
 		prerequisites_concurrent = false;
+		
 	}
 	
 	//Constructor for other nodes
@@ -28,6 +30,23 @@ public class map {
 		prerequisites_concurrent = false;
 	}
 	
+	//Get list of prerequisites
+	public ArrayList<Course> getPreq() {
+		ArrayList<Course> ret = new ArrayList<Course>();
+		for(map m: prerequisites) {
+			ret.add(m.getCourse());
+		}
+		return ret;
+	}
+	
+	//Get list of Iam
+	public ArrayList<Course> getIam() {
+		ArrayList<Course> ret = new ArrayList<Course>();
+		for(map m: Iam) {
+			ret.add(m.getCourse());
+		}
+		return ret;
+	}
 	//Search if a course is in Iam
 	public map search(Course c) {
 		map ret = null;
@@ -61,6 +80,25 @@ public class map {
 		
 	}
 	
+	public void toPrint() {
+		if(subject != null)
+			System.out.print(subject.getName());
+		else
+			System.out.print("Root");
+		
+		System.out.print(" -> ");
+		
+		for(map m: Iam) {
+			System.out.print(m.getCourse().getName() + " ");
+		}
+		
+		System.out.println();
+		for(map m: Iam) {
+			m.toPrint();
+		}
+		
+	}
+	
 	//Add a course to the Iam
 	public void add(map root, Course c) {
 		//Searching for the course
@@ -81,7 +119,7 @@ public class map {
 		return subject;
 	}
 	
-	public void setCourse(Course c) {
+	private void setCourse(Course c) {
 		subject = c;
 	}
 }
