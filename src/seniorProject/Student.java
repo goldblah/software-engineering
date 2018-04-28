@@ -15,7 +15,9 @@ class Student {
 	ArrayList<Course> majorCourses;//classes required by the major
 	ArrayList<Course> coursesWPrereqs;//classes with prereqs
 	ArrayList<Course> coursesWOPrereqs;//classes without prereqs
-
+	
+	map m = new map();
+	
 	public ArrayList<Semester> getSemesters() {
 		return semesters;
 	}
@@ -34,7 +36,61 @@ class Student {
 	}
 	
 	private void generateMap(){
+		//Add those withoud prereq
+		for(Course c: coursesWOPrereqs) {
+			m.add(m, c);
+		}
 		
+		//Add those with prerequistes
+		for(Course c: coursesWPrereqs) {
+			addWPrerq(c);
+		}
+	}
+	
+	private void addWPrerq(Course c) {
+		
+		//If prereq is empty, just add
+		if (c.getPrereqs().isEmpty()) {
+			m.add(m, c);
+			return;
+		}
+		
+		for(String p: c.getPrereqs()) {
+			
+			Course temp = helperSearch(p);
+			
+			addWPrerq(temp);
+			
+			m.search(temp).add(m, c);
+		}
+	}
+	
+	private Course helperSearch(String cs) {
+		Course ret = null;
+		
+		//Search in coruses wo prereq
+		for(Course c: coursesWOPrereqs) {
+			if(c.getName().equals(cs)) {
+				return c;
+			}
+		}
+		
+		//Search in courses with prereq
+		for(Course c: coursesWPrereqs) {
+			if(c.getName().equals(cs)) {
+				return c;
+			}
+		}
+		
+		
+		//Search in general ed
+		for(Course c: genEdCourses) {
+			if(c.getName().equals(cs)) {
+				return c;
+			}
+		}
+		
+		return ret;
 	}
 	
 
