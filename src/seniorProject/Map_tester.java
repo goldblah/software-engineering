@@ -4,11 +4,11 @@ public class Map_tester {
 
 	public static void main(String[] args) {
 		//Adding courses
-		Course c1 = new Course("CS 101");
-		Course c2 = new Course("CS 204");
-		Course c3 = new Course("CS 304");
-		Course mth1 = new Course("MATH 101"); //Needs c3
-		Course c4 = new Course("CS 402"); //Needs mth1
+		Course c1 = new Course("CS101");
+		Course c2 = new Course("CS204");
+		Course c3 = new Course("CS304");
+		Course mth1 = new Course("MATH101"); //Needs c3
+		Course c4 = new Course("CS402"); //Needs mth1
 
 		//Creating map
 		map cs = new map();
