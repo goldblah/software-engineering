@@ -45,7 +45,7 @@ class Student {
 	 * 2 -> taken, passed
 	 * 3 -> taken, failed
 	 */
-	private void setCompletionStatus(){
+	public void setCompletionStatus(){
 		for (Course c: classesTaken){
 			for(Course b: majorCourses){
 				if(c.getName().equalsIgnoreCase(b.getName())){
@@ -64,7 +64,7 @@ class Student {
 	 * Finds which classes have prereqs which do not and separate them into arraylists
 	 * Treats OptionalCourse categories as separated classes
 	 */
-	private void findClassesWPrereqs(){
+	public void findClassesWPrereqs(){
 		for(Course c: majorCourses){
 			if(c.getName().contains("_OptionalCourse")){
 				for(Course v: ((OptionalCourse) c).getCourses()){
@@ -93,20 +93,5 @@ class Student {
 		this.minor = i.minor;
 		coursesWPrereqs = new ArrayList<>();
 		coursesWOPrereqs = new ArrayList<>();
-	}
-
-	public static void main(String[] args) throws FileNotFoundException {
-		Student s = new Student();
-		s.setCompletionStatus();
-		s.findClassesWPrereqs();
-
-		/*for (Course c: s.classesTaken){
-			System.out.println(c.getName());
-			System.out.println(c.getCH());
-			System.out.println(c.getPriority());
-			System.out.println(c.getStatus());
-			System.out.println(c.getGrade());
-			System.out.println();
-		}*/
 	}
 }

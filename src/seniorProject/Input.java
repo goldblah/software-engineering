@@ -33,6 +33,7 @@ public class Input {
 		filename = fileName;
 		getStudentInfo();
 		getMajorClassInfo();
+		getGenEdInfo();
 	}
 
 	/**
@@ -71,7 +72,14 @@ public class Input {
 					}
 				} else if (line.toUpperCase().contains("MINOR")){
 					String[] pieces = line.split(": ");
-					minor.add(pieces[1]);
+					if(pieces[1].contains(" ")){
+						pieces = pieces[1].split(" ");
+						for(String s : pieces){
+							minor.add(s);
+						}
+					} else {
+						minor.add(pieces[1]);
+					}
 				} else if (line.toUpperCase().contains("START")){
 					String[] pieces = line.split(": ");
 					startSemester = pieces[1];
@@ -88,6 +96,73 @@ public class Input {
 					}
 				}
 
+			}
+			br.close();
+		} catch (IOException e) {
+			System.out.println("Unable to open file '" + filename + "'");
+		}
+	}
+	
+	//make class for parsing minor information
+	
+	/**
+	 * Checks the input file to make sure there is no changes to the students information
+	 * @author hayleygoldblatt
+	 */
+	public void checkForChanges(){
+		String line = null;
+		String pieces[] = null;
+		try {
+			FileReader fr = new FileReader(filename);
+			BufferedReader br = new BufferedReader(fr);
+			
+			while((line = br.readLine()) != null) {
+				//check for changes in the file to verify all information is the same
+				if(line.toUpperCase().contains("NAME")){
+					pieces = line.split(": ");
+					if (!pieces[1].equalsIgnoreCase(name)){
+						name = pieces[1];
+					}
+				} else if(line.toUpperCase().contains("ID")){
+					pieces = line.split(": ");
+					if (!pieces[1].equalsIgnoreCase(idNum)){
+						idNum = pieces[1];
+					}
+				} else if(line.toUpperCase().contains("MAJOR")){
+					pieces = line.split(": ");
+					if (pieces[1].contains(" ")){
+						pieces = pieces[1].split(" ");
+						for(String s: pieces){
+							if(!major.contains(s)){
+								major.add(s);
+							}
+						}
+					}
+				} else if(line.toUpperCase().contains("MINOR")){
+					pieces = line.split(": ");
+					if (pieces[1].contains(" ")){
+						pieces = pieces[1].split(" ");
+						for(String s: pieces){
+							if(!minor.contains(s)){
+								minor.add(s);
+							}
+						}
+					}
+				} else if(line.toUpperCase().contains("START")){
+					pieces = line.split(": ");
+					if (pieces[1] != name){
+						name = pieces[1];
+					}
+				} else if(line.toUpperCase().contains("CURRENT")){
+					pieces = line.split(": ");
+					if (pieces[1] != name){
+						name = pieces[1];
+					}
+				} else {
+					//finish to check if classes are already
+					
+				}
+				
 			}
 			br.close();
 		} catch (IOException e) {
@@ -268,7 +343,7 @@ public class Input {
 
 						//parsing the credit hours
 						line = r.readLine().trim();
-						c.setCH(line);
+						c.setCH(Integer.parseInt(line));
 
 						//parsing the prereqs
 						line = r.readLine();
@@ -328,23 +403,6 @@ public class Input {
 		}
 		return c;
 	}
-
-	/**
-	 * Main class to test input class
-	 * @param args
-	 * @throws FileNotFoundException
-	 */
-	public static void main(String[] args) throws FileNotFoundException {
-		Input i = new Input("Input.txt");
-		//i.getStudentInfo();
-		//i.getMajorClassInfo();
-		//i.getGenEdInfo();
-		/*for (Course c: i.classesTaken){
-			System.out.println(c.getName());
-			System.out.println(c.getCH());
-			System.out.println(c.getPriority());
-			System.out.println(c.getStatus());
-			System.out.println(c.getGrade());
-		}*/
-	}
+	
+	//add a method to check for changes once already run
 }

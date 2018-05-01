@@ -7,7 +7,7 @@ public class Course {
 	private int status;
 	protected ArrayList<String> prerequisite;
 	private int semester;
-	private String creditHours;
+	private int creditHours; 
 	private int priority;
 	private String grade;
 	
@@ -21,11 +21,11 @@ public class Course {
 		grade = null;
 	}
 	
-	public void setCH(String i){
+	public void setCH(int i){
 		this.creditHours = i;
 	}
 	
-	public String getCH(){
+	public int getCH(){
 		return creditHours;
 	}
 	
