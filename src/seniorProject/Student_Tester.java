@@ -23,7 +23,7 @@ public class Student_Tester {
 		s.setCompletionStatus();
 		s.findClassesWPrereqs();
 
-		for (Course c: s.classesTaken){
+		for (Course c: s.majorCourses){
 			System.out.println(c.getName());
 			System.out.println(c.getCH());
 			System.out.println(c.getPriority());

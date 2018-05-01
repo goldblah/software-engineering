@@ -51,6 +51,7 @@ class Student {
 				if(c.getName().equalsIgnoreCase(b.getName())){
 					if (!c.getGrade().equalsIgnoreCase("D") && !c.getGrade().equalsIgnoreCase("F")){
 						b.setStatus(2);
+						//add grade to course
 					} else if (c.getGrade().equalsIgnoreCase("D") || c.getGrade().equalsIgnoreCase("F")){
 						b.setStatus(3);
 					}
