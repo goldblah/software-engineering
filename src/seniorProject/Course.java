@@ -7,11 +7,7 @@ public class Course {
 	private int status;
 	protected ArrayList<String> prerequisite;
 	private int semester;
-<<<<<<< HEAD
 	private int creditHours; 
-=======
-	private int creditHours;
->>>>>>> branch 'master' of https://github.com/goldblah/software-engineering
 	private int priority;
 	private String grade;
 
@@ -24,19 +20,11 @@ public class Course {
 		prerequisite = new ArrayList<>();
 		grade = null;
 	}
-<<<<<<< HEAD
 	
-=======
-
->>>>>>> branch 'master' of https://github.com/goldblah/software-engineering
 	public void setCH(int i){
 		this.creditHours = i;
 	}
-<<<<<<< HEAD
 	
-=======
-
->>>>>>> branch 'master' of https://github.com/goldblah/software-engineering
 	public int getCH(){
 		return creditHours;
 	}
