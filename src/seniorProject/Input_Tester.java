@@ -15,6 +15,8 @@ public class Input_Tester {
 			System.out.println(c.getPriority());
 			System.out.println(c.getStatus());
 			System.out.println(c.getGrade());
+			//Test
+			System.out.println("----");
 		}
 		
 	}
