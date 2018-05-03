@@ -168,9 +168,6 @@ class Student {
 		}
 		
 		if(!moreCourses.isEmpty()) {
-			if(debugMode) {
-				System.out.println("  Searching in more courses ");
-			}
 			
 			for(Course c: moreCourses) {
 				if(c.getName().equals(cs)) {
@@ -183,7 +180,7 @@ class Student {
 		}
 		
 		if(debugMode) {
-			System.out.println(" NOT FOUND - Creating one");
+			System.out.println(" NOT FOUND - Creating one " + cs);
 		}
 		
 		ret = i.getClassInfo(cs);
