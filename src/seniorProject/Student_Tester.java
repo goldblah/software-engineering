@@ -23,7 +23,9 @@ public class Student_Tester {
 		s.setCompletionStatus();
 		s.findClassesWPrereqs();
 
-		for (Course c: s.majorCourses){
+		System.out.println("----  START  ----");
+		
+		/*for (Course c: s.majorCourses){
 			System.out.println(c.getName());
 			System.out.println(c.getCH());
 			System.out.println(c.getPriority());
@@ -31,6 +33,12 @@ public class Student_Tester {
 			System.out.println(c.getGrade());
 			System.out.println();
 		}
+		*/
+		s.generateMap();
+		s.m.toPrint();
 	}
+	
 
+	
+	
 }
