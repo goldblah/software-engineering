@@ -51,8 +51,8 @@ class Student {
 		if(debugMode) {
 			System.out.println("Generate map called");
 			
-			//System.out.println(helperSearch("MATH104").getName());
-			//return;
+			System.out.println(helperSearch("MATH107").getName());
+			return;
 		}
 		
 		//Add those withoud prereq
@@ -94,6 +94,11 @@ class Student {
 		
 		
 		for(String p: c.getPrereqs()) {
+			
+			if(p.trim().isEmpty()) {
+				m.add(m,  c);
+				return;
+			}
 			
 			Course temp = helperSearch(p);
 			
