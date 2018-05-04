@@ -31,9 +31,9 @@ public class Input {
 	 */
 	public Input(String fileName) throws FileNotFoundException{
 		filename = fileName;
-		getStudentInfo();
-		getMajorClassInfo();
-		getGenEdInfo();
+		//getStudentInfo();
+		//getMajorClassInfo();
+		//getGenEdInfo();
 	}
 
 	/**
@@ -379,19 +379,46 @@ public class Input {
 						String[] pieces = line.split("; ");
 						
 						for(String s: pieces){
-							if(!s.contains(", ") && !s.contains("OR") && s != ""){
+							//System.out.println(s);
+							if(!s.contains(", ") && !s.contains("OR") && !s.equals("") && !s.contains("CE")){
 								c.setPrereq(s);
+							}  
+						}
+						
+						ArrayList<String> temp= new ArrayList<>();
+						for(String s: pieces){
+							if(s.contains("CE") || s.contains(", ") || s.contains("OR")){
+								temp.add(s);
 							}
 						}
 						
-						for (String s: pieces){
-							if(s.contains(", ") && s!= " "){
+						for (String s: temp){
+							System.out.println(s);
+							if (s.contains("CE") && s.contains("OR")){
+								System.out.println(s);
+								pieces = s.split(": ");
+								for (String i: pieces){
+									if(i.contains(" OR ")){
+										String[] pieces1 = i.split(" OR ");
+										for(String e: pieces1){
+											c.setPrereq(e);
+										}
+									}
+								}
+							} else if(s.contains(", ") && !s.equals(" ")){
 								pieces = s.split(", ");
 								for(String d: pieces){
 									c.setPrereq(d);
 								}
 								//break;
-							} else if(s.contains(" OR ") && s != " "){
+							} else if (s.contains("CE")){
+								pieces = s.split(": ");
+								for(String g: pieces){
+									if(!g.contains("CE")){
+										c.setPrereq(g);
+									}
+								}
+							} else if(s.contains(" OR ") && !s.equals(" ")){
 								pieces = s.split(" OR ");
 								for(String d: pieces){
 									c.setPrereq(d);
@@ -399,7 +426,7 @@ public class Input {
 								//break;
 							}
 						}
-						
+						System.out.println(c.getPrereqs());
 						//parsing the priority
 						line = r.readLine();
 						line = line.trim();
