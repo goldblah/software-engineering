@@ -15,14 +15,25 @@ class Student {
 	ArrayList<Course> majorCourses;//classes required by the major
 	ArrayList<Course> coursesWPrereqs;//classes with prereqs
 	ArrayList<Course> coursesWOPrereqs;//classes without prereqs
+	ArrayList<Course> moreCourses = new ArrayList<Course>();
 	
 	map m = new map();
+	
+	Input i = new Input("input.txt");
+	
+	boolean debugMode = true;
+	
 	
 	public ArrayList<Semester> getSemesters() {
 		return semesters;
 	}
 
 	public void generateSchedule() {
+		
+		if(debugMode) {
+			System.out.println("Generate Schedule called");
+		}
+		
 		//set completion status
 		setCompletionStatus();
 		//separate classes into those with prereqs and those without
@@ -35,10 +46,27 @@ class Student {
 
 	}
 	
-	private void generateMap(){
+	public void generateMap() throws FileNotFoundException{
+		
+		if(debugMode) {
+			System.out.println("Generate map called");
+			
+			//System.out.println(helperSearch("MATH107").getName());
+			//return;
+		}
+		
 		//Add those withoud prereq
 		for(Course c: coursesWOPrereqs) {
+			if(debugMode) {
+				System.out.println("Adding: " + c.getName());
+			}
+			
 			m.add(m, c);
+		}
+		
+		if(debugMode) {
+			System.out.println("Printing map so far:");
+			m.toPrint();
 		}
 		
 		//Add those with prerequistes
@@ -47,17 +75,38 @@ class Student {
 		}
 	}
 	
-	private void addWPrerq(Course c) {
+	private void addWPrerq(Course c) throws FileNotFoundException {
+		
+		if(debugMode) {
+			System.out.println("AddWPrereq called with course " + c.getName());
+		}
 		
 		//If prereq is empty, just add
 		if (c.getPrereqs().isEmpty()) {
+			
+			if(debugMode) {
+				System.out.println("No prerequiste, adding..");
+			}
+			
 			m.add(m, c);
 			return;
 		}
 		
+		
 		for(String p: c.getPrereqs()) {
 			
+			if(p.trim().isEmpty()) {
+				m.add(m,  c);
+				return;
+			}
+			
 			Course temp = helperSearch(p);
+			
+			if(debugMode) {
+				System.out.println("Found prereq string: " + p);
+				System.out.println("Found prereq coruse: " + temp.getName());
+				
+			}
 			
 			addWPrerq(temp);
 			
@@ -65,19 +114,34 @@ class Student {
 		}
 	}
 	
-	private Course helperSearch(String cs) {
+	private Course helperSearch(String cs) throws FileNotFoundException {
+		
+		if(debugMode) {
+			System.out.println("helperSearch called with string " + cs);
+		}
+		
 		Course ret = null;
 		
 		//Search in coruses wo prereq
 		for(Course c: coursesWOPrereqs) {
 			if(c.getName().equals(cs)) {
+				
+				if(debugMode) {
+					System.out.println("  Found course in WO Prereq " + c.getGrade());
+				}
+				
 				return c;
 			}
 		}
 		
 		//Search in courses with prereq
 		for(Course c: coursesWPrereqs) {
+			
 			if(c.getName().equals(cs)) {
+				if(debugMode) {
+					System.out.println("  Found course in With Prereq: " + c.getName());
+				}
+				
 				return c;
 			}
 		}
@@ -85,11 +149,47 @@ class Student {
 		
 		//Search in general ed
 		for(Course c: genEdCourses) {
+			try{
+				//System.out.println(((OptionalCourse) c).getCourses());
+				for(Course a: ((OptionalCourse) c).getCourses()){
+					if(a.getName().equals(cs)) {
+						if(debugMode) {
+							System.out.println("  Found course in gen ed: " + a.getName());
+						}
+						return a;
+					}
+				}
+			} catch(ClassCastException e){
+				//System.out.println("Cannot do this");
+			}
+			
 			if(c.getName().equals(cs)) {
+				if(debugMode) {
+					System.out.println("  Found course in gen ed: " + c.getName());
+				}
 				return c;
+			}
+			
+		}
+		
+		if(!moreCourses.isEmpty()) {
+			
+			for(Course c: moreCourses) {
+				if(c.getName().equals(cs)) {
+					if(debugMode) {
+						System.out.println("  Found course in more courses: " + c.getName());
+					}
+					return c;
+				}
 			}
 		}
 		
+		if(debugMode) {
+			System.out.println(" NOT FOUND - Creating one " + cs);
+		}
+		
+		ret = i.getClassInfo(cs);
+		moreCourses.add(ret);
 		return ret;
 	}
 	
@@ -121,11 +221,8 @@ class Student {
 	 * Finds which classes have prereqs which do not and separate them into arraylists
 	 * Treats OptionalCourse categories as separated classes
 	 */
-	
-	//dont need to know all of the general ed files!!!!!!!!!
 	public void findClassesWPrereqs(){
 		for(Course c: majorCourses){
-			//System.out.println(c.getName());
 			/*if(c.getName().contains("_OptionalCourse")){
 				for(Course v: ((OptionalCourse) c).getCourses()){
 					if(!v.getPrereqs().isEmpty() && !v.getPrereqs().contains("")){
@@ -134,7 +231,8 @@ class Student {
 						coursesWOPrereqs.add(v);
 					}
 				}
-			}*/if(!c.getPrereqs().isEmpty() && !c.getPrereqs().contains("")){
+			}else*/ 
+			if(!c.getPrereqs().isEmpty() && !c.getPrereqs().contains("")){
 				coursesWPrereqs.add(c);
 			} else {
 				coursesWOPrereqs.add(c);
