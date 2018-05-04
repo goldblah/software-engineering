@@ -59,7 +59,12 @@ public class Input {
 					name = pieces[1];
 				} else if(line.toUpperCase().contains("ID")){
 					String[] pieces = line.split(": ");
-					idNum = pieces[1];
+					pieces[1] = pieces[1].trim();
+					if(pieces[1].length() == 9){
+						idNum = pieces[1].trim();
+					} else{
+						System.out.println("Incorrect ID number, please resubmit your input file");
+					}
 				} else if(line.toUpperCase().contains("MAJOR")){
 					String[] pieces = line.split(": ");
 					if(pieces[1].contains(" ")){
@@ -109,11 +114,11 @@ public class Input {
 	 * Checks the input file to make sure there is no changes to the students information
 	 * @author hayleygoldblatt
 	 */
-	public void checkForChanges(){
+	public void checkForChanges(String f){
 		String line = null;
 		String pieces[] = null;
 		try {
-			FileReader fr = new FileReader(filename);
+			FileReader fr = new FileReader(f);
 			BufferedReader br = new BufferedReader(fr);
 			
 			while((line = br.readLine()) != null) {
@@ -122,11 +127,13 @@ public class Input {
 					pieces = line.split(": ");
 					if (!pieces[1].equalsIgnoreCase(name)){
 						name = pieces[1];
+						System.out.println("New name");
 					}
 				} else if(line.toUpperCase().contains("ID")){
 					pieces = line.split(": ");
 					if (!pieces[1].equalsIgnoreCase(idNum)){
 						idNum = pieces[1];
+						System.out.println("New ID");
 					}
 				} else if(line.toUpperCase().contains("MAJOR")){
 					pieces = line.split(": ");
@@ -135,9 +142,10 @@ public class Input {
 						for(String s: pieces){
 							if(!major.contains(s)){
 								major.add(s);
+								System.out.println("New major");
 							}
 						}
-					}
+					}	
 				} else if(line.toUpperCase().contains("MINOR")){
 					pieces = line.split(": ");
 					if (pieces[1].contains(" ")){
@@ -145,21 +153,42 @@ public class Input {
 						for(String s: pieces){
 							if(!minor.contains(s)){
 								minor.add(s);
+								System.out.println("New minor");
 							}
 						}
 					}
 				} else if(line.toUpperCase().contains("START")){
 					pieces = line.split(": ");
-					if (pieces[1] != name){
-						name = pieces[1];
+					if (!pieces[1].equalsIgnoreCase(startSemester)){
+						startSemester = pieces[1];
+						System.out.println("New start semester");
 					}
+					
 				} else if(line.toUpperCase().contains("CURRENT")){
 					pieces = line.split(": ");
-					if (pieces[1] != name){
-						name = pieces[1];
+					if (Integer.parseInt(pieces[1].trim()) != currentSemester){
+						currentSemester = Integer.parseInt(pieces[1].trim());
+						System.out.println("New current semester");
 					}
+					
 				} else {
-					//finish to check if classes are already
+					while((line = br.readLine()) != null){
+						boolean taken = false;
+						pieces = line.split(" ");
+						Course temp = getClassInfo(pieces[0]);
+						for(Course c: classesTaken){
+							if(c.getName().equalsIgnoreCase(temp.getName())){
+								taken = true;
+								break;
+							}
+						}
+						if (taken == false){
+							temp.setGrade(pieces[1]);
+							classesTaken.add(temp);
+							System.out.println("New classes");
+						}
+						
+					}
 					
 				}
 				
@@ -213,9 +242,7 @@ public class Input {
 		genEdCourses = new ArrayList<>();
 		filename = "gen_ed.txt";
 		String line = null;
-		//System.out.println(filename);
 		try {
-			//System.out.println("Found");
 			FileReader fr = new FileReader(filename);
 			BufferedReader br = new BufferedReader(fr);
 			while ((line = br.readLine())!= null){
@@ -234,13 +261,12 @@ public class Input {
 			System.out.println("Unable to open file '" + filename + "'");
 		}
 		
-		for(Course c: genEdCourses){
+		/*for(Course c: genEdCourses){
 			System.out.println(c.getName());
 			System.out.println(c.getCH());
 			System.out.println(c.getPriority());
 			System.out.println(c.getPrereqs());
 			try{
-				//System.out.println(((OptionalCourse) c).getCourses());
 				for(Course a: ((OptionalCourse) c).getCourses()){
 					System.out.println(a.getName());
 				}
@@ -248,7 +274,7 @@ public class Input {
 				System.out.println("Cannot do this");
 			}
 			System.out.println();
-		}
+		}*/
 		
 	}
 
@@ -323,6 +349,7 @@ public class Input {
 	 * @throws FileNotFoundException
 	 */
 	public Course getClassInfo(String className) throws FileNotFoundException{
+		className = className.toUpperCase();
 		Pattern p = Pattern.compile("[A-Z]+|\\d+");
 		Matcher m = p.matcher(className);
 		ArrayList<String> allMatches = new ArrayList<>();
@@ -339,11 +366,12 @@ public class Input {
 			LineNumberReader r = new LineNumberReader(fr);
 			while ((line = r.readLine()) != null) {
 				if ((r.getLineNumber()-1) % 5 == 0) {
-					if(line.contains(className)){
-
+					line = line.trim();
+					if(line.equalsIgnoreCase(className)){
+						
 						//parsing the credit hours
 						line = r.readLine().trim();
-						c.setCH(Integer.parseInt(line));
+						c.setCH(line);
 
 						//parsing the prereqs
 						line = r.readLine();
@@ -404,5 +432,23 @@ public class Input {
 		return c;
 	}
 	
-	//add a method to check for changes once already run
+	public static String getPassword(String givenUser) throws IOException{
+		String tempFileName = givenUser + ".txt";
+		FileReader fr;
+		String line = null;
+		try {
+			fr = new FileReader(tempFileName);
+			BufferedReader br = new BufferedReader(fr);
+			while((line = br.readLine()) != null) {
+				if(line.contains("Password")){
+					String[] pieces = line.split(": ");
+					return pieces[1];
+				}
+			}
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			return "No such user";
+		}
+		return "No such user";
+	}
 }
