@@ -31,9 +31,9 @@ public class Input {
 	 */
 	public Input(String fileName) throws FileNotFoundException{
 		filename = fileName;
-		//getStudentInfo();
-		//getMajorClassInfo();
-		//getGenEdInfo();
+		getStudentInfo();
+		getMajorClassInfo();
+		getGenEdInfo();
 	}
 
 	/**
