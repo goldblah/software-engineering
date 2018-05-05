@@ -8,8 +8,7 @@ public class Input_Tester {
 		// TODO Auto-generated method stub
 
 		Input i = new Input("Input.txt");
-<<<<<<< HEAD
-		
+
 		/*for (Course c: i.classesTaken){
 =======
 
@@ -25,12 +24,10 @@ public class Input_Tester {
 		//i.checkForChanges("Input.txt");
 		
 		i.getClassInfo("MATH119");
-		
-=======
+
 			//test
 		}
 
->>>>>>> branch 'master' of https://github.com/goldblah/software-engineering
 	}
 
 }
