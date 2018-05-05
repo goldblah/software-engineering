@@ -17,6 +17,8 @@ class Student {
 	ArrayList<Course> coursesWOPrereqs;//classes without prereqs
 	ArrayList<Course> moreCourses = new ArrayList<Course>();
 	
+	public static int count = 0;
+	
 	map m = new map();
 	
 	Input i = new Input("input.txt");
@@ -46,26 +48,33 @@ class Student {
 
 	}
 	
+	
+	/**
+	 * Generates a map with all the courses the student has to take
+	 * @throws FileNotFoundException
+	 */
 	public void generateMap() throws FileNotFoundException{
 		
+		//Debug info...
 		if(debugMode) {
-			System.out.println("Generate map called");
+			System.out.println(++count + " Generate map called");
 			
-			//System.out.println(helperSearch("MATH107").getName());
+			//System.out.println(helperSearch("MATH104").getName());
 			//return;
 		}
 		
-		//Add those withoud prereq
+		//Add those without prereq directly to the map
 		for(Course c: coursesWOPrereqs) {
 			if(debugMode) {
-				System.out.println("Adding: " + c.getName());
+				System.out.println(++count + " Adding: " + c.getName());
 			}
 			
 			m.add(m, c);
 		}
 		
+		//Debug info
 		if(debugMode) {
-			System.out.println("Printing map so far:");
+			System.out.println(++count + " Printing map so far:");
 			m.toPrint();
 		}
 		
@@ -75,17 +84,26 @@ class Student {
 		}
 	}
 	
+	/**
+	 * Add courses with prerequisites to the map.
+	 * It checks the prerequistes and recusivly addem to the map
+	 * 
+	 * @param c Course to add
+	 * @throws FileNotFoundException
+	 */
 	private void addWPrerq(Course c) throws FileNotFoundException {
 		
+		//Debug info
 		if(debugMode) {
-			System.out.println("AddWPrereq called with course " + c.getName());
+			System.out.println(++count + " AddWPrereq called with course " + c.getName());
 		}
 		
 		//If prereq is empty, just add
 		if (c.getPrereqs().isEmpty()) {
 			
+			//Debug info
 			if(debugMode) {
-				System.out.println("No prerequiste, adding..");
+				System.out.println(++count + " No prerequiste, adding..");
 			}
 			
 			m.add(m, c);
@@ -93,31 +111,56 @@ class Student {
 		}
 		
 		
+		//Prerequistes are in string format.
+		//For each one:
+		// - Get the coruse with the name
+		// - Add it recursivly
+		// - Connect the prerequiste with the 'main' class
 		for(String p: c.getPrereqs()) {
 			
+			//If no prereq, just add it to the root and quit
 			if(p.trim().isEmpty()) {
 				m.add(m,  c);
 				return;
 			}
 			
+			//Get the prerequisite course
 			Course temp = helperSearch(p);
 			
+			//Debug info
 			if(debugMode) {
-				System.out.println("Found prereq string: " + p);
-				System.out.println("Found prereq coruse: " + temp.getName());
+				System.out.println(++count + " Found prereq string: " + p);
+				System.out.println(++count + " Found prereq coruse: " + temp.getName());
 				
 			}
 			
+			//Add it recursivly
 			addWPrerq(temp);
 			
+			//Debug info
+			if(debugMode) {
+				System.out.println(++count + " Adding: " + c.getName() + "...");
+			}
+			
+			//Connect courses
 			m.search(temp).add(m, c);
 		}
 	}
 	
+	
+	/**
+	 * Searchs in eveary arraylist for a given course, and returns it or creates 
+	 * a course with the given string
+	 * 
+	 * @param cs String of the course to search
+	 * @return The course in the array
+	 * @throws FileNotFoundException
+	 */
 	private Course helperSearch(String cs) throws FileNotFoundException {
 		
+		//Debug info
 		if(debugMode) {
-			System.out.println("helperSearch called with string " + cs);
+			System.out.println(++count + " helperSearch called with string " + cs);
 		}
 		
 		Course ret = null;
@@ -126,8 +169,9 @@ class Student {
 		for(Course c: coursesWOPrereqs) {
 			if(c.getName().equals(cs)) {
 				
+				//Debug info
 				if(debugMode) {
-					System.out.println("  Found course in WO Prereq " + c.getGrade());
+					System.out.println(++count + "   Found course in WO Prereq " + c.getName());
 				}
 				
 				return c;
@@ -138,8 +182,9 @@ class Student {
 		for(Course c: coursesWPrereqs) {
 			
 			if(c.getName().equals(cs)) {
+				//Derbug info
 				if(debugMode) {
-					System.out.println("  Found course in With Prereq: " + c.getName());
+					System.out.println(++count + "   Found course in With Prereq: " + c.getName());
 				}
 				
 				return c;
@@ -153,9 +198,12 @@ class Student {
 				//System.out.println(((OptionalCourse) c).getCourses());
 				for(Course a: ((OptionalCourse) c).getCourses()){
 					if(a.getName().equals(cs)) {
+						
+						//Debug info
 						if(debugMode) {
-							System.out.println("  Found course in gen ed: " + a.getName());
+							System.out.println(++count + "   Found course in gen ed: " + a.getName());
 						}
+						
 						return a;
 					}
 				}
@@ -164,9 +212,12 @@ class Student {
 			}
 			
 			if(c.getName().equals(cs)) {
+				
+				//Debug info
 				if(debugMode) {
-					System.out.println("  Found course in gen ed: " + c.getName());
+					System.out.println(++count + "   Found course in gen ed: " + c.getName());
 				}
+				
 				return c;
 			}
 			
@@ -176,18 +227,26 @@ class Student {
 			
 			for(Course c: moreCourses) {
 				if(c.getName().equals(cs)) {
+					
+					//Debug info
 					if(debugMode) {
-						System.out.println("  Found course in more courses: " + c.getName());
+						System.out.println(++count + "   Found course in more courses: " + c.getName());
 					}
+					
 					return c;
 				}
 			}
 		}
 		
+		//Debug info
 		if(debugMode) {
-			System.out.println(" NOT FOUND - Creating one " + cs);
+			System.out.println(++count + "  NOT FOUND - Creating one " + cs);
 		}
 		
+		
+		//At this point, id didn't found the course in nither of the 
+		// arrayList, se we call the getclassinfo on order to create a new class and add it
+		// to a new arraylist, at the end we return the course
 		ret = i.getClassInfo(cs);
 		moreCourses.add(ret);
 		return ret;
@@ -221,14 +280,8 @@ class Student {
 	 * Finds which classes have prereqs which do not and separate them into arraylists
 	 * Treats OptionalCourse categories as separated classes
 	 */
-	
-	//dont need to know all of the general ed files!!!!!!!!!
 	public void findClassesWPrereqs(){
 		for(Course c: majorCourses){
-<<<<<<< HEAD
-			//System.out.println(c.getName());
-=======
->>>>>>> branch 'master' of https://github.com/goldblah/software-engineering
 			/*if(c.getName().contains("_OptionalCourse")){
 				for(Course v: ((OptionalCourse) c).getCourses()){
 					if(!v.getPrereqs().isEmpty() && !v.getPrereqs().contains("")){
@@ -237,12 +290,8 @@ class Student {
 						coursesWOPrereqs.add(v);
 					}
 				}
-<<<<<<< HEAD
-			}*/if(!c.getPrereqs().isEmpty() && !c.getPrereqs().contains("")){
-=======
 			}else*/ 
 			if(!c.getPrereqs().isEmpty() && !c.getPrereqs().contains("")){
->>>>>>> branch 'master' of https://github.com/goldblah/software-engineering
 				coursesWPrereqs.add(c);
 			} else {
 				coursesWOPrereqs.add(c);
