@@ -32,7 +32,16 @@ public class Map_tester {
 		cs.search(c3).add(cs, mth1);
 		cs.search(mth1).add(cs, c4);
 		cs.search(c2).add(cs, c4);
-
+		
+		cs.toPrint();
+		
+		cs.add(cs, c1);
+		cs.add(cs, c1);
+		cs.add(cs, c1);
+		cs.add(cs, c1);
+		
+		System.out.println("Again");
+		cs.toPrint();
 
 	}
 

@@ -10,6 +10,7 @@ public class map {
 	private ArrayList<map> prerequisites; //List of Course that its required to take courrent course
 	private boolean iam_concurrent;
 	private boolean prerequisites_concurrent;
+	private boolean printed = false;
 
 	//Constructor initial root
 	public map() {
@@ -65,7 +66,7 @@ public class map {
 			if (subject == null) { //if the subject is null, then return that
 				return ret;
 			}
-			else if (subject.equals(c)) { //if it is the couse we are looking for, return it self
+			else if (subject.getName().equals(c.getName())) { //if it is the couse we are looking for, return it self
 				return this;
 			}
 			else { //search every iam
@@ -87,7 +88,9 @@ public class map {
 			System.out.print(subject.getName());
 		else
 			System.out.print("Root");
-
+		
+		this.printed = true;
+		
 		System.out.print(" -> ");
 
 		for(map m: Iam) {
@@ -96,7 +99,8 @@ public class map {
 
 		System.out.println();
 		for(map m: Iam) {
-			m.toPrint();
+			if(!m.printed)
+				m.toPrint();
 		}
 
 	}
@@ -112,12 +116,16 @@ public class map {
 
 		//Searching for the course
 		map temp = root.search(c);
+		//if(temp != null) System.out.println("1 temp: " + temp.getCourse().getName());
+		//System.out.println("c: " + c.getName());
+		
 		if (temp == null) temp = new map(c); //If not found, then create one
-
+		//System.out.println("2 temp: " + temp.getCourse().getName());
 		//System.out.println("After search: " + temp.getCourse().getName());
 
 
 		//Connect prerequiste <-> iam between courses
+		if(Iam.contains(temp)) return;
 		temp.addPre(this);
 		Iam.add(temp);
 	}
