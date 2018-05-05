@@ -1,0 +1,14 @@
+Name: Hayley Goldblatt
+ID: 11111111
+Password: changeme123
+Major: CS
+Minor: 
+Start: FALL2015
+Current: 6
+Classes:
+CS102 A
+CS123 A
+CS234 A
+MATH124 A
+STAT213 A
+
