@@ -17,14 +17,13 @@ class Student {
 	ArrayList<Course> coursesWOPrereqs;//classes without prereqs
 	ArrayList<Course> moreCourses = new ArrayList<Course>();
 	
-	public static int count = 0;
+	public static int count = 0; //Debug info
 	
-	map m = new map();
+	map m = new map(); //Map of the courses
 	
 	Input i = new Input("input.txt");
 	
-	boolean debugMode = true;
-	
+	boolean debugMode = true; //Change to false after release!!!
 	
 	public ArrayList<Semester> getSemesters() {
 		return semesters;
@@ -32,6 +31,7 @@ class Student {
 
 	public void generateSchedule() {
 		
+		//Debug info
 		if(debugMode) {
 			System.out.println("Generate Schedule called");
 		}
