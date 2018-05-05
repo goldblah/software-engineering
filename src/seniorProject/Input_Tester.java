@@ -26,7 +26,7 @@ public class Input_Tester {
 		i.getClassInfo("MATH119");
 
 			//test
-		}
+
 
 	}
 
