@@ -5,13 +5,13 @@ import java.util.ArrayList;
 public class Course {
 	private String name;
 	private int status;
-	protected ArrayList<Course> prerequisite;
+	protected ArrayList<String> prerequisite;
 	private int semester;
 	private String creditHours; 
 	private int priority;
 	private String grade;
 	private boolean concurrentEnrollment;
-	ArrayList<Course> eitherOr;
+	private boolean eitherOr;
 
 	public Course(String name){
 		this.name = name;
@@ -55,28 +55,24 @@ public class Course {
 		return name;
 	}
 
-	public ArrayList<Course> getPrereqs(){
+	public ArrayList<String> getPrereqs(){
 		return prerequisite;
 	}
 
-	public void setPrereq(ArrayList<Course> prereqs){
+	public void setPrereq(ArrayList<String> prereqs){
 		prerequisite = prereqs;
 	}
 
-	public void setPrereq(Course p){
+	public void setPrereq(String p){
 		prerequisite.add(p);
 	}
 	
-	public void setEitherOr(ArrayList<Course> eo){
-		eitherOr = eo;
-	}
-	
-	public ArrayList<Course> getEitherOr(){
+	public boolean getEitherOr(){
 		return eitherOr;
 	}
 	
-	public void setEitherOr(Course eo){
-		eitherOr.add(eo);
+	public void setEitherOr(boolean eo){
+		eitherOr = eo;
 	}
 
 	public void setPriority(int p){
