@@ -221,8 +221,14 @@ class Student {
 	 * Finds which classes have prereqs which do not and separate them into arraylists
 	 * Treats OptionalCourse categories as separated classes
 	 */
+	
+	//dont need to know all of the general ed files!!!!!!!!!
 	public void findClassesWPrereqs(){
 		for(Course c: majorCourses){
+<<<<<<< HEAD
+			//System.out.println(c.getName());
+=======
+>>>>>>> branch 'master' of https://github.com/goldblah/software-engineering
 			/*if(c.getName().contains("_OptionalCourse")){
 				for(Course v: ((OptionalCourse) c).getCourses()){
 					if(!v.getPrereqs().isEmpty() && !v.getPrereqs().contains("")){
@@ -231,8 +237,12 @@ class Student {
 						coursesWOPrereqs.add(v);
 					}
 				}
+<<<<<<< HEAD
+			}*/if(!c.getPrereqs().isEmpty() && !c.getPrereqs().contains("")){
+=======
 			}else*/ 
 			if(!c.getPrereqs().isEmpty() && !c.getPrereqs().contains("")){
+>>>>>>> branch 'master' of https://github.com/goldblah/software-engineering
 				coursesWPrereqs.add(c);
 			} else {
 				coursesWOPrereqs.add(c);

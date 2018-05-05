@@ -381,7 +381,12 @@ public class Input {
 						for(String s: pieces){
 							//System.out.println(s);
 							if(!s.contains(", ") && !s.contains("OR") && !s.equals("") && !s.contains("CE")){
+<<<<<<< HEAD
+								Course temp = getClassInfo(s);
+								c.setPrereq(temp);
+=======
 								c.setPrereq(s);
+>>>>>>> branch 'master' of https://github.com/goldblah/software-engineering
 							}  
 						}
 						
@@ -393,6 +398,17 @@ public class Input {
 						}
 						
 						for (String s: temp){
+<<<<<<< HEAD
+							if (s.contains("CE") && s.contains("OR")){
+								pieces = s.split(": ");
+								for (String i: pieces){
+									if(i.contains(" OR ")){
+										String[] pieces1 = i.split(" OR ");
+										for(String e: pieces1){
+											Course temporary = getClassInfo(i);
+											temporary.setCE(true);
+											c.setPrereq(temporary);
+=======
 							System.out.println(s);
 							if (s.contains("CE") && s.contains("OR")){
 								System.out.println(s);
@@ -402,26 +418,34 @@ public class Input {
 										String[] pieces1 = i.split(" OR ");
 										for(String e: pieces1){
 											c.setPrereq(e);
+>>>>>>> branch 'master' of https://github.com/goldblah/software-engineering
 										}
 									}
 								}
 							} else if(s.contains(", ") && !s.equals(" ")){
 								pieces = s.split(", ");
 								for(String d: pieces){
-									c.setPrereq(d);
+									c.setPrereq(getClassInfo(d));
 								}
 								//break;
 							} else if (s.contains("CE")){
 								pieces = s.split(": ");
 								for(String g: pieces){
 									if(!g.contains("CE")){
+<<<<<<< HEAD
+										Course temporary = getClassInfo(g);
+										temporary.setCE(true);
+										c.setPrereq(temporary);
+=======
 										c.setPrereq(g);
+>>>>>>> branch 'master' of https://github.com/goldblah/software-engineering
 									}
 								}
 							} else if(s.contains(" OR ") && !s.equals(" ")){
 								pieces = s.split(" OR ");
 								for(String d: pieces){
-									c.setPrereq(d);
+									Course temporary = getClassInfo(d);
+									c.setPrereq(temporary);
 								}
 								//break;
 							}
@@ -456,6 +480,7 @@ public class Input {
 		catch (IOException e) {
 			System.out.println("Unable to open file '" + fn + "'");
 		}
+		//System.out.println(c.getPrereqs());
 		return c;
 	}
 	
