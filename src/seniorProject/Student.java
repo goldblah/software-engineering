@@ -23,13 +23,14 @@ class Student {
 	
 	Input i = new Input("input.txt");
 	
-	boolean debugMode = true; //Change to false after release!!!
+	boolean debugMode = false; //Change to false after release!!!
 	
 	public ArrayList<Semester> getSemesters() {
 		return semesters;
 	}
+	
 
-	public void generateSchedule() {
+	public void generateSchedule() throws FileNotFoundException {
 		
 		//Debug info
 		if(debugMode) {
@@ -42,6 +43,17 @@ class Student {
 		findClassesWPrereqs();
 		//generate the base map for the schedule
 		//traverse the map to generate the schedule, store the courses in semester containers based on which semester they will occur in
+		
+		generateMap();
+		
+		while(true) {
+			//Get coruses from inside out
+			//If the course is already taken, go to that course and get the Iam
+			//Put all possilbe courses to a temp arraylist
+			//Fill a semester with those courses
+			//Change all those courses as completed
+			//Repete until there are no more courses to add
+		}
 	}
 
 	private void checkSemesters(){
@@ -52,7 +64,7 @@ class Student {
 	 * Generates a map with all the courses the student has to take
 	 * @throws FileNotFoundException
 	 */
-	public void generateMap() throws FileNotFoundException{
+	private void generateMap() throws FileNotFoundException{
 		
 		//Debug info...
 		if(debugMode) {
