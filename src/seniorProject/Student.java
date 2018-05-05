@@ -45,9 +45,8 @@ class Student {
 	}
 
 	private void checkSemesters(){
-
+		
 	}
-	
 	
 	/**
 	 * Generates a map with all the courses the student has to take
@@ -66,8 +65,9 @@ class Student {
 		//Add those without prereq directly to the map
 		for(Course c: coursesWOPrereqs) {
 			if(debugMode) {
-				System.out.println(++count + " Adding: " + c.getName());
+				System.out.println(++count + " Adding: " + c.getName() + " to " + " root");
 			}
+			
 			
 			m.add(m, c);
 		}
@@ -105,21 +105,104 @@ class Student {
 			if(debugMode) {
 				System.out.println(++count + " No prerequiste, adding..");
 			}
+			if(debugMode) {
+				System.out.println(++count + " Adding: " + c.getName() + " to root");
+			}
+			
 			
 			m.add(m, c);
 			return;
 		}
 		
 		
-		//Prerequistes are in string format.
-		//For each one:
-		// - Get the coruse with the name
-		// - Add it recursivly
-		// - Connect the prerequiste with the 'main' class
+		// c.getCE() 
+		//TODO
+		
+		
+		if ( c.getEitherOr() ) {
+			ArrayList<Course> options = new ArrayList<Course>();
+			
+			if(debugMode) {
+				System.out.println(++count + " Course prerequiste are Either or "  + c.getName());
+			}
+			
+			for(String p: c.getPrereqs()) {
+				
+				//If no prereq, just add it to the root and quit
+				if(p.trim().isEmpty()) {
+					if(debugMode) {
+						System.out.println(++count + " Didn't have prereq "  + c.getName());
+					}
+					
+					if(debugMode) {
+						System.out.println(++count + " Adding: " + c.getName() + " to root");
+					}
+					
+					
+					m.add(m,  c);
+					return;
+				}
+				
+				//Get the prerequisite course ******
+				Course temp = helperSearch(p);
+				
+				map t = m.search(temp);
+				
+				//Is already in the map, select that one
+				if(t != null) {
+					if(debugMode) {
+						System.out.println(++count + "  A prereq was already in the map "  + t.getCourse().getName());
+					}
+					//Add it recursivly
+					addWPrerq(t.getCourse());
+					
+					//Debug info
+					if(debugMode) {
+						System.out.println(++count + " Adding " + c.getName() + " to " + t.getCourse().getName());
+					}
+					
+					//Connect courses
+					m.search(t.getCourse()).add(m, c);
+					return;
+				}
+				
+				else {
+					
+					options.add(temp);
+				}
+			}
+			
+			if(debugMode) {
+				System.out.println(++count + " No prereq was in the map, choosing: "  + options.get(0).getName());
+			}
+			//For now, add the first options
+			Course toAdd = options.get(0);
+			addWPrerq(toAdd);
+			
+			//Debug info
+			if(debugMode) {
+				System.out.println(++count + " Adding " + c.getName() + " to " + toAdd.getName());
+			}
+			
+			m.search(toAdd).add(m, c);
+			return;
+		}
+		
+		/* Prerequistes are in string format.
+		*  For each one:
+		*   - Get the coruse with the name
+		*   - Add it recursivly
+		*   - Connect the prerequiste with the 'main' class
+		*/
 		for(String p: c.getPrereqs()) {
 			
 			//If no prereq, just add it to the root and quit
 			if(p.trim().isEmpty()) {
+				//Debug info
+				if(debugMode) {
+					System.out.println(++count + " Adding " + c.getName() + " to " + " root");
+				}
+				
 				m.add(m,  c);
 				return;
 			}
@@ -139,7 +222,7 @@ class Student {
 			
 			//Debug info
 			if(debugMode) {
-				System.out.println(++count + " Adding: " + c.getName() + "...");
+				System.out.println(++count + " Adding: " + c.getName() + " to " + temp.getName());
 			}
 			
 			//Connect courses
