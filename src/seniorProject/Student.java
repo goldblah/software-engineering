@@ -25,10 +25,20 @@ class Student {
 	Input i = new Input("input.txt");
 	boolean debugMode = false; //Change to false after release
 	
+	/**
+	 * Change semester and represent it to te variable current_priority
+	 */
 	private void addToCurrentPriority() {
 		//TODO
 	}
 	
+	/**
+	 * Given an priority it can say if thoose to matches, in order
+	 * to determinate if a course can be taken in this semester
+	 * @param p pirority of a semster
+	 * @return true - it can be taken
+	 * 		   fals - it can't
+	 */
 	private boolean matchPriority(int p) {
 		//TODO
 		return false;
@@ -75,6 +85,10 @@ class Student {
 		}
 	}
 	
+	/**
+	 * It ordes an array list in accordane of the priority
+	 * @param c An arraylist of courses
+	 */
 	private void orderArray(ArrayList<Course> c) {
 		//TODO
 	}
