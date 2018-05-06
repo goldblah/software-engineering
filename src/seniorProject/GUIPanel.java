@@ -94,6 +94,9 @@ public class GUIPanel extends JPanel implements ActionListener{
 		add(newUserPanel, BorderLayout.SOUTH);
 		//add(startPanel, BorderLayout.SOUTH);
 		//add(schedulePanel, BorderLayout.SOUTH);
+		majorArray = new ArrayList<>();
+		minorArray = new ArrayList<>();
+		classesTaken = new ArrayList<>();
 	}
 	
 	private JPanel scheduleScreen(){
@@ -234,9 +237,11 @@ public class GUIPanel extends JPanel implements ActionListener{
 						
 						//get courses entered by user
 						String temp = classesField.getText();
+						System.out.println(temp);
 						if(temp.contains(", ")){
 							String[] pieces = temp.split(", ");
 							for (String s: pieces){
+								System.out.println(s);
 								classesTaken.add(s);
 							}
 						} else {
@@ -264,7 +269,13 @@ public class GUIPanel extends JPanel implements ActionListener{
 						} else {
 							minorArray.add(temp);
 						}
-						
+						try {
+							o.createNewUserFile(studentName, user, userPassword, majorArray, minorArray, 
+									studentStartSemester, studentCurrentSemester, classesTaken);
+						} catch (IOException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
 						newUser = false;
 						correctPassword = true;
 						invalidate();
