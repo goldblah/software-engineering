@@ -2,6 +2,8 @@ package seniorProject;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 class Student {
 	private String studentIdNum;
@@ -21,52 +23,62 @@ class Student {
 	int current_priority = 0;
 	
 	public static int count = 0; //Debug info
+	
 	map m = new map(); //Map of the courses
+	
 	Input i = new Input("input.txt");
+	
 	boolean debugMode = false; //Change to false after release
 	
-	/**
-	 * Change semester and represent it to te variable current_priority
-	 */
+	public void setCurrentPriority(){
+		Pattern p = Pattern.compile("[A-Z]+|\\d+");
+		Matcher m = p.matcher(startSemester);
+		ArrayList<String> allMatches = new ArrayList<>();
+
+		while (m.find()) {
+			allMatches.add(m.group());
+		}
+		
+		String season = allMatches.get(0);
+		int year = Integer.parseInt(allMatches.get(1).trim());
+		if(season.contains("F")){
+			if(year%2 == 0){
+				current_priority = 5;
+			} else {
+				current_priority = 3;
+			}
+		} else if(season.contains("S")){
+			if(year%2 == 0){
+				current_priority = 6;
+			} else {
+				current_priority = 4;
+			}
+		}
+		
+	}
+	
 	private void addToCurrentPriority() {
-		if(current_priority == 3) {
+		if(current_priority == 3){
 			current_priority = 6;
-		} else if (current_priority == 6) {
+		} else if (current_priority == 6){
 			current_priority = 5;
-		} else if (current_priority == 5) {
+		} else if (current_priority == 5){
 			current_priority = 4;
-		} else if (current_priority == 4) {
+		} else if (current_priority == 4){
 			current_priority = 3;
 		}
 	}
 	
-	/**
-	 * Given an priority it can say if thoose to matches, in order
-	 * to determinate if a course can be taken in this semester
-	 * @param p pirority of a semster
-	 * @return true - it can be taken
-	 * 		   false - it can't
-	 */
 	private boolean matchPriority(int p) {
-		if (current_priority == p || p == 0) return true;
-		
-		if (current_priority == 3 || current_priority == 5) {
-			if(p == 1) return true;
-			else return false;
-		}
-		//p == 4 or 6
-		else {
-			if(p == 2) return true;
-			else return false;
-		}
-		
+		if (current_priority == p) return true;
+		return false;
 	}
 	
 	public ArrayList<Semester> getSemesters() {
 		return semesters;
 	}
-
 	
+
 	public void generateSchedule() throws FileNotFoundException {
 		
 		//Debug info
@@ -99,18 +111,13 @@ class Student {
 			Semester s = new Semester();
 			orderArray(possible);
 			
-			//TODO
+			
 		}
 	}
 	
-	/**
-	 * It ordes an array list in accordane of the priority
-	 * @param c An arraylist of courses
-	 */
 	private void orderArray(ArrayList<Course> c) {
 		//TODO
 	}
-	
 	
 	private void fillCourse(ArrayList<Course> p, map m) {
 		if(m.getIam() == null) return; 
