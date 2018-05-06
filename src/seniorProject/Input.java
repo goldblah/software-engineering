@@ -88,6 +88,7 @@ public class Input {
 				} else if (line.toUpperCase().contains("START")){
 					String[] pieces = line.split(": ");
 					startSemester = pieces[1];
+					//check to see if string contains f or s and even or odd
 				} else if (line.toUpperCase().contains("CURRENT")){
 					String[] pieces = line.split(": ");
 					currentSemester = Integer.parseInt(pieces[1]);

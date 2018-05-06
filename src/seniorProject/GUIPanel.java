@@ -15,8 +15,11 @@ import java.util.ArrayList;
 
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
@@ -37,6 +40,8 @@ public class GUIPanel extends JPanel implements ActionListener{
 	ArrayList<String> majorArray;
 	ArrayList<String> minorArray;
 	ArrayList<String> classesTaken;
+	Output o = new Output();
+	//String[] major = {"Accounting", "Agricultural Business", "Agricultural Education", "Agricultural Sciences", "Animal and Dairy Science: Production and Management", "Animal and Dairy Science: Pre-Vet", "BAAS in Animal Science", "BS in Archaeology", "BA in Archaeology", "Forensic Anthropology", "Graphic Design", "Visual Arts", "Economics and Finance", "BS in Aviation Science", "BAAS in Aviation Science", "Biochemistry " };
 	
 
 	@Override
@@ -86,8 +91,8 @@ public class GUIPanel extends JPanel implements ActionListener{
 		startPanel = startScreen();
 		newUserPanel = newUserScreen();
 		schedulePanel = scheduleScreen();
-		//add(newUserPanel, BorderLayout.SOUTH);
-		add(startPanel, BorderLayout.SOUTH);
+		add(newUserPanel, BorderLayout.SOUTH);
+		//add(startPanel, BorderLayout.SOUTH);
 		//add(schedulePanel, BorderLayout.SOUTH);
 	}
 	
@@ -145,10 +150,15 @@ public class GUIPanel extends JPanel implements ActionListener{
 		newUserP.add(ID);
 		newUserP.add(IDField);
 		
-		JLabel password = new JLabel("Password", SwingConstants.RIGHT);
-		JTextField passwordField = new JTextField(20);
+		JLabel password = new JLabel("Password:", SwingConstants.RIGHT);
+		JPasswordField passwordField = new JPasswordField(20);
 		newUserP.add(password);
 		newUserP.add(passwordField);
+		
+		JLabel verifyPassword = new JLabel("Verify Password:", SwingConstants.RIGHT);
+		JPasswordField verifyPasswordField = new JPasswordField(20);
+		newUserP.add(verifyPassword);
+		newUserP.add(verifyPasswordField);
 		
 		JLabel major = new JLabel ("Major:", SwingConstants.RIGHT);
 		JTextField majorField = new JTextField(20);
@@ -180,16 +190,99 @@ public class GUIPanel extends JPanel implements ActionListener{
 		enter.addActionListener( new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				//send to output class to write file
-				studentName = nameField.getText();
-				user = IDField.getText();
-				userPassword = passwordField.getText();
-				studentStartSemester = startSemesterField.getText();
-				studentCurrentSemester = Integer.parseInt(currentSemesterField.getText().trim());
-				newUser = false;
-				backButton = true;
-				invalidate();
-				revalidate();
-				repaint();
+				userPassword = new String(passwordField.getPassword());
+				String verifyPassword = new String(verifyPasswordField.getPassword());
+				
+				while(nameField.getText().matches(".*\\d+.*") == true || nameField.getText().length() < 2){
+					String tempAnswer = JOptionPane.showInputDialog("Name is not in the correct format,\nplease try again.");
+					nameField.setText(tempAnswer);
+				} while (IDField.getText().matches(".*\\d+.*") == false || IDField.getText().length() != 9){
+					String tempAnswer = JOptionPane.showInputDialog("Id Number is not in the correct format,\nplease try again.");
+					IDField.setText(tempAnswer);
+				} while (majorField.getText().matches("[a-zA-Z]+") == false || majorField.getText().length() < 2){
+					String tempAnswer = JOptionPane.showInputDialog("The major you listed is not in the correct format,\nplease try again.");
+					majorField.setText(tempAnswer);
+				} while (minorField.getText().matches(".*\\d+.*") == true || minorField.getText().length() < 2){
+					String tempAnswer = JOptionPane.showInputDialog("The minor you listed is not in the correct format,\nplease try again.");
+					minorField.setText(tempAnswer);
+				}while (startSemesterField.getText().length() < 4){
+					String tempAnswer = JOptionPane.showInputDialog("The semester you listed is not in the correct format,\nplease try again.");
+					startSemesterField.setText(tempAnswer);
+				}
+				if(!userPassword.equals(verifyPassword)){
+					String errorMessage = "Passwords Do Not Match\n Please Try Again";
+					JOptionPane.showMessageDialog(new JFrame(), errorMessage, "Incorrect Password",
+					        JOptionPane.ERROR_MESSAGE);
+					passwordField.setText("");
+					verifyPasswordField.setText("");
+				} else {
+					//check to make sure all information is the correct character type
+					
+					String confirmMessage = "Does this look correct?\nName: " + nameField.getText() + 
+							"\nUser ID: " + IDField.getText() + "\nSemester you started: " + startSemesterField.getText() +
+							"\nYour current semester number: " + currentSemesterField.getText() + "\nYour major: " + 
+							majorField .getText() + "\nYour minor: " + minorField.getText() + "\nClasses you have already taken: "
+							+ classesField.getText() + "\nIf you select 'No', your responses will be deleted.";
+					int answer = JOptionPane.showConfirmDialog(new JFrame(), confirmMessage, "Confirm",JOptionPane.YES_NO_OPTION);
+					if(JOptionPane.YES_OPTION == answer){
+						studentName = nameField.getText();
+						user = IDField.getText();
+						studentStartSemester = startSemesterField.getText();
+						if (!currentSemesterField.getText().equals("")) {
+							studentCurrentSemester = Integer.parseInt(currentSemesterField.getText().trim());
+						}
+						
+						//get courses entered by user
+						String temp = classesField.getText();
+						if(temp.contains(", ")){
+							String[] pieces = temp.split(", ");
+							for (String s: pieces){
+								classesTaken.add(s);
+							}
+						} else {
+							classesTaken.add(temp);
+						}
+						
+						//get student major
+						temp = majorField.getText();
+						if(temp.contains(", ")){
+							String[] pieces = temp.split(", ");
+							for (String s: pieces){
+								majorArray.add(s);
+							}
+						} else {
+							majorArray.add(temp);
+						}
+						
+						//get student minor
+						temp = minorField.getText();
+						if(temp.contains(", ")){
+							String[] pieces = temp.split(", ");
+							for (String s: pieces){
+								minorArray.add(s);
+							}
+						} else {
+							minorArray.add(temp);
+						}
+						
+						newUser = false;
+						correctPassword = true;
+						invalidate();
+						revalidate();
+						repaint();
+					} else {
+						nameField.setText("");
+						IDField.setText("");
+						startSemesterField.setText("");
+						currentSemesterField.setText("");
+						minorField.setText("");
+						majorField.setText("");
+						classesField.setText("");
+						verifyPasswordField.setText("");
+						passwordField.setText("");
+					}
+					
+				}
 			}
 		});
 		
@@ -201,6 +294,7 @@ public class GUIPanel extends JPanel implements ActionListener{
 				nameField.setText("");
 				IDField.setText("");
 				passwordField.setText("");
+				verifyPasswordField.setText("");
 				majorField.setText("");
 				minorField.setText("");
 				startSemesterField.setText("");
@@ -222,10 +316,13 @@ public class GUIPanel extends JPanel implements ActionListener{
 	private JPanel startScreen(){
 		JPanel temp = new JPanel();
 		temp.setPreferredSize(new Dimension(800,200));
+		
 		JLabel username = new JLabel("Username:");
 		JTextField user = new JTextField(20);
+		
 		JLabel password = new JLabel ("Password:");
-		JTextField pass = new JTextField(20);
+		JPasswordField pass = new JPasswordField(20);
+		
 		temp.add(username);
 		temp.add(user);
 		temp.add(password);
@@ -238,7 +335,7 @@ public class GUIPanel extends JPanel implements ActionListener{
 				user.setEditable(false);
 				pass.setEditable(false);
 				String givenUserName = user.getText();
-				String givenPassword = pass.getText();
+				String givenPassword = new String(pass.getPassword());
 				String actualPassword = null;
 				try {
 					actualPassword = Input.getPassword(givenUserName);
@@ -250,9 +347,21 @@ public class GUIPanel extends JPanel implements ActionListener{
 				}
 
 				if(correctPassword){
+					pass.setText("");
+					user.setText("");
+					user.setEditable(true);
+					pass.setEditable(true);
 					invalidate();
 					revalidate();
 					repaint();
+				} else {
+					String errorMessage = "Username or Password is Incorrect\n Please Try Again\n";
+					JOptionPane.showMessageDialog(new JFrame(), errorMessage, "Dialog",
+					        JOptionPane.ERROR_MESSAGE);
+					pass.setText("");
+					user.setText("");
+					user.setEditable(true);
+					pass.setEditable(true);
 				}
 			}
 		});

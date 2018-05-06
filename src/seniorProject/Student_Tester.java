@@ -23,11 +23,9 @@ public class Student_Tester {
 		s.setCompletionStatus();
 		s.findClassesWPrereqs();
 
-<<<<<<< HEAD
-=======
+
 		System.out.println("----  START  ----");
 		
->>>>>>> branch 'master' of https://github.com/goldblah/software-engineering
 		/*for (Course c: s.majorCourses){
 			System.out.println(c.getName());
 			System.out.println(c.getCH());
@@ -35,14 +33,12 @@ public class Student_Tester {
 			System.out.println(c.getStatus());
 			System.out.println(c.getGrade());
 			System.out.println();
-<<<<<<< HEAD
+
 		}*/
-=======
-		}
-		*/
+
 		s.generateMap();
 		s.m.toPrint();
->>>>>>> branch 'master' of https://github.com/goldblah/software-engineering
+
 	}
 	
 
