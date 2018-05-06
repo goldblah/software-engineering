@@ -37,7 +37,7 @@ class Student {
 	 * to determinate if a course can be taken in this semester
 	 * @param p pirority of a semster
 	 * @return true - it can be taken
-	 * 		   fals - it can't
+	 * 		   false - it can't
 	 */
 	private boolean matchPriority(int p) {
 		//TODO
@@ -47,8 +47,8 @@ class Student {
 	public ArrayList<Semester> getSemesters() {
 		return semesters;
 	}
-	
 
+	
 	public void generateSchedule() throws FileNotFoundException {
 		
 		//Debug info
@@ -81,7 +81,7 @@ class Student {
 			Semester s = new Semester();
 			orderArray(possible);
 			
-			
+			//TODO
 		}
 	}
 	
@@ -92,6 +92,7 @@ class Student {
 	private void orderArray(ArrayList<Course> c) {
 		//TODO
 	}
+	
 	
 	private void fillCourse(ArrayList<Course> p, map m) {
 		if(m.getIam() == null) return; 
