@@ -48,6 +48,7 @@ public class map {
 		}
 		return ret;
 	}
+	
 	//Search if a course is in Iam
 	public map search(Course c) {
 		map ret = null;
@@ -103,6 +104,37 @@ public class map {
 				m.toPrint();
 		}
 
+	}
+	
+	public boolean canTake() {
+		boolean take = true;
+		
+		//Probably not necesarry:
+		//if (subject.getEitherOr()) {
+		//	return eitherCanTake();
+		//}
+		
+		//Is the root, not valid
+		if (subject == null) {
+			return false;
+		}
+		
+		for(map m: prerequisites) {
+			Course c = m.getCourse();
+			
+			//No prerequiste
+			if(c == null) {
+				return true;
+			}
+			
+			int stat = c.getStatus();
+			
+			if (stat == 0 || stat == 3) {
+				return false;
+			}
+		}
+		
+		return take;
 	}
 
 	//Add a course to the Iam

@@ -17,13 +17,25 @@ class Student {
 	ArrayList<Course> coursesWOPrereqs;//classes without prereqs
 	ArrayList<Course> moreCourses = new ArrayList<Course>();
 	
+	final int LIMIT_CREDIT_HOURS = 15;
+	int current_priority = 0;
+	
 	public static int count = 0; //Debug info
 	
 	map m = new map(); //Map of the courses
 	
 	Input i = new Input("input.txt");
 	
-	boolean debugMode = false; //Change to false after release!!!
+	boolean debugMode = false; //Change to false after release
+	
+	private void addToCurrentPriority() {
+		//TODO
+	}
+	
+	private boolean matchPriority(int p) {
+		//TODO
+		return false;
+	}
 	
 	public ArrayList<Semester> getSemesters() {
 		return semesters;
@@ -46,13 +58,54 @@ class Student {
 		
 		generateMap();
 		
-		while(true) {
+		boolean repete = true;
+		
+		while(repete) {
 			//Get coruses from inside out
 			//If the course is already taken, go to that course and get the Iam
 			//Put all possilbe courses to a temp arraylist
 			//Fill a semester with those courses
 			//Change all those courses as completed
 			//Repete until there are no more courses to add
+			
+			ArrayList<Course> possible = new ArrayList<Course>();
+			int credit = 0;
+			fillCourse(possible, m);
+			Semester s = new Semester();
+			orderArray(possible);
+			
+			
+		}
+	}
+	
+	private void orderArray(ArrayList<Course> c) {
+		//TODO
+	}
+	
+	private void fillCourse(ArrayList<Course> p, map m) {
+		if(m.getIam() == null) return; 
+		
+		for(Course c: m.getIam()) {
+			int stat = m.getCourse().getStatus();
+			
+			//Class not taken
+			if( (stat == 0) || (stat == 3) ) {
+				
+				//Make sure prereq are completed
+				if(m.search(c).canTake()) {
+					int prio = m.getCourse().getPriority();
+					
+					//Can take this semester
+					if(matchPriority(prio)) {
+						p.add(c);
+					}
+				}
+				
+			}
+			//Course taken, check the Iam
+			else {
+				fillCourse(p, m.search(c));
+			}
 		}
 	}
 
