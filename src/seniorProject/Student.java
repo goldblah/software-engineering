@@ -21,11 +21,8 @@ class Student {
 	int current_priority = 0;
 	
 	public static int count = 0; //Debug info
-	
 	map m = new map(); //Map of the courses
-	
 	Input i = new Input("input.txt");
-	
 	boolean debugMode = false; //Change to false after release
 	
 	private void addToCurrentPriority() {
