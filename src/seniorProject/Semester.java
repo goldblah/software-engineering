@@ -15,6 +15,12 @@ public class Semester {
 		nameSemester = n;
 	}
 	
+	public void toPrint() {
+		for(Course c: course) {
+			System.out.println(c.getName());
+		}
+	}
+	
 	public int getSemesterNum(){
 		return semesterNum;
 	}

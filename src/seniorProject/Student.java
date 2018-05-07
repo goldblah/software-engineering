@@ -35,6 +35,12 @@ class Student {
 	//Input i = new Input("input.txt");
 	boolean debugMode = false; //Change to false after release
 
+	public void toPrint() {
+		for(Semester s: semesters) {
+			System.out.println("------");
+			s.toPrint();
+		}
+	}
 	
 	public void setCurrentPriority() {
 		Pattern p = Pattern.compile("[A-Z]+|\\d+");
