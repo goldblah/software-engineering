@@ -40,6 +40,23 @@ public class map {
 		return ret;
 	}
 
+	public boolean done() {
+		//If im not the root
+		if(subject != null) {
+			if (subject.getStatus() != 2) return false;
+		}
+		else if(Iam.isEmpty()) return true;
+		
+		for(map c: Iam) {
+			if(c.done() == false) {
+				return false;
+			}
+		}
+		
+		return true;
+		
+	}
+	
 	//Get list of Iam
 	public ArrayList<Course> getIam() {
 		ArrayList<Course> ret = new ArrayList<Course>();
