@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 
 class Student {
 	private String studentIdNum;
-	private ArrayList<Semester> semesters;
+	private ArrayList<Semester> semesters = new ArrayList<Semester>();
 	ArrayList<String> major;//major(s) the student has
 	ArrayList<String> minor;//minor(s) the student has
 	String startSemester;//when the student started at the university
@@ -19,18 +19,15 @@ class Student {
 	ArrayList<Course> coursesWOPrereqs;//classes without prereqs
 	ArrayList<Course> moreCourses = new ArrayList<Course>();
 	
-	final int LIMIT_CREDIT_HOURS = 15;
+	final int LIMIT_CREDIT_HOURS = 12;
 	int current_priority = 0;
 	
 	public static int count = 0; //Debug info
-	
 	map m = new map(); //Map of the courses
-	
 	Input i = new Input("input.txt");
-	
 	boolean debugMode = false; //Change to false after release
 	
-	public void setCurrentPriority(){
+	public void setCurrentPriority() {
 		Pattern p = Pattern.compile("[A-Z]+|\\d+");
 		Matcher m = p.matcher(startSemester);
 		ArrayList<String> allMatches = new ArrayList<>();
@@ -57,28 +54,47 @@ class Student {
 		
 	}
 	
+	/**
+	 * Change semester and represent it to te variable current_priority
+	 */
 	private void addToCurrentPriority() {
-		if(current_priority == 3){
+		if(current_priority == 3) {
 			current_priority = 6;
-		} else if (current_priority == 6){
+		} else if (current_priority == 6) {
 			current_priority = 5;
-		} else if (current_priority == 5){
+		} else if (current_priority == 5) {
 			current_priority = 4;
-		} else if (current_priority == 4){
+		} else if (current_priority == 4) {
 			current_priority = 3;
 		}
 	}
 	
+	/**
+	 * Given an priority it can say if thoose to matches, in order
+	 * to determinate if a course can be taken in this semester
+	 * @param p pirority of a semster
+	 * @return true - it can be taken
+	 * 		   false - it can't
+	 */
 	private boolean matchPriority(int p) {
-		if (current_priority == p) return true;
-		return false;
+		if (current_priority == p || p == 0) return true;
+		
+		if (current_priority == 3 || current_priority == 5) {
+			if(p == 1) return true;
+			else return false;
+		}
+		//p == 4 or 6
+		else {
+			if(p == 2) return true;
+			else return false;
+		}
 	}
 	
 	public ArrayList<Semester> getSemesters() {
 		return semesters;
 	}
-	
 
+	
 	public void generateSchedule() throws FileNotFoundException {
 		
 		//Debug info
@@ -97,6 +113,9 @@ class Student {
 		
 		boolean repete = true;
 		
+		setCurrentPriority();
+		System.out.println(current_priority);
+		
 		while(repete) {
 			//Get coruses from inside out
 			//If the course is already taken, go to that course and get the Iam
@@ -108,29 +127,55 @@ class Student {
 			ArrayList<Course> possible = new ArrayList<Course>();
 			int credit = 0;
 			fillCourse(possible, m);
+			
+			if(m.done()) {
+				repete = false;
+				break;
+			}
+			
 			Semester s = new Semester();
 			orderArray(possible);
-			
-			
+			while (credit < LIMIT_CREDIT_HOURS && !possible.isEmpty()) {
+				Course c = possible.get(0);
+				c.setStatus(2); //Passed
+				s.addCourses(possible.get(0));
+				possible.remove(0);
+			}
+			System.out.println("------------");
+			semesters.add(s);
+			addToCurrentPriority();
+		}
+		
+		//Testting 359
+		Course t = helperSearch("CS461");
+		ArrayList<Course> c = m.search(t).getPreq();
+		
+		for(Course l: c) {
+			System.out.println(l.getName());
 		}
 	}
 	
+	/**
+	 * It ordes an array list in accordane of the priority
+	 * @param c An arraylist of courses
+	 */
 	private void orderArray(ArrayList<Course> c) {
 		//TODO
 	}
+	
 	
 	private void fillCourse(ArrayList<Course> p, map m) {
 		if(m.getIam() == null) return; 
 		
 		for(Course c: m.getIam()) {
-			int stat = m.getCourse().getStatus();
+			int stat = c.getStatus();
 			
 			//Class not taken
-			if( (stat == 0) || (stat == 3) ) {
+			if( stat != 2 ) {
 				
 				//Make sure prereq are completed
 				if(m.search(c).canTake()) {
-					int prio = m.getCourse().getPriority();
+					int prio = c.getPriority();
 					
 					//Can take this semester
 					if(matchPriority(prio)) {
