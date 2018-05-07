@@ -24,7 +24,7 @@ public class Semester {
 	}
 	
 	public void addCourses(Course c){
-		System.out.println("Adding " + c.getName());
+		//System.out.println("Adding " + c.getName() + " " + c.getPriority());
 		course.add(c);
 	}
 	
