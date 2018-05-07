@@ -40,6 +40,28 @@ public class map {
 		return ret;
 	}
 
+	//Returns if all courses have been taken
+	public boolean done() {
+		//If im not the root
+		if(subject != null) {
+			//If its diferent from 2, then it measn that it hasnt been taken
+			if (subject.getStatus() != 2) return false;
+		}
+		//No more connections and course taken
+		else if(Iam.isEmpty()) return true;
+		
+		//For each conection, search if there is a false in done()
+		for(map c: Iam) {
+			if(c.done() == false) {
+				return false;
+			}
+		}
+		
+		//Everything ok, return true
+		return true;
+		
+	}
+	
 	//Get list of Iam
 	public ArrayList<Course> getIam() {
 		ArrayList<Course> ret = new ArrayList<Course>();
@@ -48,6 +70,7 @@ public class map {
 		}
 		return ret;
 	}
+	
 	//Search if a course is in Iam
 	public map search(Course c) {
 		map ret = null;
@@ -83,6 +106,7 @@ public class map {
 
 	}
 
+	//Prints all the conections
 	public void toPrint() {
 		if(subject != null)
 			System.out.print(subject.getName());
@@ -103,6 +127,36 @@ public class map {
 				m.toPrint();
 		}
 
+	}
+	
+	
+	//Returns if a course can take
+	//Aka, al prerequisites are met
+	public boolean canTake() {
+		boolean take = true;
+
+		//Is the root, not valid
+		if (subject == null) {
+			return false;
+		}
+		
+		//For each prereq
+		for(map m: prerequisites) {
+			Course c = m.getCourse(); //Get course
+			
+			//No prerequiste
+			if(c == null) {
+				return true;
+			}
+			
+			//Get status and check
+			int stat = c.getStatus();
+			if (stat == 0 || stat == 3) {
+				return false;
+			}
+		}
+		
+		return take;
 	}
 
 	//Add a course to the Iam

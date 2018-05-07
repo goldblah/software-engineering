@@ -35,7 +35,7 @@ public class Student_Tester {
 			System.out.println();
 		}*/
 		
-		s.generateMap();
+		//s.generateMap();
 		s.m.toPrint();
 	}
 	
