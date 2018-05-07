@@ -27,7 +27,7 @@ public class Output {
 		
 		out.println("NAME: " + name);
 		out.println("ID: "+ID);
-		out.println("Password: "+password);
+		out.println("PASSWORD: "+password);
 		out.print("MAJOR: ");
 		
 		for(String m: major){
