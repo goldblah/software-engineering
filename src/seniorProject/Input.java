@@ -35,7 +35,6 @@ public class Input {
 		getStudentInfo();
 		getMajorClassInfo();
 		getGenEdInfo();
-		System.out.println("Got Student Info!");
 	}
 	
 	public Input(){
@@ -49,7 +48,6 @@ public class Input {
 	 * @author hayleygoldblatt
 	 */
 	public void getStudentInfo() throws FileNotFoundException{
-		System.out.println("Inside getStudentInfo!");
 		String line = null;
 		classesTaken = new ArrayList<>();
 		major = new ArrayList<String>();
@@ -109,7 +107,9 @@ public class Input {
 							System.out.println(s);
 						}
 						Course temp = getClassInfo(pieces[0]);
-						temp.setGrade(pieces[1]);
+						if(!(pieces[1].equals(null))){
+							temp.setGrade(pieces[1]);
+						}
 						classesTaken.add(temp);
 						
 					}
@@ -219,7 +219,6 @@ public class Input {
 	 * @author hayleygoldblatt
 	 */
 	public void getMajorClassInfo() throws FileNotFoundException{
-		System.out.println("Inside getMajorClassInfo!");
 		majorCourses = new ArrayList<>();
 		String line = null;
 
@@ -254,7 +253,6 @@ public class Input {
 	 * @throws FileNotFoundException
 	 */
 	public void getGenEdInfo() throws FileNotFoundException{
-		System.out.println("Inside getGenEdInfo!");
 		genEdCourses = new ArrayList<>();
 		filename = "gen_ed.txt";
 		String line = null;

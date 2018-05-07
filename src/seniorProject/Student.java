@@ -350,6 +350,7 @@ class Student {
 		for (Course c: classesTaken){
 			for(Course b: majorCourses){
 				if(c.getName().equalsIgnoreCase(b.getName())){
+					
 					if (!c.getGrade().equalsIgnoreCase("D") && !c.getGrade().equalsIgnoreCase("F")){
 						b.setStatus(2);
 						//add grade to course

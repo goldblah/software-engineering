@@ -1,6 +1,6 @@
 NAME: Jane Doe
 ID: 123456789
-Password: changeme
+PASSWORD: changeme
 MAJOR: MATH 
 MINOR: N/A 
 START: Fall2017

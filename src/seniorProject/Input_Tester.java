@@ -8,8 +8,7 @@ public class Input_Tester {
 		// TODO Auto-generated method stub
 
 		Input i = new Input();
-		i.retrieveInput("Input.txt");
-		i.retrieveInput("234567890.txt");
+		
 		/*for (Course c: i.classesTaken){
 
 

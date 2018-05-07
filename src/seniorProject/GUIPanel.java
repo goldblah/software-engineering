@@ -108,6 +108,7 @@ public class GUIPanel extends JPanel implements ActionListener{
 		correctPassword = false;
 		newUser = false;
 		backButton = false;
+		addNewClass = false;
 		setPreferredSize(new Dimension(800,625));
 		setLayout(new BorderLayout());
 		startPanel = startScreen();
@@ -245,7 +246,6 @@ public class GUIPanel extends JPanel implements ActionListener{
 		JLabel name = new JLabel("Name:", SwingConstants.RIGHT);
 		JTextField nameField = new JTextField();
 		nameField.setPreferredSize(new Dimension(100, 20));
-		//nameField.setBounds(40,40,200,40);
 		newUserP.add(name);
 		newUserP.add(nameField);
 
@@ -349,11 +349,9 @@ public class GUIPanel extends JPanel implements ActionListener{
 
 						//get courses entered by user
 						String temp = classesField.getText();
-						System.out.println(temp);
 						if(temp.contains(", ")){
 							String[] pieces = temp.split(", ");
 							for (String s: pieces){
-								System.out.println(s);
 								classesTaken.add(s);
 							}
 						} else {
