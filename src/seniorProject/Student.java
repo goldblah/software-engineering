@@ -585,7 +585,13 @@ class Student {
 	}
 	
 	public void retrieveInput(String givenUser) throws FileNotFoundException{
-		String file = givenUser + ".txt";
+		
+		if(!givenUser.contains(".txt")){
+			String file = givenUser + ".txt";
+		} else {
+			String file = givenUser;
+		}
+		
 		i.retrieveInput(givenUser);
 		this.startSemester = i.startSemester;
 		this.currentSemester = i.currentSemester;

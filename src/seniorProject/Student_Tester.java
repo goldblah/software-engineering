@@ -21,8 +21,8 @@ public class Student_Tester {
 		Student s = new Student();
 		
 		//runs the following methods to determine if they run fine
-		s.setCompletionStatus();
-		s.findClassesWPrereqs();
+		//s.setCompletionStatus();
+		//s.findClassesWPrereqs();
 
 		System.out.println("----  START  ----");
 		
@@ -35,8 +35,10 @@ public class Student_Tester {
 			System.out.println();
 		}*/
 		
+		s.retrieveInput("Input.txt");
+		s.generateSchedule();
 		//s.generateMap();
-		s.m.toPrint();
+		//s.m.toPrint();
 	}
 	
 }
