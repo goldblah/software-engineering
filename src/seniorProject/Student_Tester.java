@@ -38,7 +38,8 @@ public class Student_Tester {
 		s.retrieveInput("Input.txt");
 		s.generateSchedule();
 		//s.generateMap();
-		s.m.toPrint();
+		//s.m.toPrint();
+		s.toPrint();
 	}
 	
 }
