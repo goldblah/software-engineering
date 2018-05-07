@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Semester {
 	private String nameSemester;
 	private int semesterNum;
-	private ArrayList<Course> course;
+	private ArrayList<Course> course = new ArrayList<Course>();
 	
 	public String getSemester(){
 		return nameSemester;
@@ -24,6 +24,7 @@ public class Semester {
 	}
 	
 	public void addCourses(Course c){
+		System.out.println("Adding " + c.getName());
 		course.add(c);
 	}
 	
