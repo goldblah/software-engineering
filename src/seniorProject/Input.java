@@ -102,16 +102,15 @@ public class Input {
 					currentSemester = Integer.parseInt(pieces[1]);
 				} else{
 					while((line = br.readLine()) != null){
-						String[] pieces = line.split(" ");
-						for(String s: pieces){
-							System.out.println(s);
+						if(line.equals(" ")){
+							String[] pieces = line.split(" ");
+							Course temp = getClassInfo(pieces[0]);
+							if(!(pieces[1].equals(null))){
+								temp.setGrade(pieces[1]);
+							}
+							classesTaken.add(temp);
 						}
-						Course temp = getClassInfo(pieces[0]);
-						if(!(pieces[1].equals(null))){
-							temp.setGrade(pieces[1]);
-						}
-						classesTaken.add(temp);
-						
+		
 					}
 				}
 
@@ -407,7 +406,8 @@ public class Input {
 								temp.add(s);
 							}
 						}
-						
+						System.out.println(temp);
+						System.out.println(temp.size());
 						for (String s: temp){
 							if (s.contains("CE") && s.contains("OR")){
 								pieces = s.split(": ");
@@ -424,6 +424,22 @@ public class Input {
 										}
 									}
 								}
+							} else if (s.contains("CE") && s.contains(", ")){
+								pieces = s.split(": ");
+								for(String g: pieces){
+									if(!g.contains("CE")){
+										if(g.contains(", ")){
+											String[] pieces1 = g.split(", ");
+											for(String i: pieces1){
+												c.setPrereq(i);
+												c.setCE(true);
+											}
+										} else {
+											c.setPrereq(g);
+											c.setCE(true);
+										}
+									}
+								}
 							} else if(s.contains(", ") && !s.equals(" ")){
 								pieces = s.split(", ");
 								for(String d: pieces){
@@ -431,17 +447,6 @@ public class Input {
 									c.setPrereq(d);
 								}
 								//break;
-							} else if (s.contains("CE")){
-								pieces = s.split(": ");
-								for(String g: pieces){
-									if(!g.contains("CE")){
-										//Course temporary = getClassInfo(g);
-										//temporary.setCE(true);
-										//c.setPrereq(temporary);
-										c.setPrereq(g);
-										c.setCE(true);
-									}
-								}
 							} else if(s.contains(" OR ") && !s.equals(" ")){
 								pieces = s.split(" OR ");
 								for(String d: pieces){
@@ -477,6 +482,9 @@ public class Input {
 						}	
 					}
 				}
+				/*for(String s: c.getPrereqs()){
+					System.out.println(s);
+				}*/
 				c.setStatus(0);
 			}
 		}
