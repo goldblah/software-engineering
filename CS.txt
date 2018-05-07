@@ -60,7 +60,7 @@ Even S
 
 CS461
 3 
-EET340; CE: CS357
+CE: CS357, EET340
 Odd S 
 
 CS468 

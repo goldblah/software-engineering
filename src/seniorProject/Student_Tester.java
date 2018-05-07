@@ -1,6 +1,7 @@
 package seniorProject;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class Student_Tester {
 	
@@ -15,7 +16,7 @@ public class Student_Tester {
 		else System.out.println("OK!");
 	}
 
-	public static void main(String[] args) throws FileNotFoundException {
+	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		Student s = new Student();
 		

@@ -7,8 +7,8 @@ public class Input_Tester {
 	public static void main(String[] args) throws FileNotFoundException {
 		// TODO Auto-generated method stub
 
-		Input i = new Input("Input.txt");
-		
+		Input i = new Input();
+		i.retrieveInput("Input.txt");
 		/*for (Course c: i.classesTaken){
 
 

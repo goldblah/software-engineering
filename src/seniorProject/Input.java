@@ -24,16 +24,24 @@ public class Input {
 	private int numClasses;//number of optional courses required for the major
 	ArrayList<Course> genEdCourses;
 
-	/**
-	 * Constructor
-	 * @param fileName
-	 * @throws FileNotFoundException 
-	 */
-	public Input(String fileName) throws FileNotFoundException{
-		filename = fileName;
+
+	public void retrieveInput(String fileName) throws FileNotFoundException{
+		if(!fileName.contains(".txt")){
+			System.out.println("Inside");
+			filename = fileName + ".txt";
+		} else {
+			filename = fileName;
+		}
+		
+		System.out.println(filename);
 		getStudentInfo();
 		getMajorClassInfo();
 		getGenEdInfo();
+		System.out.println("Got Student Info!");
+	}
+	
+	public Input(){
+		//blank constructor
 	}
 
 	/**
@@ -63,7 +71,7 @@ public class Input {
 					if(pieces[1].length() == 9){
 						idNum = pieces[1].trim();
 					} else{
-						System.out.println("Incorrect ID number, please resubmit your input file");
+						//System.out.println("Incorrect ID number, please resubmit your input file");
 					}
 				} else if(line.toUpperCase().contains("MAJOR")){
 					String[] pieces = line.split(": ");
@@ -479,11 +487,10 @@ public class Input {
 	}
 	
 	public static String getPassword(String givenUser) throws IOException{
-		String tempFileName = givenUser + ".txt";
 		FileReader fr;
 		String line = null;
 		try {
-			fr = new FileReader(tempFileName);
+			fr = new FileReader(givenUser);
 			BufferedReader br = new BufferedReader(fr);
 			while((line = br.readLine()) != null) {
 				if(line.contains("Password")){
