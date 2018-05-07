@@ -24,16 +24,21 @@ public class Input {
 	private int numClasses;//number of optional courses required for the major
 	ArrayList<Course> genEdCourses;
 
-	/**
-	 * Constructor
-	 * @param fileName
-	 * @throws FileNotFoundException 
-	 */
-	public Input(String fileName) throws FileNotFoundException{
-		filename = fileName;
+
+	public void retrieveInput(String fileName) throws FileNotFoundException{
+		if(!fileName.contains(".txt")){
+			filename = fileName + ".txt";
+		} else {
+			filename = fileName;
+		}
+		
 		getStudentInfo();
 		getMajorClassInfo();
 		getGenEdInfo();
+	}
+	
+	public Input(){
+		//blank constructor
 	}
 
 	/**
@@ -63,9 +68,12 @@ public class Input {
 					if(pieces[1].length() == 9){
 						idNum = pieces[1].trim();
 					} else{
-						System.out.println("Incorrect ID number, please resubmit your input file");
+						//System.out.println("Incorrect ID number, please resubmit your input file");
 					}
-				} else if(line.toUpperCase().contains("MAJOR")){
+				} else if(line.toUpperCase().contains("PASSWORD")){
+					//ignore
+				}
+				else if(line.toUpperCase().contains("MAJOR")){
 					String[] pieces = line.split(": ");
 					if(pieces[1].contains(" ")){
 						pieces = pieces[1].split(" ");
@@ -88,14 +96,20 @@ public class Input {
 				} else if (line.toUpperCase().contains("START")){
 					String[] pieces = line.split(": ");
 					startSemester = pieces[1];
+					//check to see if string contains f or s and even or odd
 				} else if (line.toUpperCase().contains("CURRENT")){
 					String[] pieces = line.split(": ");
 					currentSemester = Integer.parseInt(pieces[1]);
 				} else{
 					while((line = br.readLine()) != null){
 						String[] pieces = line.split(" ");
+						for(String s: pieces){
+							System.out.println(s);
+						}
 						Course temp = getClassInfo(pieces[0]);
-						temp.setGrade(pieces[1]);
+						if(!(pieces[1].equals(null))){
+							temp.setGrade(pieces[1]);
+						}
 						classesTaken.add(temp);
 						
 					}
@@ -478,11 +492,10 @@ public class Input {
 	}
 	
 	public static String getPassword(String givenUser) throws IOException{
-		String tempFileName = givenUser + ".txt";
 		FileReader fr;
 		String line = null;
 		try {
-			fr = new FileReader(tempFileName);
+			fr = new FileReader(givenUser);
 			BufferedReader br = new BufferedReader(fr);
 			while((line = br.readLine()) != null) {
 				if(line.contains("Password")){

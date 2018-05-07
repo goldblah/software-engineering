@@ -1,11 +1,11 @@
-Name: Hayley Goldblatt
+NAME: Hayley Goldblatt
 ID: 11111111
 Password: changeme123
-Major: CS
-Minor: 
-Start: FALL2015
-Current: 6
-Classes:
+MAJOR: CS
+MINOR: N/A
+START: FALL2015
+CURRENT: 6
+CLASSES:
 CS102 A
 CS123 A
 CS234 A

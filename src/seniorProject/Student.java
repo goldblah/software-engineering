@@ -1,6 +1,7 @@
 package seniorProject;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -22,14 +23,18 @@ class Student {
 	ArrayList<Course> coursesWPrereqs;//classes with prereqs
 	ArrayList<Course> coursesWOPrereqs;//classes without prereqs
 	ArrayList<Course> moreCourses = new ArrayList<Course>();
+	private Output o;
+	private Input i;
 	
 	final int LIMIT_CREDIT_HOURS = 13;
 	int current_priority = 0;
 	
 	public static int count = 0; //Debug info
 	map m = new map(); //Map of the courses
+
 	Input i = new Input("input.txt");
 	boolean debugMode = false; //Change to false after release
+
 	
 	public void setCurrentPriority() {
 		Pattern p = Pattern.compile("[A-Z]+|\\d+");
@@ -533,6 +538,7 @@ class Student {
 		for (Course c: classesTaken){
 			for(Course b: majorCourses){
 				if(c.getName().equalsIgnoreCase(b.getName())){
+					
 					if (!c.getGrade().equalsIgnoreCase("D") && !c.getGrade().equalsIgnoreCase("F")){
 						b.setStatus(2);
 						//add grade to course
@@ -567,9 +573,20 @@ class Student {
 			}
 		}
 	}
-
-	public Student() throws FileNotFoundException{
-		Input i = new Input("Input.txt");
+	
+	public void writeNewStudent(String name, String ID, String password, 
+			ArrayList<String> major, ArrayList<String> minor, String startSemester, int currentSemester,
+			ArrayList<String> classes) throws IOException{
+		o.createNewUserFile(name, ID, password, major, minor, startSemester, currentSemester,classes);
+	}
+	
+	public String getPassword(String givenUser) throws IOException{
+		return i.getPassword(givenUser);
+	}
+	
+	public void retrieveInput(String givenUser) throws FileNotFoundException{
+		String file = givenUser + ".txt";
+		i.retrieveInput(givenUser);
 		this.startSemester = i.startSemester;
 		this.currentSemester = i.currentSemester;
 		this.classesTaken = i.classesTaken;
@@ -579,5 +596,10 @@ class Student {
 		this.minor = i.minor;
 		coursesWPrereqs = new ArrayList<>();
 		coursesWOPrereqs = new ArrayList<>();
+	}
+
+	public Student() throws FileNotFoundException, IOException{
+		i = new Input();
+		o = new Output();
 	}
 }
