@@ -2,6 +2,10 @@ package seniorProject;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -19,7 +23,7 @@ class Student {
 	ArrayList<Course> coursesWOPrereqs;//classes without prereqs
 	ArrayList<Course> moreCourses = new ArrayList<Course>();
 	
-	final int LIMIT_CREDIT_HOURS = 12;
+	final int LIMIT_CREDIT_HOURS = 13;
 	int current_priority = 0;
 	
 	public static int count = 0; //Debug info
@@ -77,13 +81,15 @@ class Student {
 	 * 		   false - it can't
 	 */
 	private boolean matchPriority(int p) {
+		//The same or the course can be taken in each semester
 		if (current_priority == p || p == 0) return true;
 		
+		//Match F
 		if (current_priority == 3 || current_priority == 5) {
 			if(p == 1) return true;
 			else return false;
 		}
-		//p == 4 or 6
+		//p == 4 or 6: Match S
 		else {
 			if(p == 2) return true;
 			else return false;
@@ -109,13 +115,14 @@ class Student {
 		//generate the base map for the schedule
 		//traverse the map to generate the schedule, store the courses in semester containers based on which semester they will occur in
 		
-		generateMap();
-		
-		boolean repete = true;
-		
 		setCurrentPriority();
-		System.out.println(current_priority);
 		
+		
+		generateMap();		
+		
+		//Creates and adds coruses to the semesters until 
+		// all courses are generated
+		boolean repete = true;		
 		while(repete) {
 			//Get coruses from inside out
 			//If the course is already taken, go to that course and get the Iam
@@ -124,34 +131,48 @@ class Student {
 			//Change all those courses as completed
 			//Repete until there are no more courses to add
 			
-			ArrayList<Course> possible = new ArrayList<Course>();
-			int credit = 0;
-			fillCourse(possible, m);
+			int credit = 0; //Keeps track in the credit hours of the semester
+
+			ArrayList<Course> possible = new ArrayList<Course>(); //Possible courses to take in current semester
+			fillCourse(possible, m); //Get possible courses
 			
+			//Check if all courses are taken
 			if(m.done()) {
 				repete = false;
 				break;
 			}
 			
+			//Generates new semester, eleiminates duplicates in the possibles courses
+			// and orders it by its priority
 			Semester s = new Semester();
+			eliminateDuplicates(possible);
 			orderArray(possible);
+			
+			//Keep adding courses until there are no more or credit hours are reached
 			while (credit < LIMIT_CREDIT_HOURS && !possible.isEmpty()) {
-				Course c = possible.get(0);
+				Course c = possible.get(0); //Get first course
 				c.setStatus(2); //Passed
-				s.addCourses(possible.get(0));
-				possible.remove(0);
+				s.addCourses(possible.get(0)); //Add to the semester
+				possible.remove(0); //Remove the course
+				
+				//Update credit hours
+				int add;
+				
+				//Try to get the CE, if an error occured then set to 1
+				try {
+					add = Integer.parseInt(c.getCH());
+				}
+				catch (Exception e) {
+					add = 1;
+				}
+				
+				//Add the CE
+				credit += add;
 			}
-			System.out.println("------------");
+			
+			//Add the semester and change the station
 			semesters.add(s);
 			addToCurrentPriority();
-		}
-		
-		//Testting 359
-		Course t = helperSearch("CS461");
-		ArrayList<Course> c = m.search(t).getPreq();
-		
-		for(Course l: c) {
-			System.out.println(l.getName());
 		}
 	}
 	
@@ -160,13 +181,30 @@ class Student {
 	 * @param c An arraylist of courses
 	 */
 	private void orderArray(ArrayList<Course> c) {
-		//TODO
+		Collections.sort(c, Comparator.comparingInt(Course::getPriority).reversed());
 	}
 	
+	/**
+	 * Eliminates all duplicates in an array list, leaving just one
+	 * @param c coruse arraylist
+	 */
+	private void eliminateDuplicates(ArrayList<Course> c) {
+		//Use hash to eliminate duplicates
+		Set<Course> hs = new HashSet<>();
+		hs.addAll(c);
+		c.clear();
+		c.addAll(hs);
+	}
 	
+	/**
+	 * Gets all possible courses to take in current semester
+	 * @param p where to place the courses
+	 * @param m map on where to star looking
+	 */
 	private void fillCourse(ArrayList<Course> p, map m) {
-		if(m.getIam() == null) return; 
+		if(m.getIam() == null) return; //Leaf, doesn't have Iam
 		
+		//For each Iam
 		for(Course c: m.getIam()) {
 			int stat = c.getStatus();
 			
@@ -180,6 +218,13 @@ class Student {
 					//Can take this semester
 					if(matchPriority(prio)) {
 						p.add(c);
+						
+						//If there are more Iam with concurrent enrollments, then add them too
+						for(Course n: m.search(c).getIam()) {
+							if(n.getCE()) {
+								p.add(n);
+							}
+						}
 					}
 				}
 				
@@ -191,9 +236,6 @@ class Student {
 		}
 	}
 
-	private void checkSemesters(){
-		
-	}
 	
 	/**
 	 * Generates a map with all the courses the student has to take
@@ -261,21 +303,19 @@ class Student {
 			return;
 		}
 		
-		
-		// c.getCE() 
-		//TODO
-		
-		
+		//If the course has optionals prereq
 		if ( c.getEitherOr() ) {
+			//Get possible options
 			ArrayList<Course> options = new ArrayList<Course>();
 			
 			if(debugMode) {
 				System.out.println(++count + " Course prerequiste are Either or "  + c.getName());
 			}
 			
+			//Get prereqs
 			for(String p: c.getPrereqs()) {
 				
-				//If no prereq, just add it to the root and quit
+				//If no prereq, just add it to the root and quit (doble check)
 				if(p.trim().isEmpty()) {
 					if(debugMode) {
 						System.out.println(++count + " Didn't have prereq "  + c.getName());
@@ -285,12 +325,11 @@ class Student {
 						System.out.println(++count + " Adding: " + c.getName() + " to root");
 					}
 					
-					
 					m.add(m,  c);
 					return;
 				}
 				
-				//Get the prerequisite course ******
+				//Get the prerequisite course
 				Course temp = helperSearch(p);
 				
 				map t = m.search(temp);
@@ -314,7 +353,7 @@ class Student {
 				}
 				
 				else {
-					
+					//Add the option
 					options.add(temp);
 				}
 			}
