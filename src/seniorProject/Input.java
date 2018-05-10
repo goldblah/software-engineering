@@ -24,21 +24,16 @@ public class Input {
 	private int numClasses;//number of optional courses required for the major
 	ArrayList<Course> genEdCourses;
 
-
-	public void retrieveInput(String fileName) throws FileNotFoundException{
-		if(!fileName.contains(".txt")){
-			filename = fileName + ".txt";
-		} else {
-			filename = fileName;
-		}
-		
+	/**
+	 * Constructor
+	 * @param fileName
+	 * @throws FileNotFoundException 
+	 */
+	public Input(String fileName) throws FileNotFoundException{
+		filename = fileName;
 		getStudentInfo();
 		getMajorClassInfo();
 		getGenEdInfo();
-	}
-	
-	public Input(){
-		//blank constructor
 	}
 
 	/**
@@ -68,12 +63,9 @@ public class Input {
 					if(pieces[1].length() == 9){
 						idNum = pieces[1].trim();
 					} else{
-						//System.out.println("Incorrect ID number, please resubmit your input file");
+						System.out.println("Incorrect ID number, please resubmit your input file");
 					}
-				} else if(line.toUpperCase().contains("PASSWORD")){
-					//ignore
-				}
-				else if(line.toUpperCase().contains("MAJOR")){
+				} else if(line.toUpperCase().contains("MAJOR")){
 					String[] pieces = line.split(": ");
 					if(pieces[1].contains(" ")){
 						pieces = pieces[1].split(" ");
@@ -96,21 +88,16 @@ public class Input {
 				} else if (line.toUpperCase().contains("START")){
 					String[] pieces = line.split(": ");
 					startSemester = pieces[1];
-					//check to see if string contains f or s and even or odd
 				} else if (line.toUpperCase().contains("CURRENT")){
 					String[] pieces = line.split(": ");
 					currentSemester = Integer.parseInt(pieces[1]);
 				} else{
 					while((line = br.readLine()) != null){
-						if(line.equals(" ")){
-							String[] pieces = line.split(" ");
-							Course temp = getClassInfo(pieces[0]);
-							if(!(pieces[1].equals(null))){
-								temp.setGrade(pieces[1]);
-							}
-							classesTaken.add(temp);
-						}
-		
+						String[] pieces = line.split(" ");
+						Course temp = getClassInfo(pieces[0]);
+						temp.setGrade(pieces[1]);
+						classesTaken.add(temp);
+
 					}
 				}
 
@@ -120,9 +107,9 @@ public class Input {
 			System.out.println("Unable to open file '" + filename + "'");
 		}
 	}
-	
+
 	//make class for parsing minor information
-	
+
 	/**
 	 * Checks the input file to make sure there is no changes to the students information
 	 * @author hayleygoldblatt
@@ -133,7 +120,7 @@ public class Input {
 		try {
 			FileReader fr = new FileReader(f);
 			BufferedReader br = new BufferedReader(fr);
-			
+
 			while((line = br.readLine()) != null) {
 				//check for changes in the file to verify all information is the same
 				if(line.toUpperCase().contains("NAME")){
@@ -176,14 +163,14 @@ public class Input {
 						startSemester = pieces[1];
 						System.out.println("New start semester");
 					}
-					
+
 				} else if(line.toUpperCase().contains("CURRENT")){
 					pieces = line.split(": ");
 					if (Integer.parseInt(pieces[1].trim()) != currentSemester){
 						currentSemester = Integer.parseInt(pieces[1].trim());
 						System.out.println("New current semester");
 					}
-					
+
 				} else {
 					while((line = br.readLine()) != null){
 						boolean taken = false;
@@ -200,11 +187,11 @@ public class Input {
 							classesTaken.add(temp);
 							System.out.println("New classes");
 						}
-						
+
 					}
-					
+
 				}
-				
+
 			}
 			br.close();
 		} catch (IOException e) {
@@ -246,7 +233,7 @@ public class Input {
 			}
 		}
 	}
-	
+
 	/**
 	 * gets information from the general education files
 	 * @throws FileNotFoundException
@@ -273,7 +260,7 @@ public class Input {
 			//only carried out if the file cannot be found
 			System.out.println("Unable to open file '" + filename + "'");
 		}
-		
+
 		/*for(Course c: genEdCourses){
 			System.out.println(c.getName());
 			System.out.println(c.getCH());
@@ -288,7 +275,7 @@ public class Input {
 			}
 			System.out.println();
 		}*/
-		
+
 	}
 
 	/**
@@ -309,13 +296,13 @@ public class Input {
 				}
 			}//end for loop
 		}
-		
+
 		//Sets the optional classes into a temporary ArrayList
 		ArrayList<String> temp = new ArrayList<String>(Arrays.asList(pieces));
 		for(int i = 0; i < temp.size(); i ++){
 			String b = temp.get(i);
 			String placeholder = null;
-			
+
 			//checks if there are other classes that need to split apart
 			if(b.contains(", ")){
 				placeholder = b;
@@ -372,7 +359,7 @@ public class Input {
 		while (m.find()) {
 			allMatches.add(m.group());
 		}
-		
+
 		String fn = allMatches.get(0) + ".txt";
 		try {
 			FileReader fr = new FileReader(fn);
@@ -381,7 +368,7 @@ public class Input {
 				if ((r.getLineNumber()-1) % 5 == 0) {
 					line = line.trim();
 					if(line.equalsIgnoreCase(className)){
-						
+
 						//parsing the credit hours
 						line = r.readLine().trim();
 						c.setCH(line);
@@ -390,24 +377,24 @@ public class Input {
 						line = r.readLine();
 						line = line.trim();
 						String[] pieces = line.split("; ");
-						
+
 						for(String s: pieces){
 							//System.out.println(s);
 							if(!s.contains(", ") && !s.contains("OR") && !s.equals("") && !s.contains("CE")){
-								//Course temp = getClassInfo(s);
-								//c.setPrereq(temp);
-								c.setPrereq(s);
+								Course temporary = getClassInfo(s);
+								c.setPrereq(temporary);
+								c.setPrereq(temporary);
+
 							}  
 						}
-						
+
 						ArrayList<String> temp= new ArrayList<>();
 						for(String s: pieces){
 							if(s.contains("CE") || s.contains(", ") || s.contains("OR")){
 								temp.add(s);
 							}
 						}
-						System.out.println(temp);
-						System.out.println(temp.size());
+
 						for (String s: temp){
 							if (s.contains("CE") && s.contains("OR")){
 								pieces = s.split(": ");
@@ -415,50 +402,53 @@ public class Input {
 									if(i.contains(" OR ")){
 										String[] pieces1 = i.split(" OR ");
 										for(String e: pieces1){
-											//Course temporary = getClassInfo(i);
-											//temporary.setCE(true);
-											//c.setPrereq(temporary);
-											c.setPrereq(e);
-											c.setCE(true);
-											c.setEitherOr(true);
+											Course temporary = getClassInfo(e);
+											temporary.setCE(true);
+											c.setPrereq(temporary);
 										}
 									}
 								}
-							} else if (s.contains("CE") && s.contains(", ")){
+							}else if (s.contains("CE") && s.contains("OR")){
+								System.out.println(s);
 								pieces = s.split(": ");
-								for(String g: pieces){
-									if(!g.contains("CE")){
-										if(g.contains(", ")){
-											String[] pieces1 = g.split(", ");
-											for(String i: pieces1){
-												c.setPrereq(i);
-												c.setCE(true);
-											}
-										} else {
-											c.setPrereq(g);
-											c.setCE(true);
+								for (String i: pieces){
+									if(i.contains(" OR ")){
+										String[] pieces1 = i.split(" OR ");
+										for(String e: pieces1){
+											Course temporary = getClassInfo(e);
+											temporary.setEitherOr(true);
+											temporary.setCE(true);
+											c.setPrereq(temporary);
 										}
 									}
 								}
 							} else if(s.contains(", ") && !s.equals(" ")){
 								pieces = s.split(", ");
 								for(String d: pieces){
-									//c.setPrereq(getClassInfo(d));
-									c.setPrereq(d);
+									c.setPrereq(getClassInfo(d));
 								}
 								//break;
+							} else if (s.contains("CE")){
+								pieces = s.split(": ");
+								for(String g: pieces){
+									if(!g.contains("CE")){
+										Course temporary = getClassInfo(g);
+										temporary.setCE(true);
+										c.setPrereq(temporary);
+										c.setPrereq(temporary);
+									}
+								}
 							} else if(s.contains(" OR ") && !s.equals(" ")){
 								pieces = s.split(" OR ");
 								for(String d: pieces){
-									//Course temporary = getClassInfo(d);
-									//c.setPrereq(temporary);
-									c.setPrereq(d);
-									c.setEitherOr(true);
+									Course temporary = getClassInfo(d);
+									temporary.setEitherOr(true);
+									c.setPrereq(temporary);
 								}
 								//break;
 							}
 						}
-						
+						System.out.println(c.getPrereqs());
 						//parsing the priority
 						line = r.readLine();
 						line = line.trim();
@@ -482,9 +472,6 @@ public class Input {
 						}	
 					}
 				}
-				/*for(String s: c.getPrereqs()){
-					System.out.println(s);
-				}*/
 				c.setStatus(0);
 			}
 		}
@@ -494,16 +481,13 @@ public class Input {
 		//System.out.println(c.getPrereqs());
 		return c;
 	}
-	
-	public Course setCE(){
-		return null;
-	}
-	
+
 	public static String getPassword(String givenUser) throws IOException{
+		String tempFileName = givenUser + ".txt";
 		FileReader fr;
 		String line = null;
 		try {
-			fr = new FileReader(givenUser);
+			fr = new FileReader(tempFileName);
 			BufferedReader br = new BufferedReader(fr);
 			while((line = br.readLine()) != null) {
 				if(line.contains("Password")){

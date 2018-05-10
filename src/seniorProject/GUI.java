@@ -20,7 +20,7 @@ import javax.swing.JTextField;
 
 public class GUI extends JFrame {
 	
-	public GUI() throws FileNotFoundException, IOException{
+	public GUI(){
 		new JFrame();
 		setLayout(new FlowLayout());
 		setBounds(0,0,800,650);
@@ -36,7 +36,7 @@ public class GUI extends JFrame {
 		setForeground(Color.BLACK);
 	}*/
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws FileNotFoundException {
 		GUI g = new GUI();
 	
 	}

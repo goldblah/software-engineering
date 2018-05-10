@@ -10,7 +10,6 @@ public class map {
 	private ArrayList<map> prerequisites; //List of Course that its required to take courrent course
 	private boolean iam_concurrent;
 	private boolean prerequisites_concurrent;
-	private boolean printed = false;
 
 	//Constructor initial root
 	public map() {
@@ -40,28 +39,6 @@ public class map {
 		return ret;
 	}
 
-	//Returns if all courses have been taken
-	public boolean done() {
-		//If im not the root
-		if(subject != null) {
-			//If its diferent from 2, then it measn that it hasnt been taken
-			if (subject.getStatus() != 2) return false;
-		}
-		//No more connections and course taken
-		else if(Iam.isEmpty()) return true;
-		
-		//For each conection, search if there is a false in done()
-		for(map c: Iam) {
-			if(c.done() == false) {
-				return false;
-			}
-		}
-		
-		//Everything ok, return true
-		return true;
-		
-	}
-	
 	//Get list of Iam
 	public ArrayList<Course> getIam() {
 		ArrayList<Course> ret = new ArrayList<Course>();
@@ -70,7 +47,6 @@ public class map {
 		}
 		return ret;
 	}
-	
 	//Search if a course is in Iam
 	public map search(Course c) {
 		map ret = null;
@@ -89,7 +65,7 @@ public class map {
 			if (subject == null) { //if the subject is null, then return that
 				return ret;
 			}
-			else if (subject.getName().equals(c.getName())) { //if it is the couse we are looking for, return it self
+			else if (subject.equals(c)) { //if it is the couse we are looking for, return it self
 				return this;
 			}
 			else { //search every iam
@@ -106,15 +82,12 @@ public class map {
 
 	}
 
-	//Prints all the conections
 	public void toPrint() {
 		if(subject != null)
 			System.out.print(subject.getName());
 		else
 			System.out.print("Root");
-		
-		this.printed = true;
-		
+
 		System.out.print(" -> ");
 
 		for(map m: Iam) {
@@ -123,40 +96,9 @@ public class map {
 
 		System.out.println();
 		for(map m: Iam) {
-			if(!m.printed)
-				m.toPrint();
+			m.toPrint();
 		}
 
-	}
-	
-	
-	//Returns if a course can take
-	//Aka, al prerequisites are met
-	public boolean canTake() {
-		boolean take = true;
-
-		//Is the root, not valid
-		if (subject == null) {
-			return false;
-		}
-		
-		//For each prereq
-		for(map m: prerequisites) {
-			Course c = m.getCourse(); //Get course
-			
-			//No prerequiste
-			if(c == null) {
-				return true;
-			}
-			
-			//Get status and check
-			int stat = c.getStatus();
-			if (stat == 0 || stat == 3) {
-				return false;
-			}
-		}
-		
-		return take;
 	}
 
 	//Add a course to the Iam
@@ -170,16 +112,12 @@ public class map {
 
 		//Searching for the course
 		map temp = root.search(c);
-		//if(temp != null) System.out.println("1 temp: " + temp.getCourse().getName());
-		//System.out.println("c: " + c.getName());
-		
 		if (temp == null) temp = new map(c); //If not found, then create one
-		//System.out.println("2 temp: " + temp.getCourse().getName());
+
 		//System.out.println("After search: " + temp.getCourse().getName());
 
 
 		//Connect prerequiste <-> iam between courses
-		if(Iam.contains(temp)) return;
 		temp.addPre(this);
 		Iam.add(temp);
 	}
